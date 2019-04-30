@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 const app = express()
 const PORT = process.env.PORT
+const MONGODB_URI = process.env.MONGODB_URI + '/merncrud'
 
 // middleware
 app.use(express.json()) // use .json(), not .urlencoded()
@@ -19,7 +20,7 @@ mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
 mongoose.set('useFindAndModify', false)
 
 // Database connection
-mongoose.connect(process.env.MONGODB_URI + '/merncrud', { useNewUrlParser: true })
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
 mongoose.connection.once('open', () => {
   console.log('connected to mongoose...')
 })
