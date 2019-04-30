@@ -27,7 +27,7 @@ mongoose.connection.once('open', () => {
 const holidaysController = require('./controllers/holidays.js')
 app.use('/holidays', holidaysController)
 
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
   res.redirect('/holidays')
 })
 
