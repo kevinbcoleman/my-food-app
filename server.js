@@ -27,6 +27,10 @@ mongoose.connection.once('open', () => {
 const holidaysController = require('./controllers/holidays.js')
 app.use('/holidays', holidaysController)
 
+app.get('*', (req, res) => {
+  res.redirect('/holidays')
+})
+
 // Listen
 app.listen(PORT, () => {
   console.log('🎉🎊', 'celebrations happening on port', PORT, '🎉🎊')
