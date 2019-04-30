@@ -4,7 +4,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 // Dependency configurations
 const app = express()
-const PORT = 3003
+const PORT = process.env.PORT
 
 // middleware
 app.use(express.json()) // use .json(), not .urlencoded()
@@ -18,7 +18,7 @@ mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
 mongoose.set('useFindAndModify', false)
 
 // Database connection
-mongoose.connect('mongodb://localhost:27017/merncrud', { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI + '/merncrud', { useNewUrlParser: true })
 mongoose.connection.once('open', () => {
   console.log('connected to mongoose...')
 })
