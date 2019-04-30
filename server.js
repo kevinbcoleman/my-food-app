@@ -3,6 +3,7 @@ const cors = require('cors')
 const express = require('express')
 const mongoose = require('mongoose')
 // Dependency configurations
+require('dotenv').config()
 const app = express()
 const PORT = process.env.PORT
 
