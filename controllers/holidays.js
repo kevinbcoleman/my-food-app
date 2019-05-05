@@ -5,11 +5,9 @@ const Holiday = require('../models/holidays.js')
 holidays.post('/', async (req, res) => {
   Holiday.create(req.body, (error, createdHoliday) => {
     if (error) {
-      console.log(error)
-      res.status(418).json({ error: error })
-    } else {
-      res.status(200).send(createdHoliday) //  .json() will send proper headers in response so client knows it's json coming back
+      res.status(400).json({ error: error })
     }
+    res.status(200).send(createdHoliday) //  .json() will send proper headers in response so client knows it's json coming back
   })
 })
 
