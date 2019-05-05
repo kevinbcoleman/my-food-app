@@ -1,4 +1,3 @@
-const cors = require('cors')
 const express = require('express')
 const holidays = express.Router()
 const Holiday = require('../models/holidays.js')
@@ -14,7 +13,7 @@ holidays.post('/', async (req, res) => {
   })
 })
 
-holidays.get('/', cors(), (req, res) => {
+holidays.get('/', (req, res) => {
   Holiday.find({}, (err, foundHolidays) => {
     if (err) {
       res.status(400).json({ error: err.message })
