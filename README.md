@@ -69,7 +69,7 @@ On branch master
 
 Remember, if it isn't running locally, it isn't going to work on heroku
 
-- `ls` to confirm you are on the same level as your package json
+- `ls` to confirm you are on the same level as your `package.json`
 - `touch .env`
 
 #### .env
@@ -115,7 +115,7 @@ PORT=3000
 MONGODB_URI=mongodb+srv://<username>:<password>@ga-sei-u8fme.mongodb.net/<dbname>?retryWrites=true&w=majority
 ```
 
-Replace <username> and <password> with your username and password (do not include `<>`) - if you forgot your password, go ahead and make a new one
+Replace <username>, <password> and <dbname> with your username and password and dbname (do not include `<>`) - if you forgot your password, go ahead and make a new one
 
 Note, you can update this URL at any time, so if you choose a different cluster/database later, it will not be a problem.
 
@@ -155,7 +155,7 @@ Be very careful to maintain proper JSON (double quotes, all commas correct etc. 
 - `git commit -m 'first heroku push'`
 - `git push origin master`
 - `git push heroku master`
-- `heroku open` => go to the browser - check that the app is working (will most likely see just an empty array)
+- `heroku open` => will not work yet, you must set up your MongoDB Atlas configurition on Heroku
 
 #### Heroku Dashboard
 
@@ -169,6 +169,10 @@ You must add your mongodDB connection string to your app
 - set value to your url that is in your .env file: `mongodb+srv://<username>:<password>@ga-sei-u8fme.mongodb.net/<dbname>?retryWrites=true&w=majority`
 
 ![](https://i.imgur.com/75bI0aC.png)
+
+##### Now try in terminal:
+
+`heroku open` => go to the browser - check that the app is working (will most likely see just an empty array)
 
 ## To Dos (Customize this App to make it your own)
 
@@ -209,4 +213,4 @@ There are 4 todos - be sure to update each one
     ![](https://i.imgur.com/8o11CJq.png)
 
 Find it on heroku
-https://fathomless-sierra-68956.herokuapp.com/holidays
+https://glacial-tor-47459.herokuapp.com/contacts
