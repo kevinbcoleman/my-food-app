@@ -1,50 +1,52 @@
-// Dependencies
+// DEPENDENCIES
+
+// Allow Cross-Origin-Requests
 const cors = require('cors')
+// Server
 const express = require('express')
+// MongoDB ORM
 const mongoose = require('mongoose')
+
 // Dependency configurations
 require('dotenv').config()
 const app = express()
 const PORT = process.env.PORT
 const MONGODB_URI = process.env.MONGODB_URI
 
-const whitelist = ['http://localhost:3000', 'https://fathomless-sierra-68956.herokuapp.com']
-const corsOptions = {
-  origin (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
-}
-
-// middleware
+// MIDDLEWARE
 app.use(express.json()) // use .json(), not .urlencoded()
 app.use(cors())
 
-// Error / Disconnection
-mongoose.connection.on('error', err => console.log(err.message + ' is Mongod not running?'))
+// DATABASE
+mongoose.connect(
+  MONGODB_URI,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+  },
+  () => {
+    console.log('the connection with mongod is established at', MONGODB_URI)
+  }
+)
+
+// Optional, but likely helpful
+// Connection Error/Success
+// Define callback functions for various events
+mongoose.connection.on('error', err => console.log(err.message + ' is mongod not running?'))
 mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
 
-// Fix depreciation warnings
-mongoose.set('useFindAndModify', false)
-
-// Database connection
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
-mongoose.connection.once('open', () => {
-  console.log('connected to mongoose...')
-})
-
-// Controllers/Routes
-const holidaysController = require('./controllers/holidays.js')
-app.use('/holidays', holidaysController)
+// TODO: Update controllers/routes to your resources
+// CONTROLLERS/ROUTES
+const contactsController = require('./controllers/contacts_controller.js')
+app.use('/contacts', contactsController)
 
 app.get('/*', (req, res) => {
-  res.redirect('/holidays')
+  res.redirect('/contacts')
 })
 
-// Listen
+// LISTEN
 app.listen(PORT, () => {
-  console.log('🎉🎊', 'celebrations happening on port', PORT, '🎉🎊')
+  console.log('🎉🎊', 'Up and running on', PORT, '🎉🎊')
 })
