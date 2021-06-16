@@ -19,7 +19,7 @@ app.use(cors())
 
 // DATABASE
 mongoose.connect(
-  MONGODB_URI,
+  process.env.MONGODB_URI,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
