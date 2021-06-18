@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://kefinbc:grapelush0518@unit-2-project.rewuh.mongodb.net/recipeApp?retryWrites=true&w=majority",
+  "jwtSecret": "GrapeLush"
+}
