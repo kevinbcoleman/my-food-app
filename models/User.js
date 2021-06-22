@@ -9,7 +9,7 @@ const userSchema = Schema({
   password: { type: String, required: true },
   myRecipes: [
     {
-      type: ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'Recipe'
     }
   ]

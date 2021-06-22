@@ -12,7 +12,7 @@ const recipeSchema = Schema(
     cuisineType: { type: String, required: true },
     ingredients: [String],
     owner: {
-      type: ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'User'
     }
   },
