@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Form, Row, Col, Button } from 'react-bootstrap'
+import RecipeContext from '../../context/recipe/recipeContext'
 
 
 const RecipeForm = () => {
+  const recipeContext = useContext = useContext(RecipeContext)
+
   const [recipe, setRecipe] = useState({
     label: '',
     cuisineType: '',
@@ -14,11 +17,19 @@ const RecipeForm = () => {
   const { label, cuisineType } = recipe
   const { name, amount } = recipe
 
+  const onSubmit = e => {
+    e.preventDefault()
+    recipeContext.addRecipe(recipe)
+    setRecipe({
+      label: '',
+      cuisineType: '',
+    })
+  }
   // const onChange = e => setRecipe({ ...recipe, [e.target.name]: e.target.value })
 
   return (
     <div>
-      <Form>
+      <Form onSubmit={onSubmit}>
         <Form.Group>
           <Form.Label></Form.Label>
           <Form.Control
@@ -44,16 +55,16 @@ const RecipeForm = () => {
         <Button type="submit">Submit Dish</Button>
       </Form>
 
-      <Button>Add Ingredient</Button>
+      <Button className="mt-5">Add Ingredient</Button>
       <Form>
         <Form.Group>
           <Form.Label></Form.Label>
           <Form.Control
             type="text"
             placeholder="Add Ingredient"
-            name="name"
-            value={ingredients.name}
-            onchange={onChange}
+            // name="name"
+            value={name}
+            onChange={(e) => setIngredients({ ...recipe, name: e.target.value })}
           >
           </Form.Control>
         </Form.Group>
@@ -62,9 +73,9 @@ const RecipeForm = () => {
           <Form.Control
             type="text"
             placeholder="Amount"
-            name="amount"
+            // name="amount"
             value={amount}
-            onchange={onChange}
+            onChange={(e) => setIngredients({ ...recipe, amount: e.target.value })}
           >
           </Form.Control>
         </Form.Group>
