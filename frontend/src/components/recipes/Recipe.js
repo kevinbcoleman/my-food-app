@@ -10,9 +10,12 @@ const Recipe = ({ recipe }) => {
         <Card.Body>
           <h2>{cuisineType}</h2>
           <ul>
-            {ingredients.map(i => {
-              <li>{i}</li>
-            })}
+            {ingredients.map(i => (
+              <>
+                <li>{i.name}</li>
+                <li>{i.amount}</li>
+              </>
+            ))}
           </ul>
           <Button>Add</Button>
         </Card.Body>

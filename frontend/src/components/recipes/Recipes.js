@@ -14,6 +14,7 @@ const Recipes = () => {
       {recipes.map(recipe => (
         <Recipe key={recipe.id} recipe={recipe} />
       ))}
+
     </div>
   )
 }

@@ -19,7 +19,24 @@ const RecipeState = props => {
         id: 1,
         label: "Tuna Salad",
         cuisineType: "american",
-        ingredients: ['Tuna', 'mayo', 'celery', 'onion']
+        ingredients: [
+          {
+            name: "Tuna",
+            amount: "2 cans",
+          },
+          {
+            name: "Mayo",
+            amount: "1/2 cup",
+          },
+          {
+            name: "Celery",
+            amount: "3 stalks",
+          },
+          {
+            name: "Onions",
+            amount: "1 onion",
+          },
+        ]
       },
       {
         id: 2,
