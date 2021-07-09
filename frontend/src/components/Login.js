@@ -1,34 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Form, Row, Col, Button } from 'react-bootstrap'
 import { LinkContainer, Redirect } from 'react-router-bootstrap'
 
 
 const Login = (props) => {
-  // const [username, setUsername] = useState('')
-  // const [password, setPassword] = useState('')
+  const [user, setUser] = useState({
+    email: '',
+    password: ''
+  })
 
-  // const dispatch = useDispatch()
+  const { email, password } = user
 
-  // useEffect(() => {
+  const onChange = e => setUser({ ...user, [e.target.name]: e.target.value })
 
-  // }, [])
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   dispatch(login(username, password))
-  // }
+  const onSubmit = e => {
+    e.preventDefault()
+    console.log('Login Submit')
+  }
 
   return (
     <div>
       <h1>Login</h1>
       <Form>
         <Form.Group>
-          <Form.Label htmlFor="username"></Form.Label>
+          <Form.Label htmlFor="email"></Form.Label>
           <Form.Control
-            id="username"
+            name="email"
             type="text"
-            // onChange={(e) => setUsername(e.target.value)}
-            // value={username}
+            onChange={onChange}
+            value={email}
             placeholder="USERNAME"
           >
           </Form.Control>
@@ -36,10 +36,10 @@ const Login = (props) => {
         <Form.Group>
           <Form.Label htmlFor="password"></Form.Label>
           <Form.Control
-            id="password"
+            name="password"
             type="password"
-            // onChange={(e) => setPassword(e.target.value)}
-            // value={password}
+            onChange={onChange}
+            value={password}
             placeholder="PASSWORD"
           >
           </Form.Control>

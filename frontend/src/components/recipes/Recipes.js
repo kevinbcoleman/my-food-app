@@ -10,12 +10,12 @@ const Recipes = () => {
   const { recipes } = recipeContext
 
   return (
-    <div>
+    <>
       {recipes.map(recipe => (
-        <Recipe key={recipe.id} recipe={recipe} />
+        <Recipe recipe={recipe} />
       ))}
 
-    </div>
+    </>
   )
 }
 

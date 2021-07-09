@@ -31,7 +31,7 @@ connectDB()
 //     console.log('the connection with mongod is established at', MONGODB_URI)
 //   }
 // )
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 5000
 
 // Optional, but likely helpful
 // Connection Error/Success

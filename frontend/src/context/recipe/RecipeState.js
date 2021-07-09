@@ -1,14 +1,14 @@
 import React, { useReducer } from 'react'
-import uuid from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 import RecipeContext from './recipeContext'
 import recipeReducer from './recipeReducer'
 import {
-  ADD_CONTACT,
-  DELETE_CONTACT,
+  ADD_RECIPE,
+  DELETE_RECIPE,
   SET_CURRENT,
   CLEAR_CURRENT,
-  UPDATE_CONTACT,
-  FILTER_CONTACTS,
+  UPDATE_RECIPE,
+  FILTER_RECIPE,
   CLEAR_FILTER
 } from '../types'
 
@@ -19,24 +19,7 @@ const RecipeState = props => {
         id: 1,
         label: "Tuna Salad",
         cuisineType: "american",
-        ingredients: [
-          {
-            name: "Tuna",
-            amount: "2 cans",
-          },
-          {
-            name: "Mayo",
-            amount: "1/2 cup",
-          },
-          {
-            name: "Celery",
-            amount: "3 stalks",
-          },
-          {
-            name: "Onions",
-            amount: "1 onion",
-          },
-        ]
+        ingredients: ['tuna', 'mayo', 'onions', 'celery']
       },
       {
         id: 2,
@@ -50,21 +33,34 @@ const RecipeState = props => {
         cuisineType: "american",
         ingredients: ['Eggs', 'mayo', 'celery', 'pepper', 'onion']
       },
-    ]
+    ],
+    current: null
   }
 
   const [state, dispatch] = useReducer(recipeReducer, initialState)
 
   // ADD
+  const addRecipe = recipe => {
+    recipe.id = uuidv4()
+    dispatch({ type: ADD_RECIPE, payload: recipe })
+  }
 
   // DELETE
-
+  const deleteRecipe = id => {
+    dispatch({ type: DELETE_RECIPE, payload: id })
+  }
   // SET CURRENT
-
+  const setCurrent = recipe => {
+    dispatch({ type: SET_CURRENT, payload: recipe })
+  }
   // ClEAR CURRENT
-
+  const clearCurrent = () => {
+    dispatch({ type: CLEAR_CURRENT })
+  }
   // UPDATE CONTACT
-
+  const updateRecipe = recipe => {
+    dispatch({ type: UPDATE_RECIPE, payload: recipe })
+  }
   //FILTER CONTACTS
 
   //CLEAR FILTER
@@ -72,7 +68,13 @@ const RecipeState = props => {
   return (
     <RecipeContext.Provider
       value={{
-        recipes: state.recipes
+        recipes: state.recipes,
+        current: state.current,
+        addRecipe,
+        deleteRecipe,
+        setCurrent,
+        clearCurrent,
+        updateRecipe
       }}
     >
       {props.children}

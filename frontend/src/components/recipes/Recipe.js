@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Card, Button } from 'react-bootstrap'
+import RecipeContext from '../../context/recipe/recipeContext'
 
 const Recipe = ({ recipe }) => {
+
+  const recipeContext = useContext(RecipeContext)
+  const { deleteRecipe, setCurrent, clearCurrent } = recipeContext
   const { id, label, cuisineType, ingredients } = recipe
+
+  const onDelete = () => {
+    deleteRecipe(id)
+    clearCurrent()
+  }
+
   return (
-    <div>
+    <>
       <Card>
         <h1>{label}</h1>
         <Card.Body>
@@ -12,15 +22,15 @@ const Recipe = ({ recipe }) => {
           <ul>
             {ingredients.map(i => (
               <>
-                <li>{i.name}</li>
-                <li>{i.amount}</li>
+                <li>{i}</li>
               </>
             ))}
           </ul>
-          <Button>Add</Button>
+          <Button onClick={() => setCurrent(recipe)}>Edit</Button>
+          <Button onClick={onDelete}>Delete</Button>
         </Card.Body>
       </Card>
-    </div>
+    </>
   )
 }
 
