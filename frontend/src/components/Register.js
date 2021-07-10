@@ -1,12 +1,20 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Form, Row, Col, Button } from 'react-bootstrap'
 import { LinkContainer, Redirect } from 'react-router-bootstrap'
 import AuthContext from '../context/auth/AuthContext'
 
-const Register = () => {
+const Register = (props) => {
   const authContext = useContext(AuthContext)
 
-  const { register } = authContext
+  const { register, isAuthenticated } = authContext
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push('/')
+    }
+
+  }, [isAuthenticated, props.history])
+
   const [user, setUser] = useState({
     username: '',
     email: '',
@@ -37,6 +45,7 @@ const Register = () => {
             onChange={onChange}
             value={username}
             placeholder="USERNAME"
+            required
           >
           </Form.Control>
         </Form.Group>
@@ -49,6 +58,7 @@ const Register = () => {
             onChange={onChange}
             value={email}
             placeholder="EMAIL"
+            required
           >
           </Form.Control>
         </Form.Group>
@@ -60,6 +70,7 @@ const Register = () => {
             onChange={onChange}
             value={password}
             placeholder="PASSWORD"
+            required
           >
           </Form.Control>
         </Form.Group>

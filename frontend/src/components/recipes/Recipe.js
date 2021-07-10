@@ -6,10 +6,10 @@ const Recipe = ({ recipe }) => {
 
   const recipeContext = useContext(RecipeContext)
   const { deleteRecipe, setCurrent, clearCurrent } = recipeContext
-  const { id, label, cuisineType, ingredients } = recipe
+  const { _id, label, cuisineType, ingredients } = recipe
 
   const onDelete = () => {
-    deleteRecipe(id)
+    deleteRecipe(_id)
     clearCurrent()
   }
 

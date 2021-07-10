@@ -1,3 +1,4 @@
+export const GET_RECIPES = 'GET_RECIPES'
 export const ADD_RECIPE = 'ADD_RECIPE'
 export const DELETE_RECIPE = 'DELETE_RECIPE'
 export const SET_CURRENT = 'SET_CURRENT'
@@ -5,6 +6,8 @@ export const CLEAR_CURRENT = 'CLEAR_CURRENT'
 export const UPDATE_RECIPE = 'UPDATE_RECIPE'
 export const FILTER_CONTACTS = 'FILTER_CONTACTS'
 export const CLEAR_FILTER = 'CLEAR_FILTER'
+export const CLEAR_RECIPES = 'CLEAR_RECIPES'
+export const RECIPE_ERROR = 'RECIPE_ERROR'
 export const SET_ALERT = 'SET_ALERT'
 export const REMOVE_ALERT = 'REMOVE_ALERT'
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';

@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
+    "server": "nodemon server.js",
     "frontend": "npm start --prefix frontend",
     "clientinstall": "npm install --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run frontend\""
@@ -27,6 +28,7 @@
     "mongoose": "^5.9.27"
   },
   "devDependencies": {
-    "concurrently": "^6.2.0"
+    "concurrently": "^6.2.0",
+    "nodemon": "^2.0.11"
   }
 }

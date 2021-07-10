@@ -1,9 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Form, Row, Col, Button } from 'react-bootstrap'
 import { LinkContainer, Redirect } from 'react-router-bootstrap'
+import AuthContext from '../context/auth/AuthContext'
+
 
 
 const Login = (props) => {
+  const authContext = useContext(AuthContext)
+  const { login, isAuthenticated } = authContext
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push('/')
+    }
+
+  }, [isAuthenticated, props.history])
+
   const [user, setUser] = useState({
     email: '',
     password: ''
@@ -15,13 +27,16 @@ const Login = (props) => {
 
   const onSubmit = e => {
     e.preventDefault()
-    console.log('Login Submit')
+    login({
+      email,
+      password
+    })
   }
 
   return (
     <div>
       <h1>Login</h1>
-      <Form>
+      <Form onSubmit={onSubmit}>
         <Form.Group>
           <Form.Label htmlFor="email"></Form.Label>
           <Form.Control
@@ -29,7 +44,8 @@ const Login = (props) => {
             type="text"
             onChange={onChange}
             value={email}
-            placeholder="USERNAME"
+            placeholder="EMAIL"
+            required
           >
           </Form.Control>
         </Form.Group>
@@ -41,6 +57,7 @@ const Login = (props) => {
             onChange={onChange}
             value={password}
             placeholder="PASSWORD"
+            required
           >
           </Form.Control>
         </Form.Group>

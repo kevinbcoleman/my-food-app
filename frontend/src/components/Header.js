@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
-
+import AuthContext from '../context/auth/AuthContext'
 
 const Header = ({ props }) => {
-  // const [state, setstate] = useState(initialState)
+  const authContext = useContext(AuthContext)
+  const { isAuthenticated, logout, user } = authContext
 
-  // const handleLogout = () => {
-
-  // }
+  const onLogout = () => {
+    logout()
+    props.history.push('/')
+  }
 
   return (
     <div >
@@ -18,43 +20,30 @@ const Header = ({ props }) => {
           <LinkContainer to="/">
             <Navbar.Brand >My-Health-App</Navbar.Brand>
           </LinkContainer>
+
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <LinkContainer to="/users/login">
-                <Nav.Link>Login</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/users/register">
-                <Nav.Link>Register</Nav.Link>
-              </LinkContainer>
-              <NavDropdown id="username">
-                <LinkContainer to="/users/profile">
-                  <NavDropdown.Item>My Profile</NavDropdown.Item>
-                </LinkContainer>
-                <NavDropdown.Item>Logout</NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-            {/* <Nav className="mr-auto">
-              {!userInfo ?
-                <LinkContainer to="/users/login">
-                  <Nav.Link>Login</Nav.Link>
-                </LinkContainer> : null
-              }
-              {!userInfo ?
-                <LinkContainer to="/users/register">
-                  <Nav.Link>Register</Nav.Link>
-                </LinkContainer> : null
-              }
 
-              {userInfo ?
-                <NavDropdown title={userInfo.username} id="username">
-                  <LinkContainer to="/users/profile">
-                    <NavDropdown.Item>My Profile</NavDropdown.Item>
-                  </LinkContainer>
-                  <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
-                </NavDropdown> : null
-              }
-            </Nav> */}
+
+            {!isAuthenticated ?
+              <>
+                <LinkContainer to="/login">
+                  <Nav.Link>Login</Nav.Link>
+                </LinkContainer>
+
+                <LinkContainer to="/register">
+                  <Nav.Link>Register</Nav.Link>
+                </LinkContainer>
+              </> :
+              <>
+                <LinkContainer to="/profile">
+                  <Nav.Link>My Profile</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to='/'>
+                  <Nav.Link onClick={onLogout}>Logout</Nav.Link>
+                </LinkContainer>
+              </>
+            }
           </Navbar.Collapse>
         </Container>
       </Navbar>

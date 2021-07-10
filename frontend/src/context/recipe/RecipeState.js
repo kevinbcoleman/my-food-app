@@ -1,54 +1,111 @@
 import React, { useReducer } from 'react'
-import { v4 as uuidv4 } from 'uuid'
+import axios from 'axios'
 import RecipeContext from './recipeContext'
 import recipeReducer from './recipeReducer'
 import {
+  GET_RECIPES,
   ADD_RECIPE,
   DELETE_RECIPE,
   SET_CURRENT,
   CLEAR_CURRENT,
   UPDATE_RECIPE,
   FILTER_RECIPE,
+  CLEAR_CONTACTS,
+  RECIPE_ERROR,
   CLEAR_FILTER
 } from '../types'
 
 const RecipeState = props => {
   const initialState = {
     recipes: [
-      {
-        id: 1,
-        label: "Tuna Salad",
-        cuisineType: "american",
-        ingredients: ['tuna', 'mayo', 'onions', 'celery']
-      },
-      {
-        id: 2,
-        label: "Grilled Cheese",
-        cuisineType: "american",
-        ingredients: ['Bread', 'Cheese', 'butter']
-      },
-      {
-        id: 3,
-        label: "Egg Salad",
-        cuisineType: "american",
-        ingredients: ['Eggs', 'mayo', 'celery', 'pepper', 'onion']
-      },
+      // {
+      //   id: 1,
+      //   label: "Tuna Salad",
+      //   cuisineType: "american",
+      //   ingredients: ['tuna', 'mayo', 'onions', 'celery']
+      // },
+      // {
+      //   id: 2,
+      //   label: "Grilled Cheese",
+      //   cuisineType: "american",
+      //   ingredients: ['Bread', 'Cheese', 'butter']
+      // },
+      // {
+      //   id: 3,
+      //   label: "Egg Salad",
+      //   cuisineType: "american",
+      //   ingredients: ['Eggs', 'mayo', 'celery', 'pepper', 'onion']
+      // },
     ],
-    current: null
+    current: null,
+    error: null
   }
 
   const [state, dispatch] = useReducer(recipeReducer, initialState)
 
+
+
+  const getRecipes = async () => {
+    try {
+      const res = await axios.get('/recipes')
+      dispatch({ type: GET_RECIPES, payload: res.data })
+    } catch (err) {
+      dispatch({
+        type: RECIPE_ERROR,
+        payload: err.response.msg
+      })
+    }
+  }
+
+
+
   // ADD
-  const addRecipe = recipe => {
-    recipe.id = uuidv4()
-    dispatch({ type: ADD_RECIPE, payload: recipe })
+  const addRecipe = async recipe => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    try {
+      const res = await axios.post('/recipes', recipe, config)
+      dispatch({ type: ADD_RECIPE, payload: res.data })
+    } catch (err) {
+      dispatch({
+        type: RECIPE_ERROR,
+        payload: err.response.msg
+      })
+    }
   }
 
   // DELETE
-  const deleteRecipe = id => {
-    dispatch({ type: DELETE_RECIPE, payload: id })
+  const deleteRecipe = async id => {
+    try {
+      await axios.delete(`/recipes/${id}`)
+      dispatch({ type: DELETE_RECIPE, payload: id })
+    } catch (err) {
+      dispatch({
+        type: RECIPE_ERROR,
+        payload: err.response.msg
+      })
+    }
   }
+
+  const updateRecipe = async recipe => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    try {
+      const res = await axios.put(`/recipes/${recipe._id}`, recipe, config)
+      dispatch({ type: UPDATE_RECIPE, payload: res.data })
+    } catch (err) {
+      dispatch({
+        type: RECIPE_ERROR,
+      })
+    }
+  }
+
   // SET CURRENT
   const setCurrent = recipe => {
     dispatch({ type: SET_CURRENT, payload: recipe })
@@ -58,9 +115,7 @@ const RecipeState = props => {
     dispatch({ type: CLEAR_CURRENT })
   }
   // UPDATE CONTACT
-  const updateRecipe = recipe => {
-    dispatch({ type: UPDATE_RECIPE, payload: recipe })
-  }
+
   //FILTER CONTACTS
 
   //CLEAR FILTER
@@ -70,11 +125,13 @@ const RecipeState = props => {
       value={{
         recipes: state.recipes,
         current: state.current,
+        error: state.error,
         addRecipe,
         deleteRecipe,
         setCurrent,
         clearCurrent,
-        updateRecipe
+        updateRecipe,
+        getRecipes
       }}
     >
       {props.children}

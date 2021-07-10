@@ -10,7 +10,6 @@ const connectDB = require('./config/db')
 // Dependency configurations
 require('dotenv').config()
 const app = express()
-const MONGODB_URI = process.env.MONGODB_URI
 
 
 // MIDDLEWARE 

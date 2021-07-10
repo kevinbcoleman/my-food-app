@@ -1,4 +1,4 @@
-import React, { useContext, Fragment } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Recipe from './Recipe'
 import RecipeContext from '../../context/recipe/recipeContext'
 
@@ -7,14 +7,20 @@ import RecipeContext from '../../context/recipe/recipeContext'
 const Recipes = () => {
   const recipeContext = useContext(RecipeContext)
 
-  const { recipes } = recipeContext
+  const { recipes, getRecipes, loading } = recipeContext
 
+  useEffect(() => {
+    getRecipes()
+  }, [])
+
+  // if (recipes !== null && recipes.length === 0 && !loading) {
+  //   return <h3>Please add a recipe</h3>
+  // }
   return (
     <>
       {recipes.map(recipe => (
-        <Recipe recipe={recipe} />
+        <Recipe key={recipe._id} recipe={recipe} />
       ))}
-
     </>
   )
 }
