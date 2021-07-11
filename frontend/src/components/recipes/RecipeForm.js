@@ -4,6 +4,21 @@ import RecipeContext from '../../context/recipe/recipeContext'
 
 
 const RecipeForm = () => {
+  const [recipe, setRecipe] = useState({
+    label: '',
+    cuisineType: '',
+    ingredients: [
+      // {
+      //   ing_name: '',
+      //   amount: ''
+      // }
+    ]
+  })
+
+  const [ingredients, setIngredients] = useState({
+    ing_name: '',
+    amount: ''
+  })
 
   const recipeContext = useContext(RecipeContext)
 
@@ -21,13 +36,9 @@ const RecipeForm = () => {
     }
   }, [recipeContext, current])
 
-  const [recipe, setRecipe] = useState({
-    label: '',
-    cuisineType: '',
-    ingredients: []
-  })
 
-  const { label, cuisineType, ingredients } = recipe
+  const { label, cuisineType } = recipe
+  const { ing_name, amount } = ingredients
 
 
   const handleChange = e => setRecipe({
@@ -35,15 +46,11 @@ const RecipeForm = () => {
     [e.target.name]: e.target.value,
   })
 
-  const handleIngChange = e => {
-    const ingreds = e.target.value
-    console.log(ingreds)
-    const fullIngreds = ingreds.split(',')
-    setRecipe({
-      ...recipe,
-      ingredients: fullIngreds
-    })
-  }
+  const handleIngChange = e => setIngredients({
+    ...ingredients,
+    [e.target.name]: e.target.value
+  })
+
 
   const onSubmit = e => {
     e.preventDefault()
@@ -92,20 +99,33 @@ const RecipeForm = () => {
           </Form.Control>
         </Form.Group>
 
+        <h3>INGREDIENTS:</h3>
         <Form.Group>
           <Form.Label></Form.Label>
           <Form.Control
             type="text"
-            placeholder="Add Ingredients"
-            name="ingredients"
-            value={ingredients}
+            placeholder="Name"
+            name="ing_name"
+            value={ing_name}
             onChange={handleIngChange}
           >
           </Form.Control>
         </Form.Group>
 
+        <Form.Group>
+          <Form.Label></Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Amount"
+            name="amount"
+            value={amount}
+            onChange={handleIngChange}
+          >
+          </Form.Control>
+        </Form.Group>
+        <Button on>Add another ingredient</Button>
         <Button
-          type="submit">{current ? 'Update' : 'Submit'}
+          type="submit">{current ? 'Update' : 'Submit Dish'}
         </Button>
       </Form>
     </>

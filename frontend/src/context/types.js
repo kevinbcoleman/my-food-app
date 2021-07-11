@@ -18,3 +18,6 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const GET_BROWSER = 'GET_BROWSER';
+export const ADD_BROWSER = 'ADD_BROWSER';
+export const DELETE_BROWSER = 'DELETE_BROWSER';

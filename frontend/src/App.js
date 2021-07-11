@@ -11,7 +11,6 @@ import Login from './components/Login'
 import Register from './components/Register'
 import setAuthToken from './utils/setAuthToken'
 import PrivateRoute from './components/priv/PrivateRoute'
-
 if (localStorage.token) {
   setAuthToken(localStorage.token)
 }
