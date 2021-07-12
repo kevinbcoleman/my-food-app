@@ -1,25 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { Form, Row, Col, Button } from 'react-bootstrap'
 import RecipeContext from '../../context/recipe/recipeContext'
+import { v4 as uuidv4 } from 'uuid'
 
 
 const RecipeForm = () => {
-  const [recipe, setRecipe] = useState({
-    label: '',
-    cuisineType: '',
-    ingredients: [
-      // {
-      //   ing_name: '',
-      //   amount: ''
-      // }
-    ]
-  })
-
-  const [ingredients, setIngredients] = useState({
-    ing_name: '',
-    amount: ''
-  })
-
   const recipeContext = useContext(RecipeContext)
 
   const { addRecipe, current, updateRecipe, clearCurrent } = recipeContext
@@ -28,17 +13,62 @@ const RecipeForm = () => {
     if (current !== null) {
       setRecipe(current)
     } else {
-      setRecipe({
-        label: '',
-        cuisineType: '',
-        ingredients: []
-      })
+      // setRecipe({
+      //   label: '',
+      //   cuisineType: '',
+      //   ingredients: []
+      // })
     }
   }, [recipeContext, current])
 
+  const [recipe, setRecipe] = useState({
+    label: '',
+    cuisineType: '',
+    ingredients: []
+  })
+  const [ingredients, setIngredients] = useState([
+    { ing_name: '', amount: '' }
+  ])
 
   const { label, cuisineType } = recipe
-  const { ing_name, amount } = ingredients
+  const [ing_name, amount] = ingredients
+
+  const addField = () => {
+    return ingredients.map((ing, ind) => (
+      <div key={ind}>
+        <Form.Group>
+          <Form.Label></Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Name"
+            name="ing_name"
+            value={ing.ing_name || ''}
+            onChange={(e) => {
+              ing.ing_name = e.target.value
+              setIngredients([...ingredients])
+              setRecipe({ ...recipe, ingredients: ingredients })
+            }}
+          >
+          </Form.Control>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label></Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Amount"
+            name="amount"
+            value={ing.amount || ''}
+            onChange={(e) => {
+              ing.amount = e.target.value
+              setIngredients([...ingredients])
+              setRecipe({ ...recipe, ingredients: ingredients })
+            }}
+          >
+          </Form.Control>
+        </Form.Group>
+      </div>
+    ))
+  }
 
 
   const handleChange = e => setRecipe({
@@ -46,25 +76,29 @@ const RecipeForm = () => {
     [e.target.name]: e.target.value,
   })
 
-  const handleIngChange = e => setIngredients({
-    ...ingredients,
-    [e.target.name]: e.target.value
-  })
-
+  const addIng = () => {
+    setIngredients(prevState => ([
+      ...prevState, { ing_name: '', amount: '' }
+    ]))
+  }
 
   const onSubmit = e => {
     e.preventDefault()
     if (current === null) {
       addRecipe(recipe)
+      console.log(recipe)
     } else {
       updateRecipe(recipe)
     }
     clearAll()
-    // setRecipe({
-    //   label: '',
-    //   cuisineType: '',
-    //   ingredients: []
-    // })
+    setIngredients([
+      { ing_name: '', amount: '' }
+    ])
+    setRecipe({
+      label: '',
+      cuisineType: '',
+      ingredients: []
+    })
   }
 
   const clearAll = () => {
@@ -99,33 +133,17 @@ const RecipeForm = () => {
           </Form.Control>
         </Form.Group>
 
-        <h3>INGREDIENTS:</h3>
-        <Form.Group>
-          <Form.Label></Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Name"
-            name="ing_name"
-            value={ing_name}
-            onChange={handleIngChange}
-          >
-          </Form.Control>
-        </Form.Group>
+        <h2>Ingredients:</h2>
 
-        <Form.Group>
-          <Form.Label></Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Amount"
-            name="amount"
-            value={amount}
-            onChange={handleIngChange}
-          >
-          </Form.Control>
-        </Form.Group>
-        <Button on>Add another ingredient</Button>
+        {addField()}
         <Button
-          type="submit">{current ? 'Update' : 'Submit Dish'}
+          type="button"
+          value="add more"
+          onClick={addIng}
+        >Add another Ingredient</Button>
+
+        <Button
+          type="submit">{current ? 'Update' : 'Submit'}
         </Button>
       </Form>
     </>
@@ -133,3 +151,25 @@ const RecipeForm = () => {
 }
 
 export default RecipeForm
+
+
+  // const handleIngChange = (name, ind) => e => {
+  //   setIngredients(
+  //     ingredients.map(ing =>
+  //       ing.ing_name === ind ? { ...ing, name: e.target.value } : ing
+  //     )
+  //   )
+  //   console.log(ingredients)
+  //   console.log(ind)
+  // }
+  // const handleIngChange = ind => e => {
+  //   setIngredients(newIng)
+  // }
+  // const handleIngChange = (ind, e) => {
+  //   const ingreds = e.target.value
+  //   const fullIngreds = ingreds.split(',')
+  //   setRecipe({
+  //     ...recipe,
+  //     ingredients: fullIngreds
+  //   })
+  // }

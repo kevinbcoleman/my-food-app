@@ -99,7 +99,7 @@ const RecipeState = props => {
     try {
       const res = await axios.put(`/recipes/${recipe._id}`, recipe, config)
       dispatch({ type: UPDATE_RECIPE, payload: res.data })
-      console.log(res.data.ingredients)
+      console.log(res.data)
     } catch (err) {
       dispatch({
         type: RECIPE_ERROR,

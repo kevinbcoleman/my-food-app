@@ -10,7 +10,12 @@ const recipeSchema = Schema(
   {
     label: { type: String, required: true },
     cuisineType: { type: String, required: true },
-    ingredients: [String],
+    ingredients: [
+      {
+        ing_name: { type: String, required: true },
+        amount: { type: String, required: true }
+      }
+    ],
     owner: {
       type: Schema.Types.ObjectId,
       ref: 'User'

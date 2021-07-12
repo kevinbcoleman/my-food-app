@@ -22,7 +22,8 @@ const Recipe = ({ recipe }) => {
           <ul>
             {ingredients.map(i => (
               <>
-                <li>{i}</li>
+                <li>{i.amount}</li>
+                <li>{i.ing_name}</li>
               </>
             ))}
           </ul>
