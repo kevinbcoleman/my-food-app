@@ -5,23 +5,31 @@ import { v4 as uuidv4 } from 'uuid'
 
 
 const RecipeForm = () => {
+  let ingList
   const recipeContext = useContext(RecipeContext)
 
   const { addRecipe, current, updateRecipe, clearCurrent } = recipeContext
 
+  const setIngState = () => {
+    setIngredients([...ingList])
+    console.log(ingredients)
+  }
 
   useEffect(() => {
     if (current !== null) {
+      ingList = current.ingredients.map((ing) => (ing))
+      setIngState()
+      // ingList = current.ingredients.map((ing) => (ing))
+      // setIngredients(ingList)
+      // setIngredients(ingredients => [...ingredients, [...ingList]])
       setRecipe(current)
       console.log(recipe)
+      console.log(ingredients)
     } else {
       setRecipe({
         label: '',
         cuisineType: '',
-        ingredients: [{
-          ing_name: '',
-          amount: ''
-        }]
+        ingredients: ingredients
       })
     }
 
@@ -31,49 +39,50 @@ const RecipeForm = () => {
   const [recipe, setRecipe] = useState({
     label: '',
     cuisineType: '',
-    ingredients: [{
-      ing_name: '',
-      amount: ''
-    }]
+    ingredients: [
+      // { ing_name: '', amount: '' }
+    ]
   })
+  const [ingredients, setIngredients] = useState([
+    {
+      // ing_name: '', amount: '' 
+    }
+  ])
 
-  const { label, cuisineType, ingredients = [] } = recipe
-  // const { _id } = ingredients
+
+  const { label, cuisineType } = recipe
+
   const addField = () => {
-    return ingredients.map((ing, index) => (
-      <div key={index}>
+    return ingredients.map((ing, ind) => (
+      <div key={ind}>
         <Form.Group>
           <Form.Label></Form.Label>
           <Form.Control
-
+            id={uuidv4()}
             type="text"
             placeholder="Name"
             name="ing_name"
-            value={ing.ing_name}
+            value={ing.ing_name || ''}
             onChange={(e) => {
               ing.ing_name = e.target.value
-              setRecipe({ ...recipe, ingredients })
+              setIngredients([...ingredients])
+              setRecipe({ ...recipe, ingredients: ingredients })
             }}
-          // onChange={handleIngChange}
-          // onChange={(e) => {
-          //   ing.ing_name = e.target.value
-          //   setRecipe({ ...recipe }, [...ingredients])
-          // }}
           >
           </Form.Control>
         </Form.Group>
         <Form.Group>
           <Form.Label></Form.Label>
           <Form.Control
-            key={index}
+            id={uuidv4()}
             type="text"
             placeholder="Amount"
             name="amount"
-            value={ing.amount}
-            // onChange={handleIngChange}
+            value={ing.amount || ''}
             onChange={(e) => {
               ing.amount = e.target.value
-              setRecipe({ ...recipe, ingredients })
+              setIngredients([...ingredients])
+              setRecipe({ ...recipe, ingredients: ingredients })
             }}
           >
           </Form.Control>
@@ -83,28 +92,18 @@ const RecipeForm = () => {
   }
 
 
-
   const handleChange = e => setRecipe({
     ...recipe,
     [e.target.name]: e.target.value,
   })
 
-  // const handleIngChange = e => setRecipe([
-  //   ...ingredients, [{ [e.target.name]: e.target.value }]
-  // ])
-
-  // const handleIngChange = e => setRecipe({
-  //   ...ingredients,
-  //   [e.target.name]: e.target.value,
-  // })
-
   const addIng = () => {
-    setRecipe(prevState => ({
-      ...prevState,
-      ingredients: [...ingredients, { ing_name: '', amount: '' }]
-    }))
+    console.log(ingredients)
+    console.log(recipe)
+    setIngredients(prevState => ([
+      ...prevState, {}
+    ]))
   }
-
 
   const onSubmit = e => {
     e.preventDefault()
@@ -114,15 +113,17 @@ const RecipeForm = () => {
       updateRecipe(recipe)
     }
     console.log(recipe)
+    console.log(ingredients)
     clearAll()
+    ingList = null
+    setIngredients([
+      {}
+    ])
 
     setRecipe({
       label: '',
       cuisineType: '',
-      ingredients: [{
-        ing_name: '',
-        amount: ''
-      }]
+      ingredients: ingredients
     })
 
 
