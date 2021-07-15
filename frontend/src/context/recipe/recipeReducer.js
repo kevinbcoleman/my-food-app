@@ -6,6 +6,7 @@ import {
   SET_CURRENT,
   CLEAR_CURRENT,
   UPDATE_RECIPE,
+  CLEAR_RECIPES,
   FILTER_RECIPE,
   CLEAR_FILTER,
   RECIPE_ERROR
@@ -28,7 +29,7 @@ export default (state, action) => {
     case UPDATE_RECIPE:
       return {
         ...state,
-        recipes: state.recipes.map(recipe => recipe._id === action.payload ?
+        recipes: state.recipes.map(recipe => recipe._id === action.payload._id ?
           action.payload : recipe),
         loading: false
       }
@@ -37,6 +38,13 @@ export default (state, action) => {
         ...state,
         recipes: state.recipes.filter(recipe => recipe._id !== action.payload),
         loading: false
+      }
+    case CLEAR_RECIPES:
+      return {
+        ...state,
+        recipes: null,
+        loading: false,
+        current: null
       }
 
     case SET_CURRENT:

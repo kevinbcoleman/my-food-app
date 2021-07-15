@@ -18,7 +18,7 @@ recipes.post('/',
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() })
     }
-    const { label, cuisineType, ingredients } = req.body
+    const { label, cuisineType, ingredients = [] } = req.body
     try {
       const newRecipe = new Recipe({
         label,
@@ -65,7 +65,7 @@ recipes.get('/', authn, async (req, res) => {
 
 // UPDATE
 recipes.put('/:id', authn, async (req, res) => {
-  const { label, cuisineType, ingredients } = req.body
+  const { label, cuisineType, ingredients = [] } = req.body
 
   const recipeObj = {}
   if (label) recipeObj.label = label
@@ -82,7 +82,7 @@ recipes.put('/:id', authn, async (req, res) => {
     }
 
     recipe = await Recipe.findByIdAndUpdate(
-      req.params._id,
+      req.params.id,
       { $set: recipeObj },
       { new: true }
     )

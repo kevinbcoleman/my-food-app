@@ -11,6 +11,10 @@ const RecipeForm = () => {
 
   useEffect(() => {
     if (current !== null) {
+      let ingList = current.ingredients.map(ing => ing)
+      setIngredients(ingList)
+      console.log(ingredients)
+      console.log(ingList)
       setRecipe(current)
     } else {
       // setRecipe({
@@ -31,7 +35,6 @@ const RecipeForm = () => {
   ])
 
   const { label, cuisineType } = recipe
-  const [ing_name, amount] = ingredients
 
   const addField = () => {
     return ingredients.map((ing, ind) => (

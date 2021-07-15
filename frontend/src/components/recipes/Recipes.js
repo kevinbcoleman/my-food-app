@@ -11,16 +11,24 @@ const Recipes = () => {
 
   useEffect(() => {
     getRecipes()
+    //eslint-disable-next-line
   }, [])
 
-  // if (recipes !== null && recipes.length === 0 && !loading) {
-  //   return <h3>Please add a recipe</h3>
-  // }
+  if (recipes !== null && recipes.length === 0 && !loading) {
+    return <h3>Please add a recipe</h3>
+  }
   return (
     <>
-      {recipes.map(recipe => (
-        <Recipe key={recipe._id} recipe={recipe} />
-      ))}
+      {recipes !== null && !loading ? (
+        <>
+          {
+            recipes.map(recipe => (
+              <Recipe key={recipe._id} recipe={recipe} />
+            ))
+          }
+        </>
+      ) : null}
+
     </>
   )
 }

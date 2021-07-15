@@ -10,33 +10,14 @@ import {
   CLEAR_CURRENT,
   UPDATE_RECIPE,
   FILTER_RECIPE,
-  CLEAR_CONTACTS,
+  CLEAR_RECIPES,
   RECIPE_ERROR,
   CLEAR_FILTER
 } from '../types'
 
 const RecipeState = props => {
   const initialState = {
-    recipes: [
-      // {
-      //   id: 1,
-      //   label: "Tuna Salad",
-      //   cuisineType: "american",
-      //   ingredients: ['tuna', 'mayo', 'onions', 'celery']
-      // },
-      // {
-      //   id: 2,
-      //   label: "Grilled Cheese",
-      //   cuisineType: "american",
-      //   ingredients: ['Bread', 'Cheese', 'butter']
-      // },
-      // {
-      //   id: 3,
-      //   label: "Egg Salad",
-      //   cuisineType: "american",
-      //   ingredients: ['Eggs', 'mayo', 'celery', 'pepper', 'onion']
-      // },
-    ],
+    recipes: [],
     current: null,
     error: null
   }
@@ -90,6 +71,11 @@ const RecipeState = props => {
     }
   }
 
+  const clearRecipes = () => {
+    dispatch({ type: CLEAR_RECIPES })
+  }
+
+
   const updateRecipe = async recipe => {
     const config = {
       headers: {
@@ -132,7 +118,8 @@ const RecipeState = props => {
         setCurrent,
         clearCurrent,
         updateRecipe,
-        getRecipes
+        getRecipes,
+        clearRecipes
       }}
     >
       {props.children}

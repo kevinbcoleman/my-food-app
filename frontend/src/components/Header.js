@@ -2,13 +2,16 @@ import React, { useState, useContext } from 'react'
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import AuthContext from '../context/auth/AuthContext'
+import recipeContext from '../context/recipe/recipeContext'
 
 const Header = ({ props }) => {
   const authContext = useContext(AuthContext)
   const { isAuthenticated, logout, user } = authContext
+  const { clearRecipes } = recipeContext
 
   const onLogout = () => {
     logout()
+    clearRecipes()
     props.history.push('/')
   }
 
