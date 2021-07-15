@@ -44,32 +44,36 @@ const RecipeForm = () => {
         <Form.Group>
           <Form.Label></Form.Label>
           <Form.Control
-            id={uuidv4()}
             type="text"
             placeholder="Name"
             name="ing_name"
-            defaultValue={ing.ing_name || ''}
-            onChange={(e) => {
-              const oldState = recipe
-              oldState.ingredients[index].ing_name = e.target.defaultValue
-              setRecipe(oldState)
-            }}
+            value={ing.ing_name}
+            onChange={(e) => setRecipe({
+              ingredients: recipe.ingredients.map(ing => ({
+                ...ing,
+                ing_name:
+                  e.target.defaultValue === ing.ing_name ?
+                    e.target.value : ing.ing_name
+              }))
+            })}
           >
           </Form.Control>
         </Form.Group>
         <Form.Group>
           <Form.Label></Form.Label>
           <Form.Control
-            id={uuidv4()}
             type="text"
             placeholder="Amount"
             name="amount"
-            defaultValue={ing.amount || ''}
-            onChange={(e) => {
-              const oldState = recipe
-              oldState.ingredients[index].amount = e.target.defaultValue
-              setRecipe(oldState)
-            }}
+            value={ing.amount}
+            onChange={(e) => setRecipe({
+              ingredients: recipe.ingredients.map(ing => ({
+                ...ing,
+                amount:
+                  e.target.defaultValue === ing.amount ?
+                    e.target.value : ing.amount
+              }))
+            })}
           >
           </Form.Control>
         </Form.Group>
@@ -86,13 +90,25 @@ const RecipeForm = () => {
     [e.target.name]: e.target.value,
   })
 
-
-
-
-  // const handleIngChange = e => setRecipe({
-  //   ...ingredients,
-  //   [e.target.name]: e.target.value,
+  // const handleChangeName = e => setRecipe({
+  //   ingredients: recipe.ingredients.map(ing => ({
+  //     ...ing,
+  //     ing_name:
+  //       e.target.defaultValue === ing.ing_name ?
+  //         e.target.value : ing.ing_name
+  //   }))
   // })
+
+  // const handleChangeAmount = e => setRecipe({
+  //   ingredients: recipe.ingredients.map(ing => ({
+  //     ...ing,
+  //     amount:
+  //       e.target.defaultValue === ing.amount ?
+  //         e.target.value : ing.amount
+  //   }))
+  // })
+
+
 
   const addIng = () => {
     setRecipe(prevState => ({
