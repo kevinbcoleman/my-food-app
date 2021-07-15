@@ -13,7 +13,6 @@ const RecipeForm = () => {
   useEffect(() => {
     if (current !== null) {
       setRecipe(current)
-      console.log(recipe)
     } else {
       setRecipe({
         label: '',
@@ -45,35 +44,31 @@ const RecipeForm = () => {
         <Form.Group>
           <Form.Label></Form.Label>
           <Form.Control
-
+            id={uuidv4()}
             type="text"
             placeholder="Name"
             name="ing_name"
-            value={ing.ing_name}
+            defaultValue={ing.ing_name || ''}
             onChange={(e) => {
-              ing.ing_name = e.target.value
-              setRecipe({ ...recipe, ingredients })
+              const oldState = recipe
+              oldState.ingredients[index].ing_name = e.target.defaultValue
+              setRecipe(oldState)
             }}
-          // onChange={handleIngChange}
-          // onChange={(e) => {
-          //   ing.ing_name = e.target.value
-          //   setRecipe({ ...recipe }, [...ingredients])
-          // }}
           >
           </Form.Control>
         </Form.Group>
         <Form.Group>
           <Form.Label></Form.Label>
           <Form.Control
-            key={index}
+            id={uuidv4()}
             type="text"
             placeholder="Amount"
             name="amount"
-            value={ing.amount}
-            // onChange={handleIngChange}
+            defaultValue={ing.amount || ''}
             onChange={(e) => {
-              ing.amount = e.target.value
-              setRecipe({ ...recipe, ingredients })
+              const oldState = recipe
+              oldState.ingredients[index].amount = e.target.defaultValue
+              setRecipe(oldState)
             }}
           >
           </Form.Control>
@@ -84,14 +79,15 @@ const RecipeForm = () => {
 
 
 
+
+
   const handleChange = e => setRecipe({
     ...recipe,
     [e.target.name]: e.target.value,
   })
 
-  // const handleIngChange = e => setRecipe([
-  //   ...ingredients, [{ [e.target.name]: e.target.value }]
-  // ])
+
+
 
   // const handleIngChange = e => setRecipe({
   //   ...ingredients,

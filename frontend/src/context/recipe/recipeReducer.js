@@ -22,7 +22,14 @@ export default (state, action) => {
     case ADD_RECIPE:
       return {
         ...state,
-        recipes: [...state.recipes, action.payload],
+        recipes: [action.payload, ...state.recipes],
+        loading: false
+      }
+    case UPDATE_RECIPE:
+      return {
+        ...state,
+        recipes: state.recipes.map(recipe => recipe._id === action.payload ?
+          action.payload : recipe),
         loading: false
       }
     case DELETE_RECIPE:
@@ -31,13 +38,7 @@ export default (state, action) => {
         recipes: state.recipes.filter(recipe => recipe._id !== action.payload),
         loading: false
       }
-    case UPDATE_RECIPE:
-      return {
-        ...state,
-        recipes: state.recipes.map(recipe => recipe._id === action.payload._id ?
-          action.payload : recipe),
-        loading: false
-      }
+
     case SET_CURRENT:
       return {
         ...state,

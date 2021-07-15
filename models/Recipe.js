@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const ObjectId = require('mongodb').ObjectID;
+const ObjectId = mongoose.Schema.Types.ObjectId
 // require('./users')
 const Schema = mongoose.Schema
 
@@ -17,7 +17,7 @@ const recipeSchema = Schema(
       }
     ],
     owner: {
-      type: Schema.Types.ObjectId,
+      type: ObjectId,
       ref: 'User'
     }
   },

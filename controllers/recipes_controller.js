@@ -70,7 +70,7 @@ recipes.put('/:id', authn, async (req, res) => {
   const recipeObj = {}
   if (label) recipeObj.label = label
   if (cuisineType) recipeObj.cuisineType = cuisineType
-  if (ingredients) recipeObj.ingingredients = ingredients
+  if (ingredients) recipeObj.ingredients = ingredients
 
   try {
     let recipe = await Recipe.findById(req.params.id)
@@ -82,7 +82,7 @@ recipes.put('/:id', authn, async (req, res) => {
     }
 
     recipe = await Recipe.findByIdAndUpdate(
-      req.params.id,
+      req.params._id,
       { $set: recipeObj },
       { new: true }
     )

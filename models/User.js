@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const ObjectId = require('mongodb').ObjectID;
+const ObjectId = mongoose.Schema.Types.ObjectId
 // require('./recipes')
 const Schema = mongoose.Schema
 
@@ -9,7 +9,7 @@ const userSchema = Schema({
   password: { type: String, required: true },
   myRecipes: [
     {
-      type: Schema.Types.ObjectId,
+      type: ObjectId,
       ref: 'ApiRecipe'
     }
   ]
