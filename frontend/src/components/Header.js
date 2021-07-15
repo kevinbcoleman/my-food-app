@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react'
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import AuthContext from '../context/auth/AuthContext'
-import PropTypes from 'prop-types'
 
 const Header = ({ props }) => {
   const authContext = useContext(AuthContext)

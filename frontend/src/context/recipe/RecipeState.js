@@ -19,12 +19,23 @@ const RecipeState = props => {
   const initialState = {
     recipes: [
       // {
-      //   label: '',
-      //   cuisineType: '',
-      //   // ingredients: [
-      //   //   // { ing_name: '', amount: '' }
-      //   // ]
-      // }
+      //   id: 1,
+      //   label: "Tuna Salad",
+      //   cuisineType: "american",
+      //   ingredients: ['tuna', 'mayo', 'onions', 'celery']
+      // },
+      // {
+      //   id: 2,
+      //   label: "Grilled Cheese",
+      //   cuisineType: "american",
+      //   ingredients: ['Bread', 'Cheese', 'butter']
+      // },
+      // {
+      //   id: 3,
+      //   label: "Egg Salad",
+      //   cuisineType: "american",
+      //   ingredients: ['Eggs', 'mayo', 'celery', 'pepper', 'onion']
+      // },
     ],
     current: null,
     error: null
@@ -88,6 +99,7 @@ const RecipeState = props => {
     try {
       const res = await axios.put(`/recipes/${recipe._id}`, recipe, config)
       dispatch({ type: UPDATE_RECIPE, payload: res.data })
+      console.log(res.data)
     } catch (err) {
       dispatch({
         type: RECIPE_ERROR,

@@ -13,17 +13,14 @@ const Recipes = () => {
     getRecipes()
   }, [])
 
+  // if (recipes !== null && recipes.length === 0 && !loading) {
+  //   return <h3>Please add a recipe</h3>
+  // }
   return (
     <>
-      {recipes !== null && !loading ? (
-        <>
-          {
-            recipes.map(recipe => (
-              <Recipe key={recipe._id} recipe={recipe} />
-            ))
-          }
-        </>
-      ) : null}
+      {recipes.map(recipe => (
+        <Recipe key={recipe._id} recipe={recipe} />
+      ))}
     </>
   )
 }

@@ -9,53 +9,45 @@ const RecipeForm = () => {
 
   const { addRecipe, current, updateRecipe, clearCurrent } = recipeContext
 
-
   useEffect(() => {
     if (current !== null) {
       setRecipe(current)
     } else {
-      setRecipe({
-        label: '',
-        cuisineType: '',
-        ingredients: [{
-          ing_name: '',
-          amount: ''
-        }]
-      })
+      // setRecipe({
+      //   label: '',
+      //   cuisineType: '',
+      //   ingredients: []
+      // })
     }
-
   }, [recipeContext, current])
-
 
   const [recipe, setRecipe] = useState({
     label: '',
     cuisineType: '',
-    ingredients: [{
-      ing_name: '',
-      amount: ''
-    }]
+    ingredients: []
   })
+  const [ingredients, setIngredients] = useState([
+    { ing_name: '', amount: '' }
+  ])
 
-  const { label, cuisineType, ingredients = [] } = recipe
-  // const { _id } = ingredients
+  const { label, cuisineType } = recipe
+  const [ing_name, amount] = ingredients
+
   const addField = () => {
-    return ingredients.map((ing, index) => (
-      <div key={index}>
+    return ingredients.map((ing, ind) => (
+      <div key={ind}>
         <Form.Group>
           <Form.Label></Form.Label>
           <Form.Control
             type="text"
             placeholder="Name"
             name="ing_name"
-            value={ing.ing_name}
-            onChange={(e) => setRecipe({
-              ingredients: recipe.ingredients.map(ing => ({
-                ...ing,
-                ing_name:
-                  e.target.defaultValue === ing.ing_name ?
-                    e.target.value : ing.ing_name
-              }))
-            })}
+            value={ing.ing_name || ''}
+            onChange={(e) => {
+              ing.ing_name = e.target.value
+              setIngredients([...ingredients])
+              setRecipe({ ...recipe, ingredients: ingredients })
+            }}
           >
           </Form.Control>
         </Form.Group>
@@ -65,15 +57,12 @@ const RecipeForm = () => {
             type="text"
             placeholder="Amount"
             name="amount"
-            value={ing.amount}
-            onChange={(e) => setRecipe({
-              ingredients: recipe.ingredients.map(ing => ({
-                ...ing,
-                amount:
-                  e.target.defaultValue === ing.amount ?
-                    e.target.value : ing.amount
-              }))
-            })}
+            value={ing.amount || ''}
+            onChange={(e) => {
+              ing.amount = e.target.value
+              setIngredients([...ingredients])
+              setRecipe({ ...recipe, ingredients: ingredients })
+            }}
           >
           </Form.Control>
         </Form.Group>
@@ -82,62 +71,34 @@ const RecipeForm = () => {
   }
 
 
-
-
-
   const handleChange = e => setRecipe({
     ...recipe,
     [e.target.name]: e.target.value,
   })
 
-  // const handleChangeName = e => setRecipe({
-  //   ingredients: recipe.ingredients.map(ing => ({
-  //     ...ing,
-  //     ing_name:
-  //       e.target.defaultValue === ing.ing_name ?
-  //         e.target.value : ing.ing_name
-  //   }))
-  // })
-
-  // const handleChangeAmount = e => setRecipe({
-  //   ingredients: recipe.ingredients.map(ing => ({
-  //     ...ing,
-  //     amount:
-  //       e.target.defaultValue === ing.amount ?
-  //         e.target.value : ing.amount
-  //   }))
-  // })
-
-
-
   const addIng = () => {
-    setRecipe(prevState => ({
-      ...prevState,
-      ingredients: [...ingredients, { ing_name: '', amount: '' }]
-    }))
+    setIngredients(prevState => ([
+      ...prevState, { ing_name: '', amount: '' }
+    ]))
   }
-
 
   const onSubmit = e => {
     e.preventDefault()
     if (current === null) {
       addRecipe(recipe)
+      console.log(recipe)
     } else {
       updateRecipe(recipe)
     }
-    console.log(recipe)
     clearAll()
-
+    setIngredients([
+      { ing_name: '', amount: '' }
+    ])
     setRecipe({
       label: '',
       cuisineType: '',
-      ingredients: [{
-        ing_name: '',
-        amount: ''
-      }]
+      ingredients: []
     })
-
-
   }
 
   const clearAll = () => {
@@ -192,3 +153,23 @@ const RecipeForm = () => {
 export default RecipeForm
 
 
+  // const handleIngChange = (name, ind) => e => {
+  //   setIngredients(
+  //     ingredients.map(ing =>
+  //       ing.ing_name === ind ? { ...ing, name: e.target.value } : ing
+  //     )
+  //   )
+  //   console.log(ingredients)
+  //   console.log(ind)
+  // }
+  // const handleIngChange = ind => e => {
+  //   setIngredients(newIng)
+  // }
+  // const handleIngChange = (ind, e) => {
+  //   const ingreds = e.target.value
+  //   const fullIngreds = ingreds.split(',')
+  //   setRecipe({
+  //     ...recipe,
+  //     ingredients: fullIngreds
+  //   })
+  // }
