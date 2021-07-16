@@ -2,18 +2,25 @@ import React, { useState, useContext, useEffect } from 'react'
 import { Form, Row, Col, Button } from 'react-bootstrap'
 import { LinkContainer, Redirect } from 'react-router-bootstrap'
 import AuthContext from '../context/auth/AuthContext'
+import AlertContext from '../context/alert/alertContext'
 
 
 
 const Login = (props) => {
   const authContext = useContext(AuthContext)
-  const { login, isAuthenticated } = authContext
+  const alertContext = useContext(AlertContext)
+  const { setAlert } = alertContext
+  const { login, error, clearErrors, isAuthenticated } = authContext
 
   useEffect(() => {
     if (isAuthenticated) {
       props.history.push('/')
     }
-
+    if (error === 'Invalid credentials') {
+      setAlert(error)
+      clearErrors()
+    }
+    //eslint-disable-next-line
   }, [isAuthenticated, props.history])
 
   const [user, setUser] = useState({

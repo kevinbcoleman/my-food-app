@@ -8,9 +8,11 @@ import Header from './components/Header'
 import Home from './components/Home'
 import Profile from './components/Profile'
 import Login from './components/Login'
+import Alerts from './components/Alerts'
 import Register from './components/Register'
 import setAuthToken from './utils/setAuthToken'
 import PrivateRoute from './components/priv/PrivateRoute'
+import AlertState from './context/alert/AlertState'
 if (localStorage.token) {
   setAuthToken(localStorage.token)
 }
@@ -21,17 +23,20 @@ const App = () => {
     <div className="App">
       <AuthState>
         <RecipeState>
-          <Router>
-            <Header />
-            <Container>
-              <Switch>
-                <Route exact path='/' component={Home} />
-                <PrivateRoute exact path='/profile' component={Profile} />
-                <Route exact path='/login' component={Login} />
-                <Route exact path='/register' component={Register} />
-              </Switch>
-            </Container>
-          </Router>
+          <AlertState>
+            <Router>
+              <Header />
+              <Container>
+                <Alerts />
+                <Switch>
+                  <Route exact path='/' component={Home} />
+                  <PrivateRoute exact path='/profile' component={Profile} />
+                  <Route exact path='/login' component={Login} />
+                  <Route exact path='/register' component={Register} />
+                </Switch>
+              </Container>
+            </Router>
+          </AlertState>
         </RecipeState>
       </AuthState>
     </div>

@@ -2,18 +2,26 @@ import React, { useState, useContext, useEffect } from 'react'
 import { Form, Row, Col, Button } from 'react-bootstrap'
 import { LinkContainer, Redirect } from 'react-router-bootstrap'
 import AuthContext from '../context/auth/AuthContext'
+import AlertContext from '../context/alert/alertContext'
 
 const Register = (props) => {
   const authContext = useContext(AuthContext)
+  const alertContext = useContext(AlertContext)
+  const { setAlert } = alertContext
 
-  const { register, isAuthenticated } = authContext
+  const { register, error, isAuthenticated, clearErrors } = authContext
 
   useEffect(() => {
     if (isAuthenticated) {
       props.history.push('/')
     }
 
-  }, [isAuthenticated, props.history])
+    if (error === 'User already exists') {
+      setAlert(error)
+      clearErrors()
+    }
+    //eslint-disable-next-line
+  }, [error, isAuthenticated, props.history])
 
   const [user, setUser] = useState({
     username: '',
@@ -70,6 +78,7 @@ const Register = (props) => {
             onChange={onChange}
             value={password}
             placeholder="PASSWORD"
+            minLength="6"
             required
           >
           </Form.Control>
