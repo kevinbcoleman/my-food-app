@@ -10,44 +10,42 @@ import {
 
 const BrowserState = props => {
   const initialState = {
-    apiRecipes: [],
-    current: null,
-    error: null
+    apiRecipes: []
   }
 
-  // const [state, dispatch] = useReducer(browserReducer, initialState)
+  const [state, dispatch] = useReducer(browserReducer, initialState)
 
-  // const getApiRecipes = async () => {
-  //   try {
-  //     const res = await axios.get('/recipes')
-  //     dispatch({ type: GET_RECIPES, payload: res.data })
-  //   } catch (err) {
-  //     dispatch({
-  //       type: RECIPE_ERROR,
-  //       payload: err.response.msg
-  //     })
-  //   }
-  // }
+  const getApiRecipes = async () => {
+    try {
+      const res = await axios.get('/apirecipes')
+      dispatch({ type: GET_BROWSER, payload: res.data })
+    } catch (err) {
+      // dispatch({
+      //   type: RECIPE_ERROR,
+      //   payload: err.response.msg
+      // })
+    }
+  }
 
 
 
-  // // ADD
-  // const addApiRecipe = async recipe => {
-  //   const config = {
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   }
-  //   try {
-  //     const res = await axios.post('/recipes', recipe, config)
-  //     dispatch({ type: ADD_RECIPE, payload: res.data })
-  //   } catch (err) {
-  //     dispatch({
-  //       type: RECIPE_ERROR,
-  //       payload: err.response.msg
-  //     })
-  //   }
-  // }
+  // ADD
+  const addApiRecipe = async apiRecipe => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    try {
+      const res = await axios.post('/apirecipes', apiRecipe, config)
+      dispatch({ type: ADD_BROWSER, payload: res.data })
+    } catch (err) {
+      // dispatch({
+      //   type: RECIPE_ERROR,
+      //   payload: err.response.msg
+      // })
+    }
+  }
 
   // // DELETE
   // const deleteApiRecipe = async id => {
@@ -61,3 +59,17 @@ const BrowserState = props => {
   //     })
   //   }
   // }
+  return (
+    <BrowserContext.Provider
+      value={{
+        apiRecipes: state.apiRecipes,
+        addApiRecipe,
+        // deleteRecipe,
+        getApiRecipes,
+      }}
+    >
+      {props.children}
+    </BrowserContext.Provider>
+  )
+}
+export default BrowserState

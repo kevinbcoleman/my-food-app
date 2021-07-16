@@ -22,6 +22,7 @@ const Browser = () => {
   let dietOpts = ''
 
   const browserContext = useContext(BrowserContext)
+  const { addApiRecipe, getApiRecipe, deleteApiRecipe } = browserContext
 
   const [diet, setDiet] = useState('')
   const [apiRecipes, setApiRecipes] = useState([])
@@ -29,8 +30,7 @@ const Browser = () => {
 
   const [fetchedData, setFetchedData] = useState(false)
   useEffect(() => {
-  }, [apiRecipes, fetchedData])
-  // const { addApiRecipe, getApiRecipe, deleteApiRecipe } = browserContext
+  }, [browserContext])
 
   // useEffect(() => {
   //   console.log
@@ -51,12 +51,29 @@ const Browser = () => {
     const res = await data.hits
     setApiRecipes(res)
     setFetchedData(true)
+    console.log(apiRecipes)
   }
 
 
   const handleDiet = () => {
     dietOpts = diet.toLowerCase()
     getData()
+  }
+
+  const addToCollection = (index) => {
+    const apiRec = apiRecipes[index].recipe
+    const ings = apiRec.ingredients.map(ing => (
+      {
+        ing_name: ing.text
+      }
+    ))
+    const recObj = {
+      label: apiRec.label,
+      cuisineType: apiRec.cuisineType[0],
+      ingredients: ings
+    }
+    console.log(recObj)
+    addApiRecipe(recObj)
   }
 
   // const onSubmit = e => {
@@ -89,7 +106,7 @@ const Browser = () => {
         {fetchedData ?
           <>
             <ul>
-              {apiRecipes.map(apiRecipe => (
+              {apiRecipes.map((apiRecipe, index) => (
                 <>
                   <Card>
                     <li>{apiRecipe.recipe.label}</li>
@@ -101,6 +118,7 @@ const Browser = () => {
                         </>
                       ))}
                     </ul>
+                    <Button onClick={() => addToCollection(index)}>Add to my collection</Button>
                   </Card>
                 </>
               ))}

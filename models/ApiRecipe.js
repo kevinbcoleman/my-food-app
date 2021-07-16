@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
-const ObjectId = require('mongodb').ObjectID;
-// require('./users')
+const ObjectId = mongoose.Schema.Types.ObjectId
 const Schema = mongoose.Schema
 
 // TODO: Update to your resource name
@@ -10,9 +9,11 @@ const apiRecipeSchema = Schema(
   {
     label: { type: String, required: true },
     cuisineType: { type: String, required: true },
-    ingredients: [String],
+    ingredients: [{
+      ing_name: { type: String, required: true },
+    }],
     owner: {
-      type: Schema.Types.ObjectId,
+      type: ObjectId,
       ref: 'User'
     }
   },

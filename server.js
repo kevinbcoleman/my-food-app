@@ -42,6 +42,8 @@ const PORT = process.env.PORT || 5000
 // CONTROLLERS/ROUTES
 const recipesController = require('./controllers/recipes_controller.js')
 app.use('/recipes', recipesController)
+const apiRecController = require('./controllers/api_rec_controller.js')
+app.use('/apirecipes', apiRecController)
 const usersController = require('./controllers/users_controller.js')
 app.use('/users', usersController)
 const authController = require('./controllers/auth_controller.js')

@@ -14,9 +14,6 @@ const Recipes = () => {
     //eslint-disable-next-line
   }, [])
 
-  if (recipes !== null && recipes.length === 0 && !loading) {
-    return <h3>Please add a recipe</h3>
-  }
   return (
     <>
       {recipes !== null && !loading ? (
