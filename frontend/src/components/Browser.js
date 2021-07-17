@@ -1,6 +1,7 @@
 
 import React, { useState, useContext, useEffect } from 'react'
-import { Form, Row, Col, Button, Card } from 'react-bootstrap'
+import { Form, Row, Col, Nav, Button, Card } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
 import axios from 'axios'
 import BrowserContext from '../context/browser/browserContext'
 import AuthContext from '../context/auth/AuthContext'
@@ -32,6 +33,7 @@ const Browser = () => {
 
 
   const healthArr = [
+    "None",
     "dairy-free",
     "gluten-free",
     "keto-friendly",
@@ -45,6 +47,7 @@ const Browser = () => {
   ]
 
   const dietTypeArr = [
+    "None",
     "balanced",
     "high-fiber",
     "high-protein",
@@ -54,6 +57,7 @@ const Browser = () => {
   ]
 
   const dietRegionArr = [
+    "None",
     "american",
     "asian",
     "caribbean",
@@ -67,6 +71,7 @@ const Browser = () => {
   ]
 
   const mealTypeArr = [
+    "None",
     "breakfast",
     "lunch",
     "dinner",
@@ -77,16 +82,22 @@ const Browser = () => {
   const getData = async () => {
     setApiRecipes([])
     setFetchedData(false)
-    const { data } = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&health=${healthOpts}&diet=${dietType}&cuisineType=${dietRegion}&mealType=${mealType}`)
-    const res = await data.hits
-    console.log(res)
-    {
-      res.length === 0 ? (<h3>No results.</h3>) :
-        setApiRecipes(res)
+    try {
+      const { data } = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&health=${healthOpts}&diet=${dietType}&cuisineType=${dietRegion}&mealType=${mealType}`)
+      const res = await data.hits
+      setApiRecipes(res)
       setFetchedData(true)
+    } catch (err) {
+      console.log(err)
     }
 
-    console.log(apiRecipes)
+    // {
+    //   res.length === 0 ? (<h3>No results.</h3>) :
+    //     setApiRecipes(res)
+    //   setFetchedData(true)
+    // }
+
+    // console.log(apiRecipes)
   }
 
 
@@ -185,7 +196,11 @@ const Browser = () => {
                       ))}
                     </ul>
                     {isAuthenticated ?
-                      <Button onClick={() => addToCollection(index)}>Add to my collection</Button> : null}
+                      <Button onClick={() => addToCollection(index)}>Add to my collection</Button> :
+                      <LinkContainer to="/login">
+                        <Nav.Link className="btn">Add to my collection</Nav.Link>
+                      </LinkContainer>
+                    }
 
                   </Card>
                 </>

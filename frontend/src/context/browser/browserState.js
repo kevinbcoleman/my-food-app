@@ -48,23 +48,24 @@ const BrowserState = props => {
   }
 
   // // DELETE
-  // const deleteApiRecipe = async id => {
-  //   try {
-  //     await axios.delete(`/recipes/${id}`)
-  //     dispatch({ type: DELETE_RECIPE, payload: id })
-  //   } catch (err) {
-  //     dispatch({
-  //       type: RECIPE_ERROR,
-  //       payload: err.response.msg
-  //     })
-  //   }
-  // }
+  const deleteApiRecipe = async id => {
+    try {
+      await axios.delete(`/apirecipes/${id}`)
+      dispatch({ type: DELETE_BROWSER, payload: id })
+    } catch (err) {
+      // dispatch({
+      //   type: RECIPE_ERROR,
+      //   payload: err.response.msg
+      // })
+    }
+  }
+
   return (
     <BrowserContext.Provider
       value={{
         apiRecipes: state.apiRecipes,
         addApiRecipe,
-        // deleteRecipe,
+        deleteApiRecipe,
         getApiRecipes,
       }}
     >

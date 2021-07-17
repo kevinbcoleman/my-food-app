@@ -19,12 +19,12 @@ export default (state, action) => {
         apiRecipes: [action.payload, ...state.apiRecipes],
         loading: false
       }
-    // case DELETE_BROWSER:
-    //   return {
-    //     ...state,
-    //     recipes: state.recipes.filter(recipe => recipe._id !== action.payload),
-    //     loading: false
-    //   }
+    case DELETE_BROWSER:
+      return {
+        ...state,
+        apiRecipes: state.apiRecipes.filter(apiRecipe => apiRecipe._id !== action.payload),
+        loading: false
+      }
     default:
       return state
   }

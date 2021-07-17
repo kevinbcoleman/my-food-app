@@ -80,24 +80,24 @@ apiRecipes.get('/', authn, async (req, res) => {
 
 
 // DELETE
-// recipes.delete('/:id', authn, async (req, res) => {
-//   try {
-//     let recipe = await Recipe.findById(req.params.id)
+apiRecipes.delete('/:id', authn, async (req, res) => {
+  try {
+    let apiRecipe = await apiRecipe.findById(req.params.id)
 
-//     if (!recipe) return res.status(404).json({ msg: 'Not found' })
+    if (!apiRecipe) return res.status(404).json({ msg: 'Not found' })
 
-//     if (recipe.owner.toString() !== req.user.id) {
-//       return res.status(401).json({ msg: 'Not Authorized' })
-//     }
+    if (apiRecipe.owner.toString() !== req.user.id) {
+      return res.status(401).json({ msg: 'Not Authorized' })
+    }
 
-//     await Recipe.findByIdAndRemove(req.params.id)
+    await apiRecipe.findByIdAndRemove(req.params.id)
 
-//     res.json({ msg: 'Recipe Deleted' })
-//   } catch (err) {
-//     console.error(err.message)
-//     res.status(500).send('Server Error')
-//   }
-// })
+    res.json({ msg: 'Recipe Deleted' })
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
 
 // Handle 404
 // recipes.get('/*', (req, res) => {

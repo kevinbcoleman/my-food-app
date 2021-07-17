@@ -2,20 +2,22 @@ import React, { useContext, useEffect } from 'react'
 import BrowserContext from '../context/browser/browserContext'
 import Recipes from './recipes/Recipes'
 import RecipeForm from './recipes/RecipeForm'
-// import Recipe from '../components/recipes/Recipe'
 import ApiRecipe from '../components/recipes/ApiRecipe'
+import AuthContext from '../context/auth/AuthContext'
 
 
 
 const Profile = () => {
   const browserContext = useContext(BrowserContext)
-  const { getApiRecipes, deleteApiRecipe, apiRecipes, loading } = browserContext
+  const { getApiRecipes, apiRecipes, loading } = browserContext
+  const { loadUser } = useContext(AuthContext)
 
 
   useEffect(() => {
+    loadUser()
     getApiRecipes()
     //eslint-disable-next-line
-  }, [])
+  }, [loadUser])
 
 
   // if (apiRecipes !== null && apiRecipes.length === 0 && !loading) {
