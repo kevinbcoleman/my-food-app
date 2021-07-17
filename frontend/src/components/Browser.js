@@ -1,30 +1,27 @@
+
 import React, { useState, useContext, useEffect } from 'react'
 import { Form, Row, Col, Button, Card } from 'react-bootstrap'
 import axios from 'axios'
 import BrowserContext from '../context/browser/browserContext'
+import AuthContext from '../context/auth/AuthContext'
 import { v4 as uuidv4 } from 'uuid'
 
 
 
 const Browser = () => {
+
+  const authContext = useContext(AuthContext)
+  const { isAuthenticated } = authContext
+  const browserContext = useContext(BrowserContext)
+  const { addApiRecipe } = browserContext
+
   const APP_ID = 'eed233fa'
   const API_KEY = 'd7cbb28565679a25cdf7b8ee39d91ebb'
 
-  const dietOptions = [
-    "Low Sugar",
-    "Keto-Friendly",
-    "Pescatarian",
-    "Dairy-Free",
-    "Gluten-Free"
-
-  ]
-
-  let dietOpts = ''
-
-  const browserContext = useContext(BrowserContext)
-  const { addApiRecipe, getApiRecipe, deleteApiRecipe } = browserContext
-
-  const [diet, setDiet] = useState('')
+  const [healthOpts, setHealthOpts] = useState('')
+  const [dietType, setDietType] = useState('')
+  const [dietRegion, setDietRegion] = useState('')
+  const [mealType, setMealType] = useState('')
   const [apiRecipes, setApiRecipes] = useState([])
 
 
@@ -32,33 +29,66 @@ const Browser = () => {
   useEffect(() => {
   }, [browserContext])
 
-  // useEffect(() => {
-  //   console.log
-  //   if (current !== null) {
-  //     setRecipe(current)
-  //   } else {
-  //     setRecipe({
-  //       label: '',
-  //       cuisineType: '',
-  //       ingredients: []
-  //     })
-  //   }
-  // }, [recipeContext, current])
+
+
+  const healthArr = [
+    "dairy-free",
+    "gluten-free",
+    "keto-friendly",
+    "kosher",
+    "low-sugar",
+    "paleo",
+    "peanut-free",
+    "pescatarian",
+    "pork-free",
+    "vegan"
+  ]
+
+  const dietTypeArr = [
+    "balanced",
+    "high-fiber",
+    "high-protein",
+    "low-carb",
+    "low-fat",
+    "low-sodium"
+  ]
+
+  const dietRegionArr = [
+    "american",
+    "asian",
+    "caribbean",
+    "chinese",
+    "french",
+    "indian",
+    "italian",
+    "japanese",
+    "mediterranean",
+    "mexican",
+  ]
+
+  const mealTypeArr = [
+    "breakfast",
+    "lunch",
+    "dinner",
+    "snack"
+  ]
 
 
   const getData = async () => {
-    const { data } = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&health=${dietOpts}&cuisineType=American&mealType=Dinner`)
+    setApiRecipes([])
+    setFetchedData(false)
+    const { data } = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&health=${healthOpts}&diet=${dietType}&cuisineType=${dietRegion}&mealType=${mealType}`)
     const res = await data.hits
-    setApiRecipes(res)
-    setFetchedData(true)
+    console.log(res)
+    {
+      res.length === 0 ? (<h3>No results.</h3>) :
+        setApiRecipes(res)
+      setFetchedData(true)
+    }
+
     console.log(apiRecipes)
   }
 
-
-  const handleDiet = () => {
-    dietOpts = diet.toLowerCase()
-    getData()
-  }
 
   const addToCollection = (index) => {
     const apiRec = apiRecipes[index].recipe
@@ -72,35 +102,71 @@ const Browser = () => {
       cuisineType: apiRec.cuisineType[0],
       ingredients: ings
     }
-    console.log(recObj)
     addApiRecipe(recObj)
   }
 
-  // const onSubmit = e => {
-  //   e.preventDefault()
-  //   if (current === null) {
-  //     addRecipe(recipe)
-  //   } else {
-  //     updateRecipe(recipe)
-  //   }
-  //   // clearAll()
-  // }
+
+
+
   return (
     <div>
-      <h2>What are your dietary needs?</h2>
+      <h2>Browse Recipes</h2>
       <Form.Group controlId="selectForm">
-        <Form.Label>Select a category</Form.Label>
+        <Form.Label>Health Options</Form.Label>
         <Form.Control
           as="select"
-          value={diet}
-          onChange={(e => setDiet(e.target.value))}
+          style={inputStyle}
+          value={healthOpts}
+          onChange={(e => setHealthOpts(e.target.value))}
         >
-          {dietOptions.map(op => (
+          {healthArr.map(op => (
             <option value={op}>{op}</option>
           ))}
         </Form.Control>
       </Form.Group>
-      <Button onClick={handleDiet}>Search</Button>
+
+      <Form.Group controlId="selectForm">
+        <Form.Label>Diet Type</Form.Label>
+        <Form.Control
+          style={inputStyle}
+          as="select"
+          value={dietType}
+          onChange={(e => setDietType(e.target.value))}
+        >
+          {dietTypeArr.map(op => (
+            <option value={op}>{op}</option>
+          ))}
+        </Form.Control>
+      </Form.Group>
+
+      <Form.Group controlId="selectForm">
+        <Form.Label>Region</Form.Label>
+        <Form.Control
+          style={inputStyle}
+          as="select"
+          value={dietRegion}
+          onChange={(e => setDietRegion(e.target.value))}
+        >
+          {dietRegionArr.map(op => (
+            <option value={op}>{op}</option>
+          ))}
+        </Form.Control>
+      </Form.Group>
+
+      <Form.Group controlId="selectForm">
+        <Form.Label>Meal</Form.Label>
+        <Form.Control
+          style={inputStyle}
+          as="select"
+          value={mealType}
+          onChange={(e => setMealType(e.target.value))}
+        >
+          {mealTypeArr.map(op => (
+            <option value={op}>{op}</option>
+          ))}
+        </Form.Control>
+      </Form.Group>
+      <Button onClick={getData}>Search</Button>
       <div>
 
         {fetchedData ?
@@ -118,15 +184,22 @@ const Browser = () => {
                         </>
                       ))}
                     </ul>
-                    <Button onClick={() => addToCollection(index)}>Add to my collection</Button>
+                    {isAuthenticated ?
+                      <Button onClick={() => addToCollection(index)}>Add to my collection</Button> : null}
+
                   </Card>
                 </>
               ))}
             </ul>
-          </> : null}
+          </>
+          : null}
       </div>
     </div >
   )
+}
+
+const inputStyle = {
+  "padding": "0 24px"
 }
 
 export default Browser

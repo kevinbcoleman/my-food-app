@@ -1,4 +1,4 @@
-import './App.css';
+// import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import React, { useState, useEffect, useContext } from 'react'

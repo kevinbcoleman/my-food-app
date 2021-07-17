@@ -1,11 +1,16 @@
 import React, { useContext, useEffect } from 'react'
 import BrowserContext from '../context/browser/browserContext'
-import Recipe from '../components/recipes/Recipe'
+import Recipes from './recipes/Recipes'
+import RecipeForm from './recipes/RecipeForm'
+// import Recipe from '../components/recipes/Recipe'
+import ApiRecipe from '../components/recipes/ApiRecipe'
+
 
 
 const Profile = () => {
   const browserContext = useContext(BrowserContext)
-  const { getApiRecipes, apiRecipes, loading } = browserContext
+  const { getApiRecipes, deleteApiRecipe, apiRecipes, loading } = browserContext
+
 
   useEffect(() => {
     getApiRecipes()
@@ -18,16 +23,27 @@ const Profile = () => {
   // }
   return (
     <>
+      <RecipeForm />
+
       {apiRecipes !== null && !loading ? (
         <>
           {
-            apiRecipes.map(recipe => (
-              <Recipe key={recipe._id} recipe={recipe} />
+            apiRecipes.map(apiRecipe => (
+              <ApiRecipe key={apiRecipe._id} apiRecipe={apiRecipe} />
             ))
           }
         </>
       ) : null}
-
+      {/* {recipes !== null && !loading ? (
+        <>
+          {
+            recipes.map(recipe => (
+              <recipe key={recipe._id} recipe={recipe} />
+            ))
+          }
+        </>
+      ) : null} */}
+      <Recipes />
     </>
   )
 }
