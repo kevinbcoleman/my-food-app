@@ -64,7 +64,7 @@ const Register = (props) => {
               type="text"
               onChange={onChange}
               value={username}
-              placeholder="USERNAME"
+              placeholder="Username"
               required
             >
             </Form.Control>
@@ -77,7 +77,7 @@ const Register = (props) => {
               type="text"
               onChange={onChange}
               value={email}
-              placeholder="EMAIL"
+              placeholder="Email"
               required
             >
             </Form.Control>
@@ -89,28 +89,28 @@ const Register = (props) => {
               type="password"
               onChange={onChange}
               value={password}
-              placeholder="PASSWORD"
+              placeholder="Password"
               minLength="6"
               required
             >
             </Form.Control>
           </Form.Group>
-          <Button type="submit">Sign Up</Button>
+          <Button className="form-btn" type="submit">Sign Up</Button>
         </Card>
       </Form>
 
 
-      <div className="Form FormMobile">
-        <h1>Register</h1>
-        <Form onSubmit={onSubmit}>
+      <div>
+        <Form className="Form FormMobile" onSubmit={onSubmit}>
           <Form.Group>
+            <h1 className="text-center mt-4">Sign Up</h1>
             <Form.Label htmlFor="username"></Form.Label>
             <Form.Control
               name="username"
               type="text"
               onChange={onChange}
               value={username}
-              placeholder="USERNAME"
+              placeholder="Username"
               required
             >
             </Form.Control>
@@ -123,7 +123,7 @@ const Register = (props) => {
               type="text"
               onChange={onChange}
               value={email}
-              placeholder="EMAIL"
+              placeholder="Email"
               required
             >
             </Form.Control>
@@ -135,13 +135,13 @@ const Register = (props) => {
               type="password"
               onChange={onChange}
               value={password}
-              placeholder="PASSWORD"
+              placeholder="Password"
               minLength="6"
               required
             >
             </Form.Control>
           </Form.Group>
-          <Button type="submit">Sign Up</Button>
+          <Button className="form-btn" type="submit">Sign Up</Button>
         </Form>
       </div>
 

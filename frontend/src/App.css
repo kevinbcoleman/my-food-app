@@ -18,6 +18,19 @@
   margin-top: 5%;
 }
 
+.form-btn {
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-bottom: 5px;
+  background-color: #4c7bef;
+  color: #fff;
+}
+
+.FormMobile {
+  margin: 0 auto;
+  width: 80vw;
+}
+
 .Navbar {
   z-index: 1;
 }
@@ -46,7 +59,7 @@
 
   .FormCard {
     padding: 0.5rem 2rem 2.5rem;
-    margin-top: 150px;
+    margin-top: 175px;
     margin-left: -138px;
     align-self: center;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
@@ -102,40 +115,36 @@
     right: 0px;
     bottom: 0px;
     margin: 0px -125px 500px 0px;
-    /* z-index: -4; */
   }
 
   .EntryDisplay {
     height: 100vh;
-    /* border-radius: 5px; */
     filter: opacity(0.6);
-    margin-left: -450px;
+    margin-left: -575px;
     margin-top: -75px;
     z-index: -1;
   }
 
   .RegisterHeader {
-    font-size: 2.2rem;
+    font-size: 2rem;
     width: 40vw;
+    height: auto;
     /* align-self: flex-start; */
     position: absolute;
-    top: 150px;
-    right: 50px;
+    right: 15px;
+    top: 200px;
     /* left: 425px; */
     /* 
     font-weight: bold;
     margin-left: -125px;
     margin-right: 50px;
-    margin-top: 75px; */
+    margin-top: 75px; 
+    */
   }
 }
 
 
-@media (min-width: 992px) {
-  .EntryDisplay {
-    filter: opacity(0.6);
-    /* margin-left: 5px; */
-  }
+@media screen and (min-width: 992px) and (max-width: 1399) {
 
   .FormCard {
     margin-left: 350px;
@@ -146,6 +155,17 @@
   }
 
 }
+
+@media (min-width: 1400px) {
+  .FormCard {
+    margin-left: 525px;
+  }
+}
+
+.RegisterHeader {
+  font-size: 2.6rem;
+}
+
 
 
 @media (max-width: 767px) {

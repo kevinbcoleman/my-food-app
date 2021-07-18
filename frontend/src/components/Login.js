@@ -59,7 +59,7 @@ const Login = (props) => {
               type="text"
               onChange={onChange}
               value={email}
-              placeholder="EMAIL"
+              placeholder="Email"
               required
             >
             </Form.Control>
@@ -71,19 +71,19 @@ const Login = (props) => {
               type="password"
               onChange={onChange}
               value={password}
-              placeholder="PASSWORD"
+              placeholder="Password"
               required
             >
             </Form.Control>
           </Form.Group>
-          <Button type="submit">Log In</Button>
+          <Button className="form-btn" type="submit">Log In</Button>
         </Card>
       </Form>
 
 
-      <div className="Form FormMobile">
-        <h1>Login</h1>
-        <Form className="" onSubmit={onSubmit}>
+      <div>
+        <Form className="Form FormMobile" onSubmit={onSubmit}>
+          <h1 className="text-center"></h1>
           <Form.Group>
             <Form.Label htmlFor="email"></Form.Label>
             <Form.Control
@@ -91,7 +91,7 @@ const Login = (props) => {
               type="text"
               onChange={onChange}
               value={email}
-              placeholder="EMAIL"
+              placeholder="Email"
               required
             >
             </Form.Control>
@@ -103,12 +103,12 @@ const Login = (props) => {
               type="password"
               onChange={onChange}
               value={password}
-              placeholder="PASSWORD"
+              placeholder="Password"
               required
             >
             </Form.Control>
           </Form.Group>
-          <Button type="submit">Sign In</Button>
+          <Button className="form-btn" type="submit">Log In</Button>
         </Form>
       </div>
     </>
