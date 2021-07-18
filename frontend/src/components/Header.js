@@ -3,6 +3,8 @@ import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import AuthContext from '../context/auth/AuthContext'
 import recipeContext from '../context/recipe/recipeContext'
+import '../App.css';
+
 
 const Header = ({ props }) => {
   const authContext = useContext(AuthContext)
@@ -18,7 +20,7 @@ const Header = ({ props }) => {
   return (
     <div >
 
-      <Navbar bg="light" expand="lg" collapseOnSelect>
+      <Navbar className="Navbar" bg="light" expand="lg" collapseOnSelect>
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand >Food for Life</Navbar.Brand>

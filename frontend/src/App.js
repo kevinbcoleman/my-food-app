@@ -1,4 +1,4 @@
-// import './App.css';
+import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import React, { useState, useEffect, useContext } from 'react'
@@ -22,6 +22,10 @@ const App = () => {
 
   return (
     <div className="App">
+      <div className="EntryStyleBar1"></div>
+      <div className="EntryStyleBar2"></div>
+      <div className="EntryStyleBar3"></div>
+      <div className="EntryStyleBar4"></div>
       <AuthState>
         <RecipeState>
           <BrowserState>
