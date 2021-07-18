@@ -1,21 +1,68 @@
 .Form {
   display: flex;
   flex-direction: column;
-  align-content: center;
+  justify-content: center;
   margin-top: 5%;
 }
 
 
 
+
 @media (min-width: 768px) {
-  .Form {
-    max-width: 75%;
+
+  .FormMobile {
+    display: none;
   }
+
+  .loginDisplay {
+    height: 80vh;
+    border-radius: 5px;
+    filter: opacity(0.5);
+  }
+
+  .registerHeader {
+    font: 3rem;
+    font-weight: bold;
+    margin-left: -125px;
+    margin-right: 50px;
+    margin-top: 75px;
+  }
+
+  .imageStyle {
+    height: 80vh;
+    width: 80vw;
+  }
+
+  .Form {
+    flex-direction: row;
+    /* justify-content: flex-end; */
+  }
+
+.FormRegister {
+  margin-left: 150px;
+}
+
+.FormCard {
+  padding: 0.5rem 2rem 2.5rem;
+  margin-top: 150px;
+  margin-left: -138px;
+  align-self: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.RegisterCard {
+  width: 40%;
+}
+
 }
 
 
 @media (min-width: 992px) {
-  .Form {
-    max-width: 50%;
+}
+
+
+@media (max-width: 767px) {
+  .FormDesktop{
+    display: none;
   }
 }
