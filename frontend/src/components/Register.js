@@ -47,12 +47,13 @@ const Register = (props) => {
 
     <>
 
-      <Form onSubmit={onSubmit} className="Form FormDesktop FormRegister">
-        <h1 className="registerHeader order-3">Discover food that works for you.</h1>
+      <Form onSubmit={onSubmit} className="Form FormDesktop RegisterForm">
+        <div className="EntryStyleBar"></div>
+        <h1 className="RegisterHeader order-3">Discover food that works for you.</h1>
         <div>
           <img
             src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=653&q=80"
-            className="loginDisplay"
+            className="EntryDisplay"
           />
         </div>
         <Card className="FormCard RegisterCard">

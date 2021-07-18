@@ -10,27 +10,12 @@
 
 @media (min-width: 768px) {
 
+/* ==========================
+    Form & Input Style
+ ==========================*/
+
   .FormMobile {
     display: none;
-  }
-
-  .loginDisplay {
-    height: 80vh;
-    border-radius: 5px;
-    filter: opacity(0.5);
-  }
-
-  .registerHeader {
-    font: 3rem;
-    font-weight: bold;
-    margin-left: -125px;
-    margin-right: 50px;
-    margin-top: 75px;
-  }
-
-  .imageStyle {
-    height: 80vh;
-    width: 80vw;
   }
 
   .Form {
@@ -38,20 +23,55 @@
     /* justify-content: flex-end; */
   }
 
-.FormRegister {
-  margin-left: 150px;
+  .FormCard {
+    padding: 0.5rem 2rem 2.5rem;
+    margin-top: 150px;
+    margin-left: -138px;
+    align-self: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  }
+
+    
+/* ==========================
+    Login & Register Style
+ ==========================*/
+
+  .EntryStyleBar {
+    height: 20%;
+    width: 100%;
+    background-color: rgba(144, 183, 77, 1);
+    position: absolute;
+  }
+
+  .EntryDisplay {
+    height: 100vh;
+    /* border-radius: 5px; */
+    filter: opacity(0.5);
+    margin-left: -450px;
+    margin-top: -35px;
+  }
+
+  .RegisterHeader {
+    font-size: 2.5rem;
+    width: 55vw;
+    /* align-self: flex-start; */
+    position: absolute;
+    /* 
+    font-weight: bold;
+    margin-left: -125px;
+    margin-right: 50px;
+    margin-top: 75px; */
+  }
+
+.RegisterForm {
+  /* margin-right: 150px; */
 }
 
-.FormCard {
-  padding: 0.5rem 2rem 2.5rem;
-  margin-top: 150px;
-  margin-left: -138px;
-  align-self: center;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-}
 
 .RegisterCard {
-  width: 40%;
+  /* align-self: flex-end; */
+  /* margin-top: 250px; */
+  /* margin-left: -100px; */
 }
 
 }
