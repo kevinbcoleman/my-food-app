@@ -21,7 +21,7 @@ const Header = ({ props }) => {
       <Navbar bg="light" expand="lg" collapseOnSelect>
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand >My-Health-App</Navbar.Brand>
+            <Navbar.Brand >Food for Life</Navbar.Brand>
           </LinkContainer>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -31,7 +31,7 @@ const Header = ({ props }) => {
             {!isAuthenticated ?
               <>
                 <LinkContainer to="/login">
-                  <Nav.Link>Login</Nav.Link>
+                  <Nav.Link className="ml-auto">Login</Nav.Link>
                 </LinkContainer>
 
                 <LinkContainer to="/register">

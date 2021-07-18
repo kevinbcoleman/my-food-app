@@ -1,8 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { Form, Row, Col, Button } from 'react-bootstrap'
+import { Form, Row, Col, Button, Container } from 'react-bootstrap'
 import { LinkContainer, Redirect } from 'react-router-bootstrap'
 import AuthContext from '../context/auth/AuthContext'
 import AlertContext from '../context/alert/alertContext'
+import '../App.css';
+
 
 const Register = (props) => {
   const authContext = useContext(AuthContext)
@@ -42,7 +44,7 @@ const Register = (props) => {
     })
   }
   return (
-    <div>
+    <Container className="Form">
       <h1>Register</h1>
       <Form onSubmit={onSubmit}>
         <Form.Group>
@@ -85,7 +87,7 @@ const Register = (props) => {
         </Form.Group>
         <Button type="submit">Sign Up</Button>
       </Form>
-    </div>
+    </Container>
   )
 }
 

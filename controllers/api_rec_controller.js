@@ -82,7 +82,7 @@ apiRecipes.get('/', authn, async (req, res) => {
 // DELETE
 apiRecipes.delete('/:id', authn, async (req, res) => {
   try {
-    let apiRecipe = await apiRecipe.findById(req.params.id)
+    let apiRecipe = await ApiRecipe.findById(req.params.id)
 
     if (!apiRecipe) return res.status(404).json({ msg: 'Not found' })
 
@@ -90,7 +90,7 @@ apiRecipes.delete('/:id', authn, async (req, res) => {
       return res.status(401).json({ msg: 'Not Authorized' })
     }
 
-    await apiRecipe.findByIdAndRemove(req.params.id)
+    await ApiRecipe.findByIdAndRemove(req.params.id)
 
     res.json({ msg: 'Recipe Deleted' })
   } catch (err) {

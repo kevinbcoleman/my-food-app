@@ -1,11 +1,14 @@
 
 import React, { useState, useContext, useEffect } from 'react'
-import { Form, Row, Col, Nav, Button, Card } from 'react-bootstrap'
+import { Form, Row, Col, Nav, Button, Card, Container } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import axios from 'axios'
+import { healthArr, dietTypeArr, dietRegionArr, mealTypeArr } from '../BrowserSeed'
 import BrowserContext from '../context/browser/browserContext'
 import AuthContext from '../context/auth/AuthContext'
 import { v4 as uuidv4 } from 'uuid'
+import '../App.css';
+
 
 
 
@@ -19,6 +22,55 @@ const Browser = () => {
   const APP_ID = 'eed233fa'
   const API_KEY = 'd7cbb28565679a25cdf7b8ee39d91ebb'
 
+
+  const [fetchedData, setFetchedData] = useState(false)
+  useEffect(() => {
+  }, [browserContext])
+
+
+  // const healthArr = [
+  //   "dairy-free",
+  //   "gluten-free",
+  //   "keto-friendly",
+  //   "kosher",
+  //   "low-sugar",
+  //   "paleo",
+  //   "peanut-free",
+  //   "pescatarian",
+  //   "pork-free",
+  //   "vegan"
+  // ]
+
+  // const dietTypeArr = [
+  //   "balanced",
+  //   "high-fiber",
+  //   "high-protein",
+  //   "low-carb",
+  //   "low-fat",
+  //   "low-sodium"
+  // ]
+
+  // const dietRegionArr = [
+  //   "american",
+  //   "asian",
+  //   "caribbean",
+  //   "chinese",
+  //   "french",
+  //   "indian",
+  //   "italian",
+  //   "japanese",
+  //   "mediterranean",
+  //   "mexican",
+  // ]
+
+  // const mealTypeArr = [
+  //   "breakfast",
+  //   "lunch",
+  //   "dinner",
+  //   "snack"
+  // ]
+
+
   const [healthOpts, setHealthOpts] = useState('')
   const [dietType, setDietType] = useState('')
   const [dietRegion, setDietRegion] = useState('')
@@ -26,78 +78,20 @@ const Browser = () => {
   const [apiRecipes, setApiRecipes] = useState([])
 
 
-  const [fetchedData, setFetchedData] = useState(false)
-  useEffect(() => {
-  }, [browserContext])
-
-
-
-  const healthArr = [
-    "None",
-    "dairy-free",
-    "gluten-free",
-    "keto-friendly",
-    "kosher",
-    "low-sugar",
-    "paleo",
-    "peanut-free",
-    "pescatarian",
-    "pork-free",
-    "vegan"
-  ]
-
-  const dietTypeArr = [
-    "None",
-    "balanced",
-    "high-fiber",
-    "high-protein",
-    "low-carb",
-    "low-fat",
-    "low-sodium"
-  ]
-
-  const dietRegionArr = [
-    "None",
-    "american",
-    "asian",
-    "caribbean",
-    "chinese",
-    "french",
-    "indian",
-    "italian",
-    "japanese",
-    "mediterranean",
-    "mexican",
-  ]
-
-  const mealTypeArr = [
-    "None",
-    "breakfast",
-    "lunch",
-    "dinner",
-    "snack"
-  ]
-
-
   const getData = async () => {
     setApiRecipes([])
     setFetchedData(false)
+
     try {
       const { data } = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&health=${healthOpts}&diet=${dietType}&cuisineType=${dietRegion}&mealType=${mealType}`)
       const res = await data.hits
+      console.log(res)
       setApiRecipes(res)
       setFetchedData(true)
+
     } catch (err) {
       console.log(err)
     }
-
-    // {
-    //   res.length === 0 ? (<h3>No results.</h3>) :
-    //     setApiRecipes(res)
-    //   setFetchedData(true)
-    // }
-
-    // console.log(apiRecipes)
   }
 
 
@@ -120,16 +114,16 @@ const Browser = () => {
 
 
   return (
-    <div>
+    <Container className="Form">
       <h2>Browse Recipes</h2>
       <Form.Group controlId="selectForm">
         <Form.Label>Health Options</Form.Label>
         <Form.Control
           as="select"
           style={inputStyle}
-          value={healthOpts}
           onChange={(e => setHealthOpts(e.target.value))}
         >
+          <option value={healthArr[0]}>- Select -</option>
           {healthArr.map(op => (
             <option value={op}>{op}</option>
           ))}
@@ -141,9 +135,9 @@ const Browser = () => {
         <Form.Control
           style={inputStyle}
           as="select"
-          value={dietType}
           onChange={(e => setDietType(e.target.value))}
         >
+          <option value={dietTypeArr[0]}>- Select -</option>
           {dietTypeArr.map(op => (
             <option value={op}>{op}</option>
           ))}
@@ -155,9 +149,9 @@ const Browser = () => {
         <Form.Control
           style={inputStyle}
           as="select"
-          value={dietRegion}
           onChange={(e => setDietRegion(e.target.value))}
         >
+          <option value={dietRegionArr[0]}>- Select -</option>
           {dietRegionArr.map(op => (
             <option value={op}>{op}</option>
           ))}
@@ -169,15 +163,15 @@ const Browser = () => {
         <Form.Control
           style={inputStyle}
           as="select"
-          value={mealType}
           onChange={(e => setMealType(e.target.value))}
         >
+          <option value={mealTypeArr[0]}>- Select -</option>
           {mealTypeArr.map(op => (
             <option value={op}>{op}</option>
           ))}
         </Form.Control>
       </Form.Group>
-      <Button onClick={getData}>Search</Button>
+      <Button className="align-self-start" onClick={getData}>Search</Button>
       <div>
 
         {fetchedData ?
@@ -209,7 +203,7 @@ const Browser = () => {
           </>
           : null}
       </div>
-    </div >
+    </Container>
   )
 }
 

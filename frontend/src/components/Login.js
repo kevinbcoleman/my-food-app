@@ -1,8 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { Form, Row, Col, Button } from 'react-bootstrap'
+import { Form, Row, Col, Button, Container } from 'react-bootstrap'
 import { LinkContainer, Redirect } from 'react-router-bootstrap'
 import AuthContext from '../context/auth/AuthContext'
 import AlertContext from '../context/alert/alertContext'
+import '../App.css';
 
 
 
@@ -41,9 +42,9 @@ const Login = (props) => {
   }
 
   return (
-    <div>
+    <Container className="Form">
       <h1>Login</h1>
-      <Form onSubmit={onSubmit}>
+      <Form className="" onSubmit={onSubmit}>
         <Form.Group>
           <Form.Label htmlFor="email"></Form.Label>
           <Form.Control
@@ -70,8 +71,16 @@ const Login = (props) => {
         </Form.Group>
         <Button type="submit">Sign In</Button>
       </Form>
-    </div>
+    </Container>
   )
 }
+
+
+
+// const inputStyle = {
+//   "max-width": "50%"
+// }
+
+
 
 export default Login

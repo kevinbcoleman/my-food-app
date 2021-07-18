@@ -51,7 +51,6 @@ app.use('/auth', authController)
 
 app.get('/', (req, res) => {
   res.json('Welcome')
-  // res.redirect('/recipes')
 })
 
 
