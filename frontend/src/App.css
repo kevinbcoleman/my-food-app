@@ -21,6 +21,7 @@
 .form-btn {
   border-radius: 5px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-top: 30px;
   margin-bottom: 5px;
   background-color: #4c7bef;
   color: #fff;
@@ -29,6 +30,10 @@
 .FormMobile {
   margin: 0 auto;
   width: 80vw;
+}
+
+.inputStyle {
+  margin-bottom: -20px;
 }
 
 .Navbar {
@@ -58,11 +63,13 @@
   }
 
   .FormCard {
-    padding: 0.5rem 2rem 2.5rem;
+    width: 350px;
+    padding: 0.1rem 1rem 2.5rem;
     margin-top: 175px;
     margin-left: -138px;
     align-self: center;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    background-color: #fff;
   }
 
     

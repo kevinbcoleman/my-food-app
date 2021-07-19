@@ -60,6 +60,7 @@ const Register = (props) => {
           <Form.Group>
             <Form.Label htmlFor="username"></Form.Label>
             <Form.Control
+              className="inputStyle"
               name="username"
               type="text"
               onChange={onChange}
@@ -73,6 +74,7 @@ const Register = (props) => {
           <Form.Group>
             <Form.Label htmlFor="email"></Form.Label>
             <Form.Control
+              className="inputStyle"
               name="email"
               type="text"
               onChange={onChange}
@@ -85,6 +87,7 @@ const Register = (props) => {
           <Form.Group>
             <Form.Label htmlFor="password"></Form.Label>
             <Form.Control
+              className="inputStyle"
               name="password"
               type="password"
               onChange={onChange}
@@ -106,6 +109,7 @@ const Register = (props) => {
             <h1 className="text-center mt-4">Sign Up</h1>
             <Form.Label htmlFor="username"></Form.Label>
             <Form.Control
+              className="inputStyle"
               name="username"
               type="text"
               onChange={onChange}
@@ -119,6 +123,7 @@ const Register = (props) => {
           <Form.Group>
             <Form.Label htmlFor="email"></Form.Label>
             <Form.Control
+              className="inputStyle"
               name="email"
               type="text"
               onChange={onChange}
@@ -131,6 +136,7 @@ const Register = (props) => {
           <Form.Group>
             <Form.Label htmlFor="password"></Form.Label>
             <Form.Control
+              className="inputStyle"
               name="password"
               type="password"
               onChange={onChange}
