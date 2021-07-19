@@ -1,13 +1,26 @@
 /* ==========================
         Base Styles
  ==========================*/
+
+
 #root {
   overflow-x: hidden;
   overflow-y: hidden;
+  color: #000;
 }
 
 .App {
   position: relative;
+}
+
+h1,
+h2,
+.Navbar,
+.textStyle {
+  color: #0b2d83 !important;
+}
+
+ {
 }
 
 
@@ -33,11 +46,17 @@
 }
 
 .inputStyle {
-  margin-bottom: -20px;
+  margin-bottom: -25px;
 }
 
 .Navbar {
   z-index: 1;
+}
+
+.MainForm {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
 }
 
 
@@ -59,7 +78,6 @@
 
   .Form {
     flex-direction: row;
-    /* justify-content: flex-end; */
   }
 
   .FormCard {
@@ -136,20 +154,16 @@
     font-size: 2rem;
     width: 40vw;
     height: auto;
-    /* align-self: flex-start; */
     position: absolute;
-    right: 15px;
+    right: 75px;
     top: 200px;
-    /* left: 425px; */
-    /* 
-    font-weight: bold;
-    margin-left: -125px;
-    margin-right: 50px;
-    margin-top: 75px; 
-    */
   }
 }
 
+
+/* ==========================
+    L + XL Screen Queries
+ ==========================*/
 
 @media screen and (min-width: 992px) and (max-width: 1399) {
 

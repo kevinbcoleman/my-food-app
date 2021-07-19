@@ -22,10 +22,10 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className="EntryStyleBar1"></div>
+      {/* <div className="EntryStyleBar1"></div>
       <div className="EntryStyleBar2"></div>
       <div className="EntryStyleBar3"></div>
-      <div className="EntryStyleBar4"></div>
+      <div className="EntryStyleBar4"></div> */}
       <AuthState>
         <RecipeState>
           <BrowserState>

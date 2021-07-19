@@ -46,7 +46,10 @@ const Register = (props) => {
   return (
 
     <>
-
+      <div className="EntryStyleBar1"></div>
+      <div className="EntryStyleBar2"></div>
+      <div className="EntryStyleBar3"></div>
+      <div className="EntryStyleBar4"></div>
       <Form onSubmit={onSubmit} className="Form FormDesktop RegisterForm">
 
         <h1 className="RegisterHeader order-3">Discover food that works for you.</h1>
@@ -104,6 +107,7 @@ const Register = (props) => {
 
 
       <div>
+
         <Form className="Form FormMobile" onSubmit={onSubmit}>
           <Form.Group>
             <h1 className="text-center mt-4">Sign Up</h1>
