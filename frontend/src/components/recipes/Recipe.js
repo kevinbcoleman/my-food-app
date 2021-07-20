@@ -9,7 +9,6 @@ const Recipe = ({ recipe }) => {
   const { deleteRecipe, setCurrent, clearCurrent } = recipeContext
   const { _id, label, cuisineType, ingredients = [] } = recipe
   const [modalShow, setModalShow] = React.useState(false);
-  const [fade, setFade] = React.useState(false);
 
 
 
@@ -22,6 +21,7 @@ const Recipe = ({ recipe }) => {
     return (
       < Modal
         {...props}
+        className="Modal"
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
@@ -39,8 +39,8 @@ const Recipe = ({ recipe }) => {
           </p>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.onHide}>Cancel</Button>
-          <Button onClick={onDelete}>Delete</Button>
+          <Button className="card-btn" onClick={props.onHide}>Cancel</Button>
+          <Button className="card-btn delete-btn" onClick={onDelete}>Delete</Button>
         </Modal.Footer>
       </Modal >
     )
@@ -50,7 +50,7 @@ const Recipe = ({ recipe }) => {
     <>
       <Card className="RecipeCard">
         <div>
-          <h3 className="card-header text-center">{label}</h3>
+          <h3 className="card-header">{label}</h3>
         </div>
         <Card.Body>
           <p>Cuisine Type: {cuisineType}</p>
@@ -69,16 +69,13 @@ const Recipe = ({ recipe }) => {
             ))}
           </table>
           <Button
-            className="card-btn edit-btn mr-4"
+            className="card-btn mr-4"
             onClick={() => setCurrent(recipe)}>
             Edit
           </Button>
-          {/* <Button
-            className="card-btn delete-btn"
-            onClick={onDelete}>
-            Delete
-          </Button> */}
-          <Button className="card-btn delete-btn" variant="primary" onClick={() => setModalShow(true)}>
+          <Button className="card-btn delete-btn"
+            onClick={() =>
+              setModalShow(true)}>
             Delete
           </Button>
         </Card.Body>

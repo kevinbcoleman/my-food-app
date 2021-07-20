@@ -38,21 +38,31 @@ const Browser = () => {
   const [apiRecipes, setApiRecipes] = useState([])
 
 
+  // const noData = () => {
+  //   return (
+  //     <p> No results. Try broadening your search. </p>
+  //   )
+  // }
+
   const getData = async () => {
+
     setApiRecipes([])
     setFetchedData(false)
 
     try {
       const { data } = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&health=${healthOpts}&diet=${dietType}&cuisineType=${dietRegion}&mealType=${mealType}`)
       const res = await data.hits
-      console.log(res)
+      // res.length === 0 ? noData() :
       setApiRecipes(res)
       setFetchedData(true)
+
 
     } catch (err) {
       console.log(err)
     }
   }
+
+
 
 
   const addToCollection = (index) => {
@@ -138,7 +148,7 @@ const Browser = () => {
 
 
       <div>
-
+        {/* {noData} */}
         {fetchedData ?
           <>
             <ul>
