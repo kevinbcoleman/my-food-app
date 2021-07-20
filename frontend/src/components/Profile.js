@@ -19,9 +19,13 @@ const Profile = () => {
 
 
   return (
-    <div className="Profile">
-      <RecipeForm />
+    <div className="Profile row mx-auto">
+      <div className="col-12">
+        <RecipeForm />
+      </div>
 
+      <h2>My Recipes</h2>
+      <h2>Saved Recipes</h2>
       {apiRecipes !== null && !loading ? (
         <>
           {
