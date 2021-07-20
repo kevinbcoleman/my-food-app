@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { Form, Row, Col, Button } from 'react-bootstrap'
+import { Form, Row, Col, Button, Card } from 'react-bootstrap'
 import RecipeContext from '../../context/recipe/recipeContext'
-import { v4 as uuidv4 } from 'uuid'
+import '../../App.css';
 
 
 const RecipeForm = () => {
@@ -42,6 +42,7 @@ const RecipeForm = () => {
         <Form.Group>
           <Form.Label></Form.Label>
           <Form.Control
+            className="inputStyle"
             type="text"
             placeholder="Name"
             name="ing_name"
@@ -69,6 +70,7 @@ const RecipeForm = () => {
           >
           </Form.Control>
         </Form.Group>
+        <div className="ingStyle"></div>
       </div>
     ))
   }
@@ -110,44 +112,48 @@ const RecipeForm = () => {
 
   return (
     <>
-      <h2>{current ? 'Edit Recipe' : 'Add Recipe'}</h2>
-      <Form onSubmit={onSubmit}>
-        <Form.Group>
-          <Form.Label></Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Name of dish?"
-            name="label"
-            value={label}
-            onChange={handleChange}
-          >
-          </Form.Control>
-        </Form.Group>
+      <Form className="AddForm" onSubmit={onSubmit}>
+        <Card className="CardStyle">
+          <h2 className="card-title">{current ? 'Edit Recipe' : 'Add Recipe'}</h2>
+          <Form.Group>
+            <Form.Label></Form.Label>
+            <Form.Control
+              className="inputStyle"
+              type="text"
+              placeholder="Name of dish"
+              name="label"
+              value={label}
+              onChange={handleChange}
+            >
+            </Form.Control>
+          </Form.Group>
 
-        <Form.Group>
-          <Form.Label></Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Type of cuisine?"
-            name="cuisineType"
-            value={cuisineType}
-            onChange={handleChange}
-          >
-          </Form.Control>
-        </Form.Group>
+          <Form.Group>
+            <Form.Label></Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Cuisine (American, Mexican, French)"
+              name="cuisineType"
+              value={cuisineType}
+              onChange={handleChange}
+            >
+            </Form.Control>
+          </Form.Group>
 
-        <h2>Ingredients:</h2>
+          <h3>Ingredients:</h3>
 
-        {addField()}
-        <Button
-          type="button"
-          value="add more"
-          onClick={addIng}
-        >Add another Ingredient</Button>
-
-        <Button
-          type="submit">{current ? 'Update' : 'Submit'}
-        </Button>
+          {addField()}
+          <p className="mt-3 mb-1 text-center">Add another ingredient</p>
+          <Button
+            className="add-btn"
+            type="button"
+            onClick={addIng}
+          >+</Button>
+          <Button
+            className="form-btn"
+            type="submit">{current ? 'Update' : 'Submit'}
+          </Button>
+        </Card>
       </Form>
     </>
   )
@@ -155,24 +161,3 @@ const RecipeForm = () => {
 
 export default RecipeForm
 
-
-  // const handleIngChange = (name, ind) => e => {
-  //   setIngredients(
-  //     ingredients.map(ing =>
-  //       ing.ing_name === ind ? { ...ing, name: e.target.value } : ing
-  //     )
-  //   )
-  //   console.log(ingredients)
-  //   console.log(ind)
-  // }
-  // const handleIngChange = ind => e => {
-  //   setIngredients(newIng)
-  // }
-  // const handleIngChange = (ind, e) => {
-  //   const ingreds = e.target.value
-  //   const fullIngreds = ingreds.split(',')
-  //   setRecipe({
-  //     ...recipe,
-  //     ingredients: fullIngreds
-  //   })
-  // }

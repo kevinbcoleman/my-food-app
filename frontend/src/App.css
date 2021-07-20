@@ -6,7 +6,7 @@
 #root {
   overflow-x: hidden;
   overflow-y: hidden;
-  color: #000;
+  /* color: #000; */
 }
 
 .App {
@@ -15,14 +15,16 @@
 
 h1,
 h2,
+h3,
+h4,
 .Navbar,
 .textStyle {
   color: #0b2d83 !important;
 }
 
- {
+li {
+  list-style: none;
 }
-
 
 .Form {
   display: flex;
@@ -39,6 +41,19 @@ h2,
   background-color: #4c7bef;
   color: #fff;
 }
+
+.add-btn {
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  /* margin-top: 5px; */
+  background-color: #88c147;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  /* width: 125px; */
+  padding: 3px;
+}
+
 
 .FormMobile {
   margin: 0 auto;
@@ -59,7 +74,76 @@ h2,
   width: 200px;
 }
 
+.AddForm {
+  /* height: 60vh; */
+  /* display: flex; */
+  /* flex-flow: column-wrap; */
+  margin: 0 auto;
+  width: 325px;
+  /* overflow: scroll; */
+}
 
+.CardStyle {
+  padding: 10px;
+}
+
+.delete-btn {
+  background-color: #ff716d;
+  color: #fff;
+}
+
+.edit-btn {
+  background-color: #c7cfd1;
+  color: #fff;
+} 
+
+.RecipeCard {
+  width: 325px;
+  background-color: #EDF1F7;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+
+.ingStyle {
+  width: 300px;
+  height: 2px;
+  opacity: 0.1;
+  background-color: lightslategrey;
+}
+
+table {
+  margin: 0 auto 1.5em auto;
+}
+
+td {
+  padding: 0.5em 0.7em 1em 1em;
+  border: 3px solid #e1e9f4;
+  border-top: none;
+  border-right: none;
+}
+
+td:nth-of-type(1) {
+  border-left: none;
+}
+
+th {
+  text-align: center;
+}
+
+.card-btn {
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; 
+}
+
+
+.Profile {
+/* display: flex;
+width: 90vw;
+flex-direction: row; */
+/* justify-content: space-around; */
+}
 
 /* ==========================================
                 Media Queries
@@ -144,9 +228,7 @@ h2,
 
   .EntryDisplay {
     height: 100vh;
-    filter: opacity(0.6);
-    margin-left: -575px;
-    margin-top: -75px;
+    filter: opacity(0.8);
     z-index: -1;
   }
 
@@ -158,6 +240,11 @@ h2,
     right: 75px;
     top: 200px;
   }
+
+  .displayStyle {
+    margin-left: -575px;
+    margin-top: -75px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;  }
 }
 
 
@@ -186,8 +273,6 @@ h2,
 .RegisterHeader {
   font-size: 2.6rem;
 }
-
-
 
 @media (max-width: 767px) {
   .FormDesktop{

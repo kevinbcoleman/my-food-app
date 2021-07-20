@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Card, Button } from 'react-bootstrap'
 import BrowserContext from '../../context/browser/browserContext'
+import '../../App.css';
 
 const ApiRecipe = ({ apiRecipe }) => {
 
@@ -15,7 +16,7 @@ const ApiRecipe = ({ apiRecipe }) => {
 
   return (
     <>
-      <Card>
+      <Card className="RecipeCard">
         <h1>{label}</h1>
         <Card.Body>
           <h2>{cuisineType}</h2>

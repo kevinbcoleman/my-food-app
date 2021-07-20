@@ -42,7 +42,7 @@ const Header = ({ props }) => {
               </> :
               <>
                 <LinkContainer className="textStyle" to="/profile">
-                  <Nav.Link>My Profile</Nav.Link>
+                  <Nav.Link className="ml-auto">My Profile</Nav.Link>
                 </LinkContainer>
                 <LinkContainer className="textStyle" to='/'>
                   <Nav.Link onClick={onLogout}>Logout</Nav.Link>

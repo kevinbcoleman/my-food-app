@@ -17,11 +17,9 @@ const Profile = () => {
   }, [])
 
 
-  // if (apiRecipes !== null && apiRecipes.length === 0 && !loading) {
-  //   return <h3>Please add a recipe</h3>
-  // }
+
   return (
-    <>
+    <div className="Profile">
       <RecipeForm />
 
       {apiRecipes !== null && !loading ? (
@@ -33,17 +31,8 @@ const Profile = () => {
           }
         </>
       ) : null}
-      {/* {recipes !== null && !loading ? (
-        <>
-          {
-            recipes.map(recipe => (
-              <recipe key={recipe._id} recipe={recipe} />
-            ))
-          }
-        </>
-      ) : null} */}
       <Recipes />
-    </>
+    </div>
   )
 }
 

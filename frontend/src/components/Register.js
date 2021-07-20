@@ -50,10 +50,10 @@ const Register = (props) => {
       <div className="EntryStyleBar2"></div>
       <div className="EntryStyleBar3"></div>
       <div className="EntryStyleBar4"></div>
-      <Form onSubmit={onSubmit} className="Form FormDesktop RegisterForm">
+      <Form onSubmit={onSubmit} className="Form FormDesktop">
 
         <h1 className="RegisterHeader order-3">Discover food that works for you.</h1>
-        <div>
+        <div className="displayStyle">
           <img
             src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=653&q=80"
             className="EntryDisplay"

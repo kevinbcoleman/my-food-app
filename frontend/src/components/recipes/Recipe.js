@@ -1,12 +1,16 @@
 import React, { useContext } from 'react'
-import { Card, Button } from 'react-bootstrap'
+import { Card, Button, Modal } from 'react-bootstrap'
 import RecipeContext from '../../context/recipe/recipeContext'
+import '../../App.css';
 
 const Recipe = ({ recipe }) => {
 
   const recipeContext = useContext(RecipeContext)
   const { deleteRecipe, setCurrent, clearCurrent } = recipeContext
   const { _id, label, cuisineType, ingredients = [] } = recipe
+  const [modalShow, setModalShow] = React.useState(false);
+  const [fade, setFade] = React.useState(false);
+
 
 
   const onDelete = () => {
@@ -14,27 +18,84 @@ const Recipe = ({ recipe }) => {
     clearCurrent()
   }
 
+  const DeleteModal = (props) => {
+    return (
+      < Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Please confirm
+        </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h4>Are you sure?</h4>
+          <p>
+            This action cannot be undone.
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={props.onHide}>Cancel</Button>
+          <Button onClick={onDelete}>Delete</Button>
+        </Modal.Footer>
+      </Modal >
+    )
+  }
+
   return (
     <>
-      <Card>
-        <h1>{label}</h1>
+      <Card className="RecipeCard">
+        <div>
+          <h3 className="card-header text-center">{label}</h3>
+        </div>
         <Card.Body>
-          <h2>{cuisineType}</h2>
-          <ul>
+          <p>Cuisine Type: {cuisineType}</p>
+          <h4>Ingredients</h4>
 
+          <table>
+            <tr>
+              <th>Amount</th>
+              <th>Name</th>
+            </tr>
             {ingredients.map((i, index) => (
-              <div key={index}>
-                <li>{i.amount}</li>
-                <li>{i.ing_name}</li>
-              </div>
+              <tr>
+                <td className="text-end">{i.amount}</td>
+                <td>{i.ing_name}</td>
+              </tr>
             ))}
-          </ul>
-          <Button onClick={() => setCurrent(recipe)}>Edit</Button>
-          <Button onClick={onDelete}>Delete</Button>
+          </table>
+          <Button
+            className="card-btn edit-btn mr-4"
+            onClick={() => setCurrent(recipe)}>
+            Edit
+          </Button>
+          {/* <Button
+            className="card-btn delete-btn"
+            onClick={onDelete}>
+            Delete
+          </Button> */}
+          <Button className="card-btn delete-btn" variant="primary" onClick={() => setModalShow(true)}>
+            Delete
+          </Button>
         </Card.Body>
       </Card>
+      <DeleteModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
+
+
+
+
+
     </>
   )
 }
 
 export default Recipe
+
+
