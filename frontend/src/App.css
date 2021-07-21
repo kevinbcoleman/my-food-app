@@ -6,7 +6,8 @@
 #root {
   overflow-x: hidden;
   overflow-y: hidden;
-  /* color: #000; */
+  background-color: #e4ebf5;
+
 }
 
 .App {
@@ -31,6 +32,8 @@ li {
   flex-direction: column;
   justify-content: center;
   margin-top: 5%;
+  height: 100vh;
+  max-width: 350px;
 }
 
 .form-btn {
@@ -60,6 +63,8 @@ li {
 
 .inputStyle {
   margin-bottom: -25px;
+  color: #e4ebf5;
+  box-shadow: inset 0 0 3px rgba(39, 66, 104, 0.3);
 }
 
 .AddInput {
@@ -75,6 +80,13 @@ li {
   z-index: 1;
 }
 
+.Nav2 {
+  box-shadow: inset 0 0 8px rgba(39, 66, 104, 0.3);
+  border-radius: 5px;
+  width: 325px;
+  margin: 0 auto;
+}
+
 .MainForm {
   display: flex;
   flex-direction: column;
@@ -84,6 +96,7 @@ li {
 .AddForm {
   margin: 2em auto;
   width: 325px;
+  padding: 0;
 }
 
 .AddField {
@@ -110,9 +123,12 @@ li {
   margin: 2em auto;
 }
 
+.apiRecList {
+  padding: 0;
+}
 
 .ingStyle {
-  width: 300px;
+  width: auto;
   height: 2px;
   opacity: 0.1;
   background-color: lightslategrey;
@@ -148,7 +164,7 @@ th {
  ===========================================*/
 
 
-@media (min-width: 768px) {
+@media (min-width: 576px) {
 
 /* ==========================
     Form & Input Style
@@ -166,7 +182,7 @@ th {
     width: 350px;
     padding: 0.1rem 1rem 2.5rem;
     margin-top: 175px;
-    margin-left: -138px;
+    margin-left: -225px;
     align-self: center;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     background-color: #fff;
@@ -186,7 +202,7 @@ th {
     right: 0px;
     bottom: 0px;
     margin: 0px -100px -375px 0px;
-    z-index: -1;
+    z-index: 3;
   }
 
   .EntryStyleBar2 {
@@ -198,7 +214,7 @@ th {
     right: 0px;
     bottom: 0px;
     margin: 0px -150px 100px 0px;
-    z-index: -2;
+    z-index: 2;
   }
 
   .EntryStyleBar3 {
@@ -210,7 +226,7 @@ th {
     right: 0px;
     bottom: 0px;
     margin: 0px -100px 175px 0px;
-    z-index: -3;
+    z-index: 1;
   }
 
   .EntryStyleBar4 {
@@ -222,6 +238,7 @@ th {
     right: 0px;
     bottom: 0px;
     margin: 0px -125px 500px 0px;
+    z-index: 2;
   }
 
   .EntryDisplay {
@@ -240,31 +257,42 @@ th {
   }
 
   .displayStyle {
-    margin-left: -575px;
+    margin-left: -275px;
     margin-top: -75px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;  }
-}
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
 
-
-/* ==========================
+    
+  /* ==========================
         Profile Page
  ==========================*/
 
-.Profile {
-  display: flex;
-  width: 90vw;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  }
-
+  .Profile {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    /* margin: auto; */
+    }
+  
   .AddForm {
     display: flex;
     flex-direction: column;
     height: 55vh;
+    width: 500px;
     overflow: scroll;
-    margin-right: 0;
     padding: 0;
   }
+
+  .RecipeCard {
+    width: 48%;
+    margin: 2em 1%;
+    padding: 0;
+  }
+  
+}
+
+
+
 
 
 
@@ -294,7 +322,7 @@ th {
   font-size: 2.6rem;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 576px) {
   .FormDesktop{
     display: none;
   }
