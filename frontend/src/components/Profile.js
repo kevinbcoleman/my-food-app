@@ -1,31 +1,20 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import BrowserContext from '../context/browser/browserContext'
 import Recipes from './recipes/Recipes'
-import MyRecipes from './MyRecipes'
-import SavedRecipes from './SavedRecipes'
 import RecipeForm from './recipes/RecipeForm'
-import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
-
+import ApiRecipe from '../components/recipes/ApiRecipe'
 
 
 
 const Profile = () => {
   const browserContext = useContext(BrowserContext)
-  const [myRecShow, setMyRecShow] = useState(false)
-  const [savedRecShow, setSavedRecShow] = useState(false)
+  const { getApiRecipes, apiRecipes, loading } = browserContext
 
 
-
-  const toggleShow = (option) => {
-    if (option === "mine") {
-      setMyRecShow(true)
-      setSavedRecShow(false)
-    } else if (option === "saved") {
-      setMyRecShow(false)
-      setSavedRecShow(true)
-    }
-  }
+  useEffect(() => {
+    getApiRecipes()
+    //eslint-disable-next-line
+  }, [])
 
 
 
@@ -33,32 +22,18 @@ const Profile = () => {
     <div className="Profile">
       <RecipeForm />
 
-      <Container>
-        <Navbar className="Navbar Nav2" bg="light" expand="lg" collapseOnSelect>
-
-          <LinkContainer className="textStyle" to="/profile/myrecipes">
-            <Nav.Link onClick={(() => toggleShow("mine"))}>My Recipes</Nav.Link>
-          </LinkContainer>
-
-          <LinkContainer className="textStyle" to="/profile/savedrecipes">
-            <Nav.Link onClick={(() => toggleShow("saved"))}>Saved Recipes</Nav.Link>
-          </LinkContainer>
-
-        </Navbar>
-      </Container>
-
-      {savedRecShow ? (
-        <div className="col-md-4">
-          <SavedRecipes />
-        </div>
+      <h2>My Recipes</h2>
+      <h2>Saved Recipes</h2>
+      {apiRecipes !== null && !loading ? (
+        <>
+          {
+            apiRecipes.map(apiRecipe => (
+              <ApiRecipe key={apiRecipe._id} apiRecipe={apiRecipe} />
+            ))
+          }
+        </>
       ) : null}
-
-      {myRecShow ? (
-        <div className="col-md-4">
-          <MyRecipes />
-        </div>
-      ) : null}
-
+      <Recipes />
     </div>
   )
 }

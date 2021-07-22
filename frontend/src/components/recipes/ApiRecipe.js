@@ -49,13 +49,12 @@ const ApiRecipe = ({ apiRecipe }) => {
       <Card className="RecipeCard">
         <h3 className="card-header">{label}</h3>
         <Card.Body>
-          <p>Cuisine Type: {cuisineType.toUpperCase().charAt(0) + cuisineType.slice(1)}</p>
+          <p>Cuisine Type: {cuisineType}</p>
           <h4>Ingredients</h4>
-          <ul className="text-start apiRecList">
+          <ul className="text-start">
             {ingredients.map((i, index) => (
               <div key={index}>
-                <li className="mt-2">{i.ing_name}</li>
-                <div className="ingStyle"></div>
+                <li>{i.ing_name}</li>
               </div>
             ))}
           </ul>

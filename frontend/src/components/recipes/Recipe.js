@@ -57,20 +57,17 @@ const Recipe = ({ recipe }) => {
           <h4>Ingredients</h4>
 
           <table>
-            <tbody>
+            <tr>
+              <th>Amount</th>
+              <th>Name</th>
+            </tr>
+            {ingredients.map((i, index) => (
               <tr>
-                <th>Amount</th>
-                <th>Name</th>
+                <td className="text-end">{i.amount}</td>
+                <td>{i.ing_name}</td>
               </tr>
-              {ingredients.map((i, index) => (
-                <tr>
-                  <td className="text-end">{i.amount}</td>
-                  <td>{i.ing_name}</td>
-                </tr>
-              ))}
-            </tbody>
+            ))}
           </table>
-
           <Button
             className="card-btn mr-4"
             onClick={() => setCurrent(recipe)}>
@@ -87,6 +84,10 @@ const Recipe = ({ recipe }) => {
         show={modalShow}
         onHide={() => setModalShow(false)}
       />
+
+
+
+
 
     </>
   )
