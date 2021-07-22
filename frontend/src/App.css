@@ -31,7 +31,11 @@ li {
   flex-direction: column;
   justify-content: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
   height: 100vh;
+=======
+  margin-top: 5%;
+>>>>>>> parent of 0243a17... bugs
 =======
   margin-top: 5%;
 >>>>>>> parent of 0243a17... bugs
@@ -65,9 +69,13 @@ li {
 
 .inputStyle {
 <<<<<<< HEAD
+<<<<<<< HEAD
   margin-bottom: -5px;
   color: #e4ebf5;
   box-shadow: inset 0 0 3px rgba(39, 66, 104, 0.3);
+=======
+  margin-bottom: -25px;
+>>>>>>> parent of 0243a17... bugs
 =======
   margin-bottom: -25px;
 >>>>>>> parent of 0243a17... bugs
@@ -170,7 +178,11 @@ flex-direction: row; */
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
  @media (min-width: 768px) {
+=======
+@media (min-width: 768px) {
+>>>>>>> parent of 0243a17... bugs
 =======
 @media (min-width: 768px) {
 >>>>>>> parent of 0243a17... bugs
@@ -267,6 +279,7 @@ flex-direction: row; */
 
   .displayStyle {
 <<<<<<< HEAD
+<<<<<<< HEAD
     height: 100vh;
     margin-left: -425px;
     /* margin-top: -5px; */
@@ -274,10 +287,15 @@ flex-direction: row; */
     z-index: 4;
   }
 =======
+=======
+>>>>>>> parent of 0243a17... bugs
     margin-left: -575px;
     margin-top: -75px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;  }
 }
+<<<<<<< HEAD
+>>>>>>> parent of 0243a17... bugs
+=======
 >>>>>>> parent of 0243a17... bugs
 
 
@@ -302,6 +320,7 @@ flex-direction: row; */
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   .RecipeCard {
     width: 48%;
     margin: 2em 1%;
@@ -310,6 +329,8 @@ flex-direction: row; */
   
 }
 
+=======
+>>>>>>> parent of 0243a17... bugs
 =======
 >>>>>>> parent of 0243a17... bugs
 

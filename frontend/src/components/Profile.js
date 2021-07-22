@@ -19,8 +19,15 @@ const Profile = () => {
 
 
   return (
+<<<<<<< HEAD
     <div className="Profile">
       <RecipeForm />
+=======
+    <div className="Profile row mx-auto">
+      <div className="col-12">
+        <RecipeForm />
+      </div>
+>>>>>>> parent of 0243a17... bugs
 
       <h2>My Recipes</h2>
       <h2>Saved Recipes</h2>
