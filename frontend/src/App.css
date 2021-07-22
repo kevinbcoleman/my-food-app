@@ -37,10 +37,14 @@ li {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of c8b4ed2... b
   height: 100vh;
 =======
   margin-top: 5%;
 >>>>>>> parent of 0243a17... bugs
+<<<<<<< HEAD
 =======
   margin-top: 5%;
 >>>>>>> parent of 0243a17... bugs
@@ -62,6 +66,8 @@ li {
 =======
   height: 100vh;
 >>>>>>> parent of ab638ad... rev2
+=======
+>>>>>>> parent of c8b4ed2... b
 }
 
 .form-btn {
@@ -96,8 +102,11 @@ li {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of ab638ad... rev2
+=======
+>>>>>>> parent of c8b4ed2... b
   margin-bottom: -5px;
 =======
   margin-bottom: -25px;
@@ -108,6 +117,7 @@ li {
 =======
   margin-bottom: -25px;
 >>>>>>> parent of 0243a17... bugs
+<<<<<<< HEAD
 =======
   margin-bottom: -25px;
 >>>>>>> parent of 0243a17... bugs
@@ -121,6 +131,8 @@ li {
   color: #e4ebf5;
   box-shadow: inset 0 0 3px rgba(39, 66, 104, 0.3);
 >>>>>>> parent of 5f19c73... bugs
+=======
+>>>>>>> parent of c8b4ed2... b
 }
 
 .AddInput {
@@ -242,10 +254,14 @@ th {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of c8b4ed2... b
  @media (min-width: 768px) {
 =======
 @media (min-width: 768px) {
 >>>>>>> parent of 0243a17... bugs
+<<<<<<< HEAD
 =======
 @media (min-width: 768px) {
 >>>>>>> parent of 0243a17... bugs
@@ -261,6 +277,8 @@ th {
 =======
  @media (min-width: 768px) {
 >>>>>>> parent of ab638ad... rev2
+=======
+>>>>>>> parent of c8b4ed2... b
 
 /* ==========================
     Form & Input Style
@@ -359,8 +377,11 @@ th {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of ab638ad... rev2
+=======
+>>>>>>> parent of c8b4ed2... b
     height: 100vh;
     margin-left: -425px;
     /* margin-top: -5px; */
@@ -380,15 +401,10 @@ th {
   }
 <<<<<<< HEAD
 =======
-=======
->>>>>>> parent of 0243a17... bugs
     margin-left: -575px;
     margin-top: -75px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;  }
 }
-<<<<<<< HEAD
->>>>>>> parent of 0243a17... bugs
-=======
 >>>>>>> parent of 0243a17... bugs
 =======
 >>>>>>> parent of ab638ad... rev2
@@ -417,8 +433,11 @@ th {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of ab638ad... rev2
+=======
+>>>>>>> parent of c8b4ed2... b
   .RecipeCard {
     width: 48%;
     margin: 2em 1%;
@@ -428,8 +447,6 @@ th {
 }
 
 <<<<<<< HEAD
-=======
->>>>>>> parent of 0243a17... bugs
 =======
 >>>>>>> parent of 0243a17... bugs
 

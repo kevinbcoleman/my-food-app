@@ -33,6 +33,7 @@ const Profile = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div className="Profile">
       <RecipeForm />
 =======
@@ -47,6 +48,10 @@ const Profile = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> parent of 0243a17... bugs
+=======
+    <div className="Profile">
+      <RecipeForm />
+>>>>>>> parent of c8b4ed2... b
 
 <<<<<<< HEAD
       <h2>My Recipes</h2>
