@@ -38,8 +38,8 @@ const RecipeForm = () => {
 
   const addField = () => {
     return ingredients.map((ing, ind) => (
-      <div className="AddField" key={ind}>
-        <Form.Group className="AddInput">
+      <div key={ind}>
+        <Form.Group>
           <Form.Label></Form.Label>
           <Form.Control
             className="inputStyle px-2"
@@ -55,7 +55,7 @@ const RecipeForm = () => {
           >
           </Form.Control>
         </Form.Group>
-        <Form.Group className="AddInput">
+        <Form.Group>
           <Form.Label></Form.Label>
           <Form.Control
             className="px-2"
@@ -71,7 +71,7 @@ const RecipeForm = () => {
           >
           </Form.Control>
         </Form.Group>
-        {/* <div className="ingStyle"></div> */}
+        <div className="ingStyle"></div>
       </div>
     ))
   }
@@ -113,9 +113,9 @@ const RecipeForm = () => {
 
   return (
     <>
-      <Form className="AddForm col-12" onSubmit={onSubmit}>
+      <Form className="AddForm" onSubmit={onSubmit}>
         <Card className="CardStyle">
-          <h2 className="card-title mb-0">{current ? 'Edit Recipe' : 'Add Recipe'}</h2>
+          <h2 className="card-title">{current ? 'Edit Recipe' : 'Add Recipe'}</h2>
           <Form.Group>
             <Form.Label></Form.Label>
             <Form.Control
@@ -142,17 +142,17 @@ const RecipeForm = () => {
             </Form.Control>
           </Form.Group>
 
-          <h3 className="AddHeader">Ingredients</h3>
+          <h3>Ingredients:</h3>
 
           {addField()}
-          <p className="mt-4 mb-1 text-center">Add another ingredient</p>
+          <p className="mt-3 mb-1 text-center">Add another ingredient</p>
           <Button
             className="add-btn"
             type="button"
             onClick={addIng}
           >+</Button>
           <Button
-            className="form-btn mt-3"
+            className="form-btn"
             type="submit">{current ? 'Update' : 'Submit'}
           </Button>
         </Card>

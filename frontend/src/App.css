@@ -46,10 +46,12 @@ li {
 .add-btn {
   border-radius: 5px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  /* margin-top: 5px; */
   background-color: #88c147;
   font-size: 2rem;
   font-weight: bold;
   color: #fff;
+  /* width: 125px; */
   padding: 3px;
 }
 
@@ -66,15 +68,6 @@ li {
 
 .inputMobile {
   margin-bottom: -10px;
-}
-
-.AddInput {
-  margin-bottom: -10px;
-  width: 48%;
-}
-
-.AddHeader {
-  margin-bottom: -5px;;
 }
 
 .Navbar {
@@ -95,7 +88,10 @@ li {
 }
 
 .AddForm {
-  margin: 2em auto;
+  /* height: 60vh; */
+  /* display: flex; */
+  /* flex-flow: column-wrap; */
+  margin: 0 auto;
   width: 325px;
   padding: 0;
 }
@@ -121,7 +117,6 @@ li {
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin: 2em auto;
 }
 
 .apiRecList {
@@ -159,6 +154,19 @@ th {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; 
 }
 
+/* .Modal {
+  width: 400px;
+  margin: 0 auto;
+  align-self: center;
+} */
+
+
+.Profile {
+/* display: flex;
+width: 90vw;
+flex-direction: row; */
+/* justify-content: space-around; */
+}
 
 /* ==========================================
                 Media Queries

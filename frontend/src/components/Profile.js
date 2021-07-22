@@ -30,10 +30,8 @@ const Profile = () => {
 
 
   return (
-    <div className="Profile row mx-auto">
-      <div className="col-12">
-        <RecipeForm />
-      </div>
+    <div className="Profile">
+      <RecipeForm />
 
       <Container>
         <Navbar className="Navbar Nav2" bg="light" expand="lg" collapseOnSelect>
