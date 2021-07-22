@@ -92,7 +92,7 @@ const Login = (props) => {
           <Form.Group>
             <Form.Label htmlFor="email"></Form.Label>
             <Form.Control
-              className="inputMobile"
+              className="inputStyle"
               name="email"
               type="text"
               onChange={onChange}
@@ -105,7 +105,7 @@ const Login = (props) => {
           <Form.Group>
             <Form.Label htmlFor="password"></Form.Label>
             <Form.Control
-              className="inputMobile"
+              className="inputStyle"
               name="password"
               type="password"
               onChange={onChange}
@@ -115,7 +115,7 @@ const Login = (props) => {
             >
             </Form.Control>
           </Form.Group>
-          <Button className="form-btn w-100" type="submit">Log In</Button>
+          <Button className="form-btn" type="submit">Log In</Button>
         </Form>
       </div>
     </>

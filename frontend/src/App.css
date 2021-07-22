@@ -32,6 +32,7 @@ li {
   justify-content: center;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   height: 100vh;
 =======
   margin-top: 5%;
@@ -39,6 +40,11 @@ li {
 =======
   margin-top: 5%;
 >>>>>>> parent of 0243a17... bugs
+=======
+  margin-top: 5%;
+  height: 100vh;
+  max-width: 350px;
+>>>>>>> parent of 5f19c73... bugs
 }
 
 .form-btn {
@@ -60,15 +66,20 @@ li {
   padding: 3px;
 }
 
+
 .FormMobile {
   margin: 0 auto;
-  width: 300px;
+  width: 80vw;
 }
 
 .inputStyle {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   margin-bottom: -5px;
+=======
+  margin-bottom: -25px;
+>>>>>>> parent of 5f19c73... bugs
   color: #e4ebf5;
   box-shadow: inset 0 0 3px rgba(39, 66, 104, 0.3);
 =======
@@ -77,10 +88,6 @@ li {
 =======
   margin-bottom: -25px;
 >>>>>>> parent of 0243a17... bugs
-}
-
-.inputMobile {
-  margin-bottom: -10px;
 }
 
 .AddInput {
@@ -171,6 +178,7 @@ th {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  @media (min-width: 768px) {
 =======
 @media (min-width: 768px) {
@@ -178,6 +186,9 @@ th {
 =======
 @media (min-width: 768px) {
 >>>>>>> parent of 0243a17... bugs
+=======
+@media (min-width: 576px) {
+>>>>>>> parent of 5f19c73... bugs
 
 /* ==========================
     Form & Input Style
@@ -193,13 +204,12 @@ th {
 
   .FormCard {
     width: 350px;
-    padding: 0.1rem 1rem 2.0rem;
+    padding: 0.1rem 1rem 2.5rem;
     margin-top: 175px;
-    margin-left: -138px;
+    margin-left: -225px;
     align-self: center;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     background-color: #fff;
-    z-index: 5;
   }
 
     
@@ -257,7 +267,7 @@ th {
   .EntryDisplay {
     height: 100vh;
     filter: opacity(0.8);
-    z-index: 4;
+    z-index: -1;
   }
 
   .RegisterHeader {
@@ -265,18 +275,22 @@ th {
     width: 40vw;
     height: auto;
     position: absolute;
-    right: 25px;
+    right: 75px;
     top: 200px;
   }
 
   .displayStyle {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     height: 100vh;
     margin-left: -425px;
     /* margin-top: -5px; */
+=======
+    margin-left: -275px;
+    margin-top: -75px;
+>>>>>>> parent of 5f19c73... bugs
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    z-index: 4;
   }
 =======
 =======
@@ -327,14 +341,17 @@ th {
 >>>>>>> parent of 0243a17... bugs
 
 
+
+
+
 /* ==========================
     L + XL Screen Queries
  ==========================*/
 
-@media (min-width: 992px) {
+@media screen and (min-width: 992px) and (max-width: 1399) {
 
   .FormCard {
-    margin-left: 100px;
+    margin-left: 350px;
   }
 
   .RegisterHeader {
@@ -353,7 +370,7 @@ th {
   font-size: 2.6rem;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 576px) {
   .FormDesktop{
     display: none;
   }
