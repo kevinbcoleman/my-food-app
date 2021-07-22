@@ -21,15 +21,19 @@ const Profile = () => {
   return (
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div className="Profile">
       <RecipeForm />
 =======
+=======
+>>>>>>> parent of 0cf6ba3... rev
 =======
 >>>>>>> parent of 0cf6ba3... rev
     <div className="Profile row mx-auto">
       <div className="col-12">
         <RecipeForm />
       </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> parent of 0243a17... bugs
 
@@ -44,6 +48,8 @@ const Profile = () => {
           }
         </>
 =======
+=======
+>>>>>>> parent of 0cf6ba3... rev
 
       <Container>
         <Navbar className="Navbar Nav2" bg="light" expand="lg" collapseOnSelect>
