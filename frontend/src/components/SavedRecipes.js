@@ -1,17 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
 import BrowserContext from '../context/browser/browserContext'
-import Recipes from './recipes/Recipes'
-import MyRecipes from './MyRecipes'
-import SavedRecipes from './SavedRecipes'
 import RecipeForm from './recipes/RecipeForm'
+import ApiRecipe from '../components/recipes/ApiRecipe'
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
+import '../App.css';
 
 
-
-
-const Profile = () => {
+const SavedRecipes = () => {
   const browserContext = useContext(BrowserContext)
+  const { getApiRecipes, apiRecipes, loading } = browserContext
   const [myRecShow, setMyRecShow] = useState(false)
   const [savedRecShow, setSavedRecShow] = useState(false)
 
@@ -27,46 +25,20 @@ const Profile = () => {
     }
   }
 
-
+  useEffect(() => {
+    getApiRecipes()
+    //eslint-disable-next-line
+  }, [])
 
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <div className="Profile">
-      <RecipeForm />
-=======
-=======
->>>>>>> parent of 0cf6ba3... rev
-=======
->>>>>>> parent of 0cf6ba3... rev
+
     <div className="Profile row mx-auto">
       <div className="col-12">
         <RecipeForm />
       </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 0243a17... bugs
 
-<<<<<<< HEAD
-      <h2>My Recipes</h2>
-      <h2>Saved Recipes</h2>
-      {apiRecipes !== null && !loading ? (
-        <>
-          {
-            apiRecipes.map(apiRecipe => (
-              <ApiRecipe key={apiRecipe._id} apiRecipe={apiRecipe} />
-            ))
-          }
-        </>
-=======
-=======
->>>>>>> parent of 0cf6ba3... rev
-
-=======
->>>>>>> parent of ab638ad... rev2
       <Container>
-        <Navbar className="Navbar Nav2" bg="light" expand="lg" collapseOnSelect>
+        <Navbar className="Navbar Nav2 d-flex justify-content-center" bg="light">
 
           <LinkContainer className="textStyle" to="/profile/myrecipes">
             <Nav.Link onClick={(() => toggleShow("mine"))}>My Recipes</Nav.Link>
@@ -79,24 +51,17 @@ const Profile = () => {
         </Navbar>
       </Container>
 
-      {savedRecShow ? (
-        <div className="col-md-4">
-          <SavedRecipes />
-        </div>
-<<<<<<< HEAD
->>>>>>> parent of 0cf6ba3... rev
-=======
+      {apiRecipes !== null && !loading ? (
+        <>
+          {
+            apiRecipes.map(apiRecipe => (
+              <ApiRecipe key={apiRecipe._id} apiRecipe={apiRecipe} />
+            ))
+          }
+        </>
       ) : null}
-
-      {myRecShow ? (
-        <div className="col-md-4">
-          <MyRecipes />
-        </div>
->>>>>>> parent of ab638ad... rev2
-      ) : null}
-
     </div>
   )
 }
 
-export default Profile
+export default SavedRecipes

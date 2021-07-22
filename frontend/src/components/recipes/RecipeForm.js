@@ -17,11 +17,11 @@ const RecipeForm = () => {
       console.log(ingList)
       setRecipe(current)
     } else {
-      // setRecipe({
-      //   label: '',
-      //   cuisineType: '',
-      //   ingredients: []
-      // })
+      setRecipe({
+        label: '',
+        cuisineType: '',
+        ingredients: []
+      })
     }
   }, [recipeContext, current])
 
@@ -42,7 +42,7 @@ const RecipeForm = () => {
         <Form.Group className="AddInput">
           <Form.Label></Form.Label>
           <Form.Control
-            className="inputStyle"
+            className="inputStyle px-2"
             type="text"
             placeholder="Name"
             name="ing_name"
@@ -58,6 +58,7 @@ const RecipeForm = () => {
         <Form.Group className="AddInput">
           <Form.Label></Form.Label>
           <Form.Control
+            className="px-2"
             type="text"
             placeholder="Amount"
             name="amount"
@@ -118,7 +119,7 @@ const RecipeForm = () => {
           <Form.Group>
             <Form.Label></Form.Label>
             <Form.Control
-              className="inputStyle"
+              className="inputStyle px-2"
               type="text"
               placeholder="Name of dish"
               name="label"
@@ -132,7 +133,7 @@ const RecipeForm = () => {
             <Form.Label></Form.Label>
             <Form.Control
               type="text"
-              className="mb-2"
+              className="mb-2 px-2"
               placeholder="Cuisine (American, Mexican, French)"
               name="cuisineType"
               value={cuisineType}
