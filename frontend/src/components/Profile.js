@@ -20,13 +20,17 @@ const Profile = () => {
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div className="Profile">
       <RecipeForm />
 =======
+=======
+>>>>>>> parent of 0cf6ba3... rev
     <div className="Profile row mx-auto">
       <div className="col-12">
         <RecipeForm />
       </div>
+<<<<<<< HEAD
 >>>>>>> parent of 0243a17... bugs
 
       <h2>My Recipes</h2>
@@ -39,6 +43,27 @@ const Profile = () => {
             ))
           }
         </>
+=======
+
+      <Container>
+        <Navbar className="Navbar Nav2" bg="light" expand="lg" collapseOnSelect>
+
+          <LinkContainer className="textStyle" to="/profile/myrecipes">
+            <Nav.Link onClick={(() => toggleShow("mine"))}>My Recipes</Nav.Link>
+          </LinkContainer>
+
+          <LinkContainer className="textStyle" to="/profile/savedrecipes">
+            <Nav.Link onClick={(() => toggleShow("saved"))}>Saved Recipes</Nav.Link>
+          </LinkContainer>
+
+        </Navbar>
+      </Container>
+
+      {savedRecShow ? (
+        <div className="col-md-4">
+          <SavedRecipes />
+        </div>
+>>>>>>> parent of 0cf6ba3... rev
       ) : null}
       <Recipes />
     </div>
