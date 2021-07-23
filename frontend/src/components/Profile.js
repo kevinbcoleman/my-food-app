@@ -31,12 +31,12 @@ const Profile = () => {
 
   return (
     <div className="Profile row mx-auto">
-      <div className="col-12">
+      <div className="col-12 RecipeFormCont">
         <RecipeForm />
       </div>
 
-      <Container>
-        <Navbar className="Navbar Nav2" bg="light" expand="lg" collapseOnSelect>
+      <Container className="ProfileNav">
+        <Navbar className="Navbar Nav2" bg="light">
 
           <LinkContainer className="textStyle" to="/profile/myrecipes">
             <Nav.Link onClick={(() => toggleShow("mine"))}>My Recipes</Nav.Link>
@@ -50,13 +50,13 @@ const Profile = () => {
       </Container>
 
       {savedRecShow ? (
-        <div className="col-md-4">
+        <div className="col-md-6 ">
           <SavedRecipes />
         </div>
       ) : null}
 
       {myRecShow ? (
-        <div className="col-md-4">
+        <div className="col-sm-12 col-md-12 col-lg-4">
           <MyRecipes />
         </div>
       ) : null}

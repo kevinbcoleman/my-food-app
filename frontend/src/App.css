@@ -31,7 +31,6 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 5%;
   height: 100vh;
   max-width: 350px;
 }
@@ -57,23 +56,27 @@ li {
 
 
 .FormMobile {
-  margin: 0 auto;
+  margin: -10px auto;
   width: 80vw;
 }
 
 .inputStyle {
-  margin-bottom: -25px;
   color: #e4ebf5;
   box-shadow: inset 0 0 3px rgba(39, 66, 104, 0.3);
+  max-width: 325px;
+}
+
+.inputMobile {
+  margin-bottom: -5px;
 }
 
 .AddInput {
-  margin-bottom: -10px;
+  margin: 0px auto -10px;
   width: 48%;
 }
 
 .AddHeader {
-  margin-bottom: -5px;;
+  margin-bottom: -5px;
 }
 
 .Navbar {
@@ -91,12 +94,11 @@ li {
   display: flex;
   flex-direction: column;
   width: 200px;
+  height: 100vh;
 }
 
 .AddForm {
   margin: 2em auto;
-  width: 325px;
-  padding: 0;
 }
 
 .AddField {
@@ -115,12 +117,12 @@ li {
 }
 
 .RecipeCard {
-  width: 325px;
+  /* width: 325px; */
   background-color: #EDF1F7;
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin: 2em auto;
+  margin: 1em auto;
 }
 
 .apiRecList {
@@ -159,12 +161,15 @@ th {
 }
 
 
+.ProfileNav {
+  height: 50vh;
+  }
+
 /* ==========================================
                 Media Queries
  ===========================================*/
 
-
-@media (min-width: 576px) {
+@media (min-width: 768px) {
 
 /* ==========================
     Form & Input Style
@@ -180,12 +185,14 @@ th {
 
   .FormCard {
     width: 350px;
-    padding: 0.1rem 1rem 2.5rem;
+    padding: 0.1rem 1rem 2.0rem;
     margin-top: 175px;
-    margin-left: -225px;
+    margin-left: 250px;
+    margin-right: -325px;
     align-self: center;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     background-color: #fff;
+    z-index: 5;
   }
 
     
@@ -220,7 +227,7 @@ th {
   .EntryStyleBar3 {
     height: 450px;
     width: 450px;
-    border-radius: 50%;
+    border-radius: 50%; 
     background-color: rgba(144, 183, 77, 0.5);
     position: absolute;
     right: 0px;
@@ -248,20 +255,22 @@ th {
   }
 
   .RegisterHeader {
-    font-size: 2rem;
-    width: 40vw;
+    font-size: 2.6rem;
+    width: 35vw;
     height: auto;
     position: absolute;
     right: 75px;
-    top: 200px;
+    top: 150px;
   }
 
   .displayStyle {
-    margin-left: -275px;
-    margin-top: -75px;
+    margin-left: -300px;
+    margin-right: -200px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    z-index: 4;
   }
 
+  
     
   /* ==========================
         Profile Page
@@ -271,58 +280,84 @@ th {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    /* margin: auto; */
+    margin-bottom: 4em;
     }
   
   .AddForm {
-    display: flex;
-    flex-direction: column;
-    height: 55vh;
+    /* display: flex;  */ 
+    /* flex-direction: column; */
+    height: 475px;
     width: 500px;
     overflow: scroll;
     padding: 0;
+    margin-bottom: 0;
+  }
+
+  .CardStyle {
+    padding: 2em;
   }
 
   .RecipeCard {
-    width: 48%;
-    margin: 2em 1%;
+    /* width: 48%; */
+    margin: 1em 1%;
     padding: 0;
   }
   
+  .Nav2 {
+    margin: 2em auto 1.5em;
+  }
 }
-
-
-
-
 
 
 /* ==========================
     L + XL Screen Queries
  ==========================*/
 
-@media screen and (min-width: 992px) and (max-width: 1399) {
+@media (min-width: 992px) {
 
   .FormCard {
-    margin-left: 350px;
+    margin-left: 150px;
+    margin-right: -600px;
   }
 
   .RegisterHeader {
-    right: 110px;
+    right: 145px;
+    width: 40vw;
   }
+
+  .displayStyle {
+    margin-left: -250px;
+    margin-right: 50px;
+  }
+
+  .RecipeCard {
+    /* width: 30%; */
+  }
+
 
 }
 
 @media (min-width: 1400px) {
+  
   .FormCard {
-    margin-left: 525px;
+    margin-left: 400px;
+    /* margin-right: 50px; */
   }
+
+  .displayStyle {
+    margin-left: -500px;
+    margin-right: 50px;
+  }
+
+  .RegisterHeader {
+    right: 250px;
+    top: 250px;
+  }
+
 }
 
-.RegisterHeader {
-  font-size: 2.6rem;
-}
 
-@media (max-width: 576px) {
+@media (max-width: 767px) {
   .FormDesktop{
     display: none;
   }
