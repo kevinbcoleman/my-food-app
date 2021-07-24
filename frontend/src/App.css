@@ -6,13 +6,18 @@
 #root {
   overflow-x: hidden;
   overflow-y: hidden;
-  background-color: #e4ebf5;
 
 }
 
 .App {
   position: relative;
+  background-color: #e4ebf5;
 }
+
+body {
+  overflow-y: scroll !important;
+  }
+  
 
 h1,
 h2,
@@ -20,7 +25,7 @@ h3,
 h4,
 .Navbar,
 .textStyle {
-  color: #0b2d83 !important;
+  /* color: #0b2d83 !important; */
 }
 
 li {
@@ -40,6 +45,8 @@ li {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   margin-top: 30px;
   margin-bottom: 5px;
+  font-weight: bold;
+  padding: 10px;
   background-color: #4c7bef;
   color: #fff;
 }
@@ -51,7 +58,7 @@ li {
   font-size: 2rem;
   font-weight: bold;
   color: #fff;
-  padding: 3px;
+  padding: 0px;
 }
 
 
@@ -83,12 +90,36 @@ li {
   z-index: 1;
 }
 
+.nav-pills {
+  box-shadow: none;
+}
+
 .Nav2 {
   box-shadow: inset 0 0 8px rgba(39, 66, 104, 0.3);
   border-radius: 5px;
-  width: 325px;
-  margin: 0 auto;
+  margin: 0 auto 1em;
+  padding: 1rem;
 }
+
+.Nav2 .nav-link {
+  background-color: rgba(39, 66, 104, 0.1);
+  color: rgba(39, 66, 104, 1);
+  border-radius: 5px;
+  height: 50px;
+  /* padding: ; */
+  margin: -0.5rem;
+}
+ 
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  background-color: rgba(39, 66, 104, 0.6) !important;
+  color: #fff;
+}
+
+
+.Nav2 .nav-link:hover {
+  background-color: rgba(39, 66, 104, 0.6);
+  color: #fff;
+} 
 
 .MainForm {
   display: flex;
@@ -98,7 +129,11 @@ li {
 }
 
 .AddForm {
-  margin: 2em auto;
+  margin: 2em 2em;
+  padding: 1rem;
+  box-shadow: inset 0 0 6px rgba(39, 66, 104, 0.6);
+  border-radius: 5px;
+  background-color: #e4ebf5;
 }
 
 .AddField {
@@ -108,7 +143,10 @@ li {
 }
 
 .CardStyle {
-  padding: 10px;
+  /* padding: 1rem; */
+  /* margin: 1rem; */
+  background-color: #e4ebf5;
+  box-shadow: none;
 }
 
 .delete-btn {
@@ -116,13 +154,17 @@ li {
   color: #fff;
 }
 
+/* .card {
+  min-width: 350px;
+} */
+
 .RecipeCard {
-  /* width: 325px; */
-  background-color: #EDF1F7;
+  /* background-color: #EDF1F7; */
+  box-shadow: inset 0 0 8px rgba(39, 66, 104, 0.3);
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin: 1em auto;
+  margin: 1em auto 4em;
 }
 
 .apiRecList {
@@ -164,6 +206,18 @@ th {
 .ProfileNav {
   height: 50vh;
   }
+
+.RecipeLayout {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around; 
+  padding-bottom: 4em;
+}
+
+/* .RecipeLayout > .card {
+  margin: 1em;
+  min-width: 300px;
+} */
 
 /* ==========================================
                 Media Queries
@@ -276,36 +330,45 @@ th {
         Profile Page
  ==========================*/
 
-  .Profile {
+  /* .Profile {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     margin-bottom: 4em;
-    }
-  
+    } */
+   
   .AddForm {
     /* display: flex;  */ 
     /* flex-direction: column; */
-    height: 475px;
+    height: 500px;
     width: 500px;
-    overflow: scroll;
-    padding: 0;
-    margin-bottom: 0;
+    /* overflow: scroll; */
+    padding: 0.5rem;
+    margin: 2em auto 1em;
   }
 
   .CardStyle {
     padding: 2em;
+    height: 480px;
+    overflow: scroll;
   }
 
   .RecipeCard {
     /* width: 48%; */
-    margin: 1em 1%;
+    /* margin: 1em 0.5em; */
     padding: 0;
+  }
+
+  .RecipeLayout > .card {
+    margin: 1em;
+    min-width: 30%;
   }
   
   .Nav2 {
     margin: 2em auto 1.5em;
+    width: 700px;
   }
+
 }
 
 

@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect, useContext } from 'react'
 import RecipeState from './context/recipe/RecipeState'
 import AuthState from './context/auth/AuthState'

@@ -113,7 +113,7 @@ const RecipeForm = () => {
 
   return (
     <>
-      <Form className="AddForm px-0" onSubmit={onSubmit}>
+      <Form className="AddForm col col-md-10 col-lg-8 col-xl-6" onSubmit={onSubmit}>
         <Card className="CardStyle">
           <h2 className="card-title mb-0">{current ? 'Edit Recipe' : 'Add Recipe'}</h2>
           <Form.Group>

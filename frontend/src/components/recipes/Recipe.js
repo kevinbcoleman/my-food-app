@@ -8,7 +8,7 @@ const Recipe = ({ recipe }) => {
   const recipeContext = useContext(RecipeContext)
   const { deleteRecipe, setCurrent, clearCurrent } = recipeContext
   const { _id, label, cuisineType, ingredients = [] } = recipe
-  const [modalShow, setModalShow] = React.useState(false);
+  const [modalShow, setModalShow] = React.useState(false)
 
 
 
@@ -21,12 +21,10 @@ const Recipe = ({ recipe }) => {
     return (
       < Modal
         {...props}
-        className="Modal"
-        size="lg"
+        size="sm"
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
             Please confirm
@@ -48,7 +46,7 @@ const Recipe = ({ recipe }) => {
 
   return (
     <>
-      <Card className="RecipeCard">
+      <Card className="RecipeCard col-10 col-sm-8 col-md-5 col-lg-3 px-0">
         <div>
           <h3 className="card-header">{label}</h3>
         </div>
