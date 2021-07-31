@@ -38,11 +38,11 @@ const Browser = () => {
   const [apiRecipes, setApiRecipes] = useState([])
 
 
-  // const noData = () => {
-  //   return (
-  //     <p> No results. Try broadening your search. </p>
-  //   )
-  // }
+  const noData = () => {
+    return (
+      <p> No results. Try broadening your search. </p>
+    )
+  }
 
   const getData = async () => {
 
@@ -52,8 +52,9 @@ const Browser = () => {
     try {
       const { data } = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&health=${healthOpts}&diet=${dietType}&cuisineType=${dietRegion}&mealType=${mealType}`)
       const res = await data.hits
-      // res.length === 0 ? noData() :
-      setApiRecipes(res)
+      console.log(res)
+      res.length === 0 ? noData() :
+        setApiRecipes(res)
       setFetchedData(true)
 
 
@@ -85,9 +86,10 @@ const Browser = () => {
 
   return (
 
-    <>
-      <h2>Browse Recipes</h2>
-      <div className="MainForm">
+    <Container className="d-flex row-wrap">
+
+      <div className="MainForm row">
+        <h2>Browse Recipes</h2>
         <Form.Group controlId="selectForm">
           <Form.Label>Health Options</Form.Label>
           <Form.Control
@@ -147,38 +149,34 @@ const Browser = () => {
       </div>
 
 
-      <div>
-        {/* {noData} */}
-        {fetchedData ?
-          <>
-            <ul>
-              {apiRecipes.map((apiRecipe, index) => (
-                <>
-                  <Card>
-                    <li>{apiRecipe.recipe.label}</li>
-                    <li>{apiRecipe.recipe.cuisineType}</li>
-                    <ul>
-                      {apiRecipe.recipe.ingredients.map(ing => (
-                        <>
-                          <li>{ing.text}</li>
-                        </>
-                      ))}
-                    </ul>
-                    {isAuthenticated ?
-                      <Button onClick={() => addToCollection(index)}>Add to my collection</Button> :
-                      <LinkContainer to="/login">
-                        <Nav.Link className="btn">Add to my collection</Nav.Link>
-                      </LinkContainer>
-                    }
+      {/* {noData} */}
+      {fetchedData ?
+        <Container classname="row BrowserCards">
+          {apiRecipes.map((apiRecipe, index) => (
+            <Card
+              // className="col-10 col-sm-8 col-md-5 col-lg-3"
+              key={uuidv4()}>
+              <li key={uuidv4()}>{apiRecipe.recipe.label}</li>
+              <li key={uuidv4()}>{apiRecipe.recipe.cuisineType}</li>
+              <ul>
+                {apiRecipe.recipe.ingredients.map(ing => (
+                  <>
+                    <li key={uuidv4()}>{ing.text}</li>
+                  </>
+                ))}
+              </ul>
+              {isAuthenticated ?
+                <Button onClick={() => addToCollection(index)}>Add to my collection</Button> :
+                <LinkContainer to="/login">
+                  <Nav.Link className="btn">Add to my collection</Nav.Link>
+                </LinkContainer>
+              }
+            </Card>
+          ))}
+        </Container>
+        : null}
 
-                  </Card>
-                </>
-              ))}
-            </ul>
-          </>
-          : null}
-      </div>
-    </>
+    </Container>
   )
 }
 

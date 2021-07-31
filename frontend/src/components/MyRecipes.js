@@ -10,29 +10,30 @@ import '../App.css';
 
 
 const MyRecipes = () => {
-  const [myRecShow, setMyRecShow] = useState(false)
-  const [savedRecShow, setSavedRecShow] = useState(false)
+  // const [myRecShow, setMyRecShow] = useState(false)
+  // const [savedRecShow, setSavedRecShow] = useState(false)
 
 
 
-  const toggleShow = (option) => {
-    if (option === "mine") {
-      setMyRecShow(true)
-      setSavedRecShow(false)
-    } else if (option === "saved") {
-      setMyRecShow(false)
-      setSavedRecShow(true)
-    }
-  }
+  // const toggleShow = (option) => {
+  //   if (option === "mine") {
+  //     setMyRecShow(true)
+  //     setSavedRecShow(false)
+  //   } else if (option === "saved") {
+  //     setMyRecShow(false)
+  //     setSavedRecShow(true)
+  //   }
+  // }
 
   return (
 
-    <>
+    <Container>
+
       <div className="row">
         <RecipeForm />
       </div>
 
-      <Container classname="row">
+      <div className="ProfileNav row">
         <Nav
           variant="pills"
           className="Nav2 col-12 col-md-6 d-flex justify-content-around">
@@ -40,27 +41,29 @@ const MyRecipes = () => {
             className="textStyle"
             to="/profile/myrecipes">
             <Nav.Link
-              eventKey="profile/myrecipes"
+              // eventKey="profile/myrecipes"
               className="nav2-btn nav-pills"
-              onClick={(() => toggleShow("mine"))}>My Recipes</Nav.Link>
+            // onClick={(() => toggleShow("mine"))}
+            >My Recipes</Nav.Link>
           </LinkContainer>
 
           <LinkContainer
             className="textStyle"
             to="/profile/savedrecipes">
             <Nav.Link
-              eventKey="profile/savedrecipes"
+              // eventKey="profile/savedrecipes"
               className="nav2-btn nav-pills"
-              onClick={(() => toggleShow("saved"))}>Saved Recipes</Nav.Link>
+            // onClick={(() => toggleShow("saved"))}
+            >Saved Recipes</Nav.Link>
           </LinkContainer>
         </Nav>
-      </Container>
+      </div>
 
       <div className="RecipeLayout row">
         <Recipes />
       </div>
 
-    </>
+    </Container>
   )
 }
 

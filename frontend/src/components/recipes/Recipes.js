@@ -1,4 +1,6 @@
 import React, { useContext, useEffect } from 'react'
+import { Container } from 'react-bootstrap'
+
 import Recipe from './Recipe'
 import RecipeContext from '../../context/recipe/recipeContext'
 
@@ -16,6 +18,11 @@ const Recipes = () => {
 
   return (
     <>
+      {recipes.length === 0 && !loading ? (
+        <div className="text-center mt-2">
+          <p>You have not added any recipes yet.</p>
+        </div>
+      ) : null}
       {recipes !== null && !loading ? (
         <>
           {
@@ -24,7 +31,7 @@ const Recipes = () => {
             ))
           }
         </>
-      ) : null}
+      ) : <div><p>You do not have any saved recipes.</p></div>}
 
     </>
   )

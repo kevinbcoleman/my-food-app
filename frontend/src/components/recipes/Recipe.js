@@ -37,8 +37,8 @@ const Recipe = ({ recipe }) => {
           </p>
         </Modal.Body>
         <Modal.Footer>
-          <Button className="card-btn" onClick={props.onHide}>Cancel</Button>
-          <Button className="card-btn delete-btn" onClick={onDelete}>Delete</Button>
+          <Button className="edit-btn" onClick={props.onHide}>Cancel</Button>
+          <Button className="delete-btn" onClick={onDelete}>Delete</Button>
         </Modal.Footer>
       </Modal >
     )
@@ -70,11 +70,11 @@ const Recipe = ({ recipe }) => {
           </table>
 
           <Button
-            className="card-btn mr-4"
+            className="edit-btn mr-4"
             onClick={() => setCurrent(recipe)}>
             Edit
           </Button>
-          <Button className="card-btn delete-btn"
+          <Button className="delete-btn"
             onClick={() =>
               setModalShow(true)}>
             Delete
