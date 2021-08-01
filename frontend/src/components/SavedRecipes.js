@@ -15,7 +15,6 @@ const SavedRecipes = () => {
   // const [myRecShow, setMyRecShow] = useState(false)
   // const [savedRecShow, setSavedRecShow] = useState(false)
 
-  console.log(apiRecipes)
 
   // const toggleShow = (option) => {
   //   if (option === "mine") {
@@ -52,7 +51,7 @@ const SavedRecipes = () => {
       <div className="ProfileNav row">
         <Nav
           variant="pills"
-          className="Nav Nav2 col-11 col-md-8 col-lg-6 d-flex justify-content-around">
+          className="Nav Nav2 d-flex justify-content-around">
 
           <LinkContainer
             className="textStyle"
