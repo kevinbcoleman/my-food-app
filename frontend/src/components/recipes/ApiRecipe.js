@@ -45,7 +45,7 @@ const ApiRecipe = ({ apiRecipe }) => {
 
   return (
     <>
-      <Card className="RecipeCard align-self-center col-10 col-sm-8 col-md-5 col-lg-3 px-0">
+      <Card className="RecipeCard col-10 col-sm-8 col-md-5 col-lg-3 px-0">
         <h3 className="text-center card-header px-0">{label}</h3>
         <Card.Body className="d-flex flex-column">
           <p>Cuisine Type: {cuisineType.toUpperCase().charAt(0) + cuisineType.slice(1)}</p>

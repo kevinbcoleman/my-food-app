@@ -42,8 +42,7 @@ li {
 .form-btn {
   border-radius: 5px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  margin-top: 30px;
-  margin-bottom: 5px;
+  margin: 2rem auto;
   font-weight: bold;
   padding: 10px;
   background-color: #4c7bef;
@@ -118,7 +117,7 @@ li {
 }
 
 .Navbar {
-  z-index: 1;
+  z-index: 3;
 }
 
 .nav-pills {
@@ -166,15 +165,13 @@ li {
 } */
 
 .browserCard {
-  flex: 1 1 24%;
-  flex-basis: 300px;
-  /* width: 32%; */
-  /* height: auto; */
+  flex: 0 1 100%;
   padding: 1rem;
-  margin-left: 1%;
-  margin-bottom: 2%;
+  /* margin-left: 1%; */
+  margin-bottom: 1.5rem;
   box-shadow: inset 0 0 8px rgba(39, 66, 104, 0.3);
   position: relative;
+  z-index: 2;
 }
 
 .browserCard ul {
@@ -184,9 +181,10 @@ li {
 .MainForm {
   display: flex;
   flex-direction: column;
-  width: 300px;
-  /* height: 100vh; */
+  width: 350px;
+  margin: 0 auto;
   flex-shrink: 0;
+  z-index: 4;
 }
 
 .AddForm {
@@ -254,23 +252,14 @@ li {
 
 .RecipeCard {
   flex: 0 1 24%;
-  flex-basis: 300px;
+  /* flex-basis: 300px; */
   padding: 1rem;
-  margin-left: 1%;
+  /* margin-left: 1%; */
   margin-bottom: 2%;
   box-shadow: inset 0 0 8px rgba(39, 66, 104, 0.3);
   position: relative;
 }
 
-.browserCard {
-  flex: 0 1 24%;
-  flex-basis: 300px;
-  padding: 1rem;
-  margin-left: 1%;
-  margin-bottom: 2%;
-  box-shadow: inset 0 0 8px rgba(39, 66, 104, 0.3);
-  position: relative;
-}
 
 .apiRecList {
   padding: 0;
@@ -284,11 +273,11 @@ li {
 }
 
 table {
-  margin: 0 auto 1.5em auto;
+  margin: 0 auto 1rem auto;
 }
 
 td {
-  padding: 0.5em 0.7em 1em 1em;
+  padding: 0.3em 0.7em 0.5em 1em;
   border: 3px solid #e1e9f4;
   border-top: none;
   border-right: none;
@@ -313,9 +302,10 @@ th {
 .RecipeLayout {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around; 
-  margin-left: 1%;
-  margin-right: 0;
+  /* justify-content: space-between;  */
+  align-items: flex-start;
+  /* margin-left: 1em; */
+  margin: 4rem auto;
   padding-bottom: 4em;
 }
 
@@ -323,14 +313,75 @@ th {
   height: auto;
 }
 
-/* .RecipeLayout > .card {
-  margin: 1em;
-  min-width: 300px;
-} */
+.outerContain {
+  height: 100vh;
+}
+
+.innerContain {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8rem;
+  height: fit-content;
+}
 
 /* ==========================================
                 Media Queries
  ===========================================*/
+ @media (min-width: 576px) {
+   
+  .HomeStyleBar1 {
+    height: 325px;
+    width: 325px;
+    border-radius: 50%;
+    background-color: rgba(49, 102, 237, 1);
+    position: absolute;
+    right: 250px;
+    top: 25px;
+    margin: 0px -125px 500px 0px;
+    z-index: 2;
+  }
+
+  .HomeStyleBar2 {
+    height: 500px;
+    width: 500px;
+    border-radius: 50%;
+    background-color: rgba(49, 102, 237, 0.7);
+    position: absolute;
+    right: -125px;
+    top: 150px;
+    margin: 0px -100px 175px 0px;
+    z-index: 2;
+  }
+
+  .HomeStyleBar3 {
+    height: 350px;
+    width: 350px;
+    border-radius: 50%; 
+    background-color: rgba(49, 102, 237, 0.5);
+    position: absolute;
+    right: -25px;
+    top: 600px;
+    margin: 0px -150px 100px 0px;
+    z-index: 1;
+  }
+
+  .HomeStyleBar4 {
+    height: 800px;
+    width: 800px;
+    border-radius: 50%;
+    background-color: rgba(49, 102, 237, 0.3);
+    position: absolute;
+    right: -300px;
+    top: 750px;
+    margin: 0px -100px -375px 0px;
+    z-index: 2;
+  }
+
+ }
+
+
+
+
 
 @media (min-width: 768px) {
 
@@ -433,8 +484,20 @@ th {
     z-index: 4;
   }
 
+
+  /* ==========================
+          Browser
+ ==========================*/
   
-    
+  .innerContain {
+    flex-direction: row;
+  }
+
+  .MainForm {
+    width: 50%;
+  }
+
+
   /* ==========================
         Profile Page
  ==========================*/
@@ -502,10 +565,22 @@ th {
     margin-right: 50px;
   }
 
-  .RecipeCard {
-    /* width: 30%; */
+  .RecipeLayout {
+    /* justify-content: space-between;  */
+    align-items: flex-start;
+    /* margin-left: 1em; */
+    margin: 4rem auto;
   }
 
+  .browserCard {
+    flex: 0 1 45%;
+    padding: 1rem;
+    /* margin-left: 1%; */
+  }
+
+  .MainForm {
+    width: 40%;
+  }
 
 }
 
