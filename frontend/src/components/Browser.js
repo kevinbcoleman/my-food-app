@@ -63,9 +63,6 @@ const Browser = () => {
     }
   }
 
-
-
-
   const addToCollection = (index) => {
     const apiRec = apiRecipes[index].recipe
     const ings = apiRec.ingredients.map(ing => (
@@ -80,8 +77,6 @@ const Browser = () => {
     }
     addApiRecipe(recObj)
   }
-
-
 
 
   return (
@@ -151,28 +146,32 @@ const Browser = () => {
 
       {/* {noData} */}
       {fetchedData ?
-        <Container classname="row BrowserCards">
+        <Container className="RecipeLayout row">
+          {/* <div className="RecipeLayout row"> */}
           {apiRecipes.map((apiRecipe, index) => (
             <Card
-              // className="col-10 col-sm-8 col-md-5 col-lg-3"
+              className="browserCard align-self-center"
               key={uuidv4()}>
-              <li key={uuidv4()}>{apiRecipe.recipe.label}</li>
-              <li key={uuidv4()}>{apiRecipe.recipe.cuisineType}</li>
+              <h3 className="card-header text-center" key={uuidv4()}>{apiRecipe.recipe.label}</h3>
+              <h4 className="text-center" key={uuidv4()}>Cuisine type: {apiRecipe.recipe.cuisineType}</h4>
+              <p className="text-center">Ingredients</p>
               <ul>
                 {apiRecipe.recipe.ingredients.map(ing => (
                   <>
                     <li key={uuidv4()}>{ing.text}</li>
+                    <div className="ingStyle px-auto"></div>
                   </>
                 ))}
               </ul>
               {isAuthenticated ?
-                <Button onClick={() => addToCollection(index)}>Add to my collection</Button> :
+                <Button className="collect-btn" onClick={() => addToCollection(index)}>Add to my collection</Button> :
                 <LinkContainer to="/login">
-                  <Nav.Link className="btn">Add to my collection</Nav.Link>
+                  <Nav.Link>Add to my collection</Nav.Link>
                 </LinkContainer>
               }
             </Card>
           ))}
+          {/* </div> */}
         </Container>
         : null}
 

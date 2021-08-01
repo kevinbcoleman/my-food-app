@@ -17,7 +17,6 @@
 body {
   overflow-y: scroll !important;
   }
-  
 
 h1,
 h2,
@@ -57,8 +56,7 @@ li {
 }
 
 .form-btn:focus,
-.form-btn:active
- {
+.form-btn:active {
   background-color: #3166ed !important;
   color: #fff !important;
   outline: none !important;
@@ -91,6 +89,9 @@ li {
   box-shadow: inset 0 3px 6px rgb(0 0 0 / 20%) !important;
 }
 
+.collect-btn {
+  border-radius: 5px;
+} 
 
 .FormMobile {
   margin: -10px auto;
@@ -152,11 +153,40 @@ li {
   color: #fff;
 } 
 
+.BrowserCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* .browserCard {
+  flex: 1 1 24%;
+  margin: 2%;
+  box-shadow: inset 0 0 8px rgba(39, 66, 104, 0.3);
+} */
+
+.browserCard {
+  flex: 1 1 24%;
+  flex-basis: 300px;
+  /* width: 32%; */
+  /* height: auto; */
+  padding: 1rem;
+  margin-left: 1%;
+  margin-bottom: 2%;
+  box-shadow: inset 0 0 8px rgba(39, 66, 104, 0.3);
+  position: relative;
+}
+
+.browserCard ul {
+  padding-left: 1rem;
+}
+
 .MainForm {
   display: flex;
   flex-direction: column;
-  width: 250px;
-  height: 100vh;
+  width: 300px;
+  /* height: 100vh; */
+  flex-shrink: 0;
 }
 
 .AddForm {
@@ -185,8 +215,7 @@ li {
 } 
 
 .edit-btn:focus,
-.edit-btn:active
- {
+.edit-btn:active {
   background-color: #d3deee !important;
   color: rgba(39, 66, 104, 0.6) !important;
   outline: none !important;
@@ -224,12 +253,23 @@ li {
 } */
 
 .RecipeCard {
-  /* background-color: #EDF1F7; */
+  flex: 0 1 24%;
+  flex-basis: 300px;
+  padding: 1rem;
+  margin-left: 1%;
+  margin-bottom: 2%;
   box-shadow: inset 0 0 8px rgba(39, 66, 104, 0.3);
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  margin: 1em auto 4em;
+  position: relative;
+}
+
+.browserCard {
+  flex: 0 1 24%;
+  flex-basis: 300px;
+  padding: 1rem;
+  margin-left: 1%;
+  margin-bottom: 2%;
+  box-shadow: inset 0 0 8px rgba(39, 66, 104, 0.3);
+  position: relative;
 }
 
 .apiRecList {
@@ -274,6 +314,8 @@ th {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around; 
+  margin-left: 1%;
+  margin-right: 0;
   padding-bottom: 4em;
 }
 

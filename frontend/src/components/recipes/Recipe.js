@@ -48,11 +48,11 @@ const Recipe = ({ recipe }) => {
     <>
       <Card className="RecipeCard col-10 col-sm-8 col-md-5 col-lg-3 px-0">
         <div>
-          <h3 className="card-header">{label}</h3>
+          <h3 className="card-header text-center">{label}</h3>
         </div>
         <Card.Body>
-          <p>Cuisine Type: {cuisineType}</p>
-          <h4>Ingredients</h4>
+          <p className="text-center">Cuisine Type: {cuisineType}</p>
+          <h4 className="text-center">Ingredients</h4>
 
           <table>
             <tbody>
@@ -69,16 +69,19 @@ const Recipe = ({ recipe }) => {
             </tbody>
           </table>
 
-          <Button
-            className="edit-btn mr-4"
-            onClick={() => setCurrent(recipe)}>
-            Edit
+          <div className="d-flex flex-row justify-content-center">
+            <Button
+              className="edit-btn mr-4"
+              onClick={() => setCurrent(recipe)}>
+              Edit
           </Button>
-          <Button className="delete-btn"
-            onClick={() =>
-              setModalShow(true)}>
-            Delete
+            <Button className="delete-btn"
+              onClick={() =>
+                setModalShow(true)}>
+              Delete
           </Button>
+          </div>
+
         </Card.Body>
       </Card>
       <DeleteModal
