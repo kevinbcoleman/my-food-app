@@ -39,10 +39,10 @@ const RecipeForm = () => {
   const addField = () => {
     return ingredients.map((ing, ind) => (
       <div className="AddField" key={ind}>
-        <Form.Group className="AddInput">
+        <Form.Group className="AddInput ml-0">
           <Form.Label></Form.Label>
           <Form.Control
-            className="inputStyle mx-auto"
+            className="inputStyle"
             type="text"
             placeholder="Name"
             name="ing_name"
@@ -58,7 +58,7 @@ const RecipeForm = () => {
         <Form.Group className="AddInput">
           <Form.Label></Form.Label>
           <Form.Control
-            className="inputStyle mx-auto"
+            className="inputStyle"
             type="text"
             placeholder="Amount"
             name="amount"
@@ -142,7 +142,7 @@ const RecipeForm = () => {
             </Form.Control>
           </Form.Group>
 
-          <h3 className="AddHeader">Ingredients</h3>
+          <h3 className="AddHeader mt-2">Ingredients</h3>
 
           {addField()}
           <p className="mt-4 mb-1 text-center">Add another ingredient</p>

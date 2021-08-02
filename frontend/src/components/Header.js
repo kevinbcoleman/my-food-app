@@ -10,6 +10,7 @@ const Header = ({ props }) => {
   const authContext = useContext(AuthContext)
   const { isAuthenticated, logout, user } = authContext
   const { clearRecipes } = recipeContext
+  const [profVis, setProfVis] = useState("visible")
 
   const onLogout = () => {
     logout()
@@ -17,19 +18,25 @@ const Header = ({ props }) => {
     props.history.push('/')
   }
 
+  const handleShow = () => {
+    setProfVis("visible")
+  }
+
+  const handleHide = () => {
+    setProfVis("hidden")
+  }
+
   return (
     <>
 
       <Navbar className="Navbar" bg="light" expand="lg" collapseOnSelect>
         <Container>
-          <LinkContainer className="textStyle" to="/">
+          <LinkContainer className="textStyle" onClick={handleShow} to="/">
             <Navbar.Brand>Food for Life</Navbar.Brand>
           </LinkContainer>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-
-
             {!isAuthenticated ?
               <>
                 <LinkContainer className="textStyle" to="/login">
@@ -41,8 +48,8 @@ const Header = ({ props }) => {
                 </LinkContainer>
               </> :
               <>
-                <LinkContainer className="textStyle" to="/profile">
-                  <Nav.Link className="ml-auto">My Profile</Nav.Link>
+                <LinkContainer className="textStyle" style={{ "visibility": profVis }} onClick={handleHide} to="/profile">
+                  <Nav.Link className="ml-auto p-link">My Profile</Nav.Link>
                 </LinkContainer>
                 <LinkContainer className="textStyle" to='/'>
                   <Nav.Link onClick={onLogout}>Logout</Nav.Link>

@@ -196,7 +196,7 @@ const Browser = () => {
 
 const inputStyle = {
   "padding": "0 24px",
-  "margin-bottom": "1rem"
+  "marginBottom": "1rem"
 }
 
 export default Browser

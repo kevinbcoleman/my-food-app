@@ -6,7 +6,7 @@ import AuthContext from '../context/auth/AuthContext'
 import Browser from './Browser'
 
 const Home = () => {
-  const { loadUser, isAuthenticated } = useContext(AuthContext)
+  const { loadUser } = useContext(AuthContext)
 
 
   useEffect(() => {

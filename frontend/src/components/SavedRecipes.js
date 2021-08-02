@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import BrowserContext from '../context/browser/browserContext'
+import AuthContext from '../context/auth/AuthContext'
 import RecipeForm from './recipes/RecipeForm'
 import ApiRecipe from '../components/recipes/ApiRecipe'
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
@@ -10,34 +11,14 @@ import '../App.css';
 const SavedRecipes = () => {
   const browserContext = useContext(BrowserContext)
   const { getApiRecipes, apiRecipes, loading } = browserContext
-
-
-  // const [myRecShow, setMyRecShow] = useState(false)
-  // const [savedRecShow, setSavedRecShow] = useState(false)
-
-
-  // const toggleShow = (option) => {
-  //   if (option === "mine") {
-  //     setMyRecShow(true)
-  //     setSavedRecShow(false)
-  //   } else if (option === "saved") {
-  //     setMyRecShow(false)
-  //     setSavedRecShow(true)
-  //   }
-  // }
-
-
-  // const noSavedRec = () => {
-  //   if (apiRecipes.length === 0) {
-  //     return <h2>No saved recipes.</h2>
-  //   }
-
-  // }
+  const { loadUser, isAuthenticated } = useContext(AuthContext)
 
   useEffect(() => {
     getApiRecipes()
+    loadUser()
+
     //eslint-disable-next-line
-  }, [])
+  }, [loadUser])
 
   const noSavedRec = apiRecipes
 

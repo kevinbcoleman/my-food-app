@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import BrowserContext from '../context/browser/browserContext'
+import AuthContext from '../context/auth/AuthContext'
 import Recipes from './recipes/Recipes'
 import MyRecipes from './MyRecipes'
 import SavedRecipes from './SavedRecipes'
@@ -14,7 +15,11 @@ const Profile = () => {
   const browserContext = useContext(BrowserContext)
   const [myRecShow, setMyRecShow] = useState(false)
   const [savedRecShow, setSavedRecShow] = useState(false)
+  const { loadUser, isAuthenticated } = useContext(AuthContext)
 
+  useEffect(() => {
+    loadUser()
+  }, [loadUser])
 
 
   const toggleShow = (option) => {
