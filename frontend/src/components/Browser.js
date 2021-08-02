@@ -98,7 +98,7 @@ const Browser = () => {
 
         <div className="MainForm row">
           <h2>Browse Recipes</h2>
-          <Form.Group controlId="selectForm">
+          <Form.Group className="px-0" controlId="selectForm">
             <Form.Label>Health Options</Form.Label>
             <Form.Control
               as="select"
@@ -112,7 +112,7 @@ const Browser = () => {
             </Form.Control>
           </Form.Group>
 
-          <Form.Group controlId="selectForm">
+          <Form.Group className="px-0" controlId="selectForm">
             <Form.Label>Diet Type</Form.Label>
             <Form.Control
               style={inputStyle}
@@ -126,7 +126,7 @@ const Browser = () => {
             </Form.Control>
           </Form.Group>
 
-          <Form.Group controlId="selectForm">
+          <Form.Group className="px-0" controlId="selectForm">
             <Form.Label>Region</Form.Label>
             <Form.Control
               style={inputStyle}
@@ -140,7 +140,7 @@ const Browser = () => {
             </Form.Control>
           </Form.Group>
 
-          <Form.Group controlId="selectForm">
+          <Form.Group className="px-0" controlId="selectForm">
             <Form.Label>Meal</Form.Label>
             <Form.Control
               style={inputStyle}
