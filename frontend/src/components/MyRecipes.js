@@ -59,7 +59,7 @@ const MyRecipes = () => {
         </Nav>
       </div>
 
-      <div className="RecipeLayout row">
+      <div className="ProfileRecipe row">
         <Recipes />
       </div>
 

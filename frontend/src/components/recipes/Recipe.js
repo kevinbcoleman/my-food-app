@@ -46,7 +46,7 @@ const Recipe = ({ recipe }) => {
 
   return (
     <>
-      <Card className="RecipeCard col-10 col-sm-8 col-md-5 col-lg-3 px-0">
+      <Card className="ProfRecipeCard col-10 col-sm-8 col-md-5 col-lg-3 px-0">
         <div>
           <h3 className="card-header text-center">{label}</h3>
         </div>

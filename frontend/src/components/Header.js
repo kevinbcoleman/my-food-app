@@ -18,7 +18,7 @@ const Header = ({ props }) => {
   }
 
   return (
-    <div>
+    <>
 
       <Navbar className="Navbar" bg="light" expand="lg" collapseOnSelect>
         <Container>
@@ -53,7 +53,7 @@ const Header = ({ props }) => {
         </Container>
       </Navbar>
 
-    </div >
+    </>
   )
 }
 

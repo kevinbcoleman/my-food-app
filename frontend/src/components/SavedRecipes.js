@@ -76,7 +76,7 @@ const SavedRecipes = () => {
         </Nav>
       </div>
 
-      <div className="RecipeLayout row">
+      <div className="ProfileRecipe row">
 
         {apiRecipes.length === 0 && !loading ? (
           <div className="text-center mt-2">
