@@ -49,11 +49,8 @@ const Browser = () => {
     try {
       const { data } = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&health=${healthOpts}&diet=${dietType}&cuisineType=${dietRegion}&mealType=${mealType}`)
       const res = await data.hits
-      console.log(res)
-      res.length === 0 ? noData() :
-        setApiRecipes(res)
+      setApiRecipes(res)
       setFetchedData(true)
-
 
     } catch (err) {
       console.log(err)
@@ -79,25 +76,19 @@ const Browser = () => {
   return (
 
     <>
-      {/* <div className="HomeStyleBar1">
-        <p></p>
-      </div>
-      <div className="HomeStyleBar2"></div>
-      <div className="HomeStyleBar3"></div>
-      <div className="HomeStyleBar4"></div> */}
 
-      {/* <Container className="outerContain"> */}
+      <p className="homeHeader">Search custom recipes catered to you with our browser.</p>
       <div className="innerContain">
 
         <div className="HomeStyleBar1">
-          <p></p>
+          <p>Search custom recipes catered to you with our browser.</p>
         </div>
         <div className="HomeStyleBar2"></div>
         <div className="HomeStyleBar3"></div>
         <div className="HomeStyleBar4"></div>
 
         <div className="MainForm row">
-          <h2>Browse Recipes</h2>
+          <h2 className="text-center mb-4">Browse Recipes</h2>
           <Form.Group className="px-0" controlId="selectForm">
             <Form.Label>Health Options</Form.Label>
             <Form.Control
@@ -179,7 +170,7 @@ const Browser = () => {
                 {isAuthenticated ?
                   <Button className="collect-btn" onClick={() => addToCollection(index)}>Add to my collection</Button> :
                   <LinkContainer to="/login">
-                    <Nav.Link>Add to my collection</Nav.Link>
+                    <Nav.Link className="btn collect-btn">Login to Save</Nav.Link>
                   </LinkContainer>
                 }
               </Card>

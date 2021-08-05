@@ -47,7 +47,6 @@ const Profile = () => {
           className="Nav Nav2 col-11 col-md-8 col-lg-6 d-flex justify-content-around">
 
           <LinkContainer
-            className="textStyle"
             to="/profile/myrecipes">
             <Nav.Link
               eventKey="profile/myrecipes"
@@ -57,7 +56,6 @@ const Profile = () => {
           </LinkContainer>
 
           <LinkContainer
-            className="textStyle"
             to="/profile/savedrecipes">
             <Nav.Link
               eventKey="profile/savedrecipes"

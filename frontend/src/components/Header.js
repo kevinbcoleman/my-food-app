@@ -64,19 +64,19 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             {!isAuthenticated ?
               <>
-                <LinkContainer className="textStyle" to="/login">
+                <LinkContainer to="/login">
                   <Nav.Link className="ml-auto">Login</Nav.Link>
                 </LinkContainer>
 
-                <LinkContainer className="textStyle" to="/register">
+                <LinkContainer to="/register">
                   <Nav.Link>Register</Nav.Link>
                 </LinkContainer>
               </> :
               <>
-                <LinkContainer className="textStyle" to="/profile">
+                <LinkContainer to="/profile">
                   <Nav.Link className="ml-auto p-link">{profShow}</Nav.Link>
                 </LinkContainer>
-                <LinkContainer className="textStyle" to='/'>
+                <LinkContainer to='/'>
                   <Nav.Link onClick={onLogout}>Logout</Nav.Link>
                 </LinkContainer>
               </>

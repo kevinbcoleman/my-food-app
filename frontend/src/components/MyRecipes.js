@@ -31,7 +31,6 @@ const MyRecipes = () => {
           variant="pills"
           className="Nav2 col-12 col-md-6 d-flex justify-content-around">
           <LinkContainer
-            className="textStyle"
             to="/profile/myrecipes">
             <Nav.Link
               // eventKey="profile/myrecipes"
@@ -41,7 +40,6 @@ const MyRecipes = () => {
           </LinkContainer>
 
           <LinkContainer
-            className="textStyle"
             to="/profile/savedrecipes">
             <Nav.Link
               // eventKey="profile/savedrecipes"

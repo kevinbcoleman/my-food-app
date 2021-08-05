@@ -10,10 +10,10 @@ body {
   overflow-y: hidden; */
   height: 100%;
   width: 100%;
-
   overflow-y: scroll !important; 
-
 }
+
+
 
 .App {
   position: relative;
@@ -48,9 +48,18 @@ h1,
 h2,
 h3,
 h4,
-.Navbar,
-.textStyle {
-  /* color: #0b2d83 !important; */
+/* .Navbar, */
+.textStyle
+ {
+  color: #000 !important;
+}
+
+.homeHeader {
+  width: 90%;
+  position: relative;
+  top: 40px;
+  margin: 2rem auto;
+  text-align: center;
 }
 
 li {
@@ -59,8 +68,12 @@ li {
 
 .Footer {
   /* height: 8vh; */
-  background-color: blue;
+  background-color: #c4d4e9;
+  color: rgba(0, 0, 0, 0.6);
+  height: 3rem;
   margin-top: auto;
+  padding: 0.5rem;
+  text-align: start;
   z-index: 3;
   /* margin-top: 7rem; */
 }
@@ -215,7 +228,7 @@ li {
   display: flex;
   flex-direction: column;
   width: 350px;
-  margin: 0 auto;
+  margin: 0.5rem auto 8rem;
   flex-shrink: 0;
   z-index: 4;
 }
@@ -270,8 +283,7 @@ li {
 }
 
 .delete-btn:focus,
-.delete-btn:active
- {
+.delete-btn:active {
   background-color: #ff615c !important;
   color: #fff !important;
   outline: none !important;
@@ -372,15 +384,28 @@ th {
 .innerContain {
   display: flex;
   flex-direction: column;
-  margin-top: 10rem;
+  margin-top: 5rem;
   height: 100%;
   width: 100%;
 }
+
+.HomeStyleBar1 p {
+  display: none;
+}
+
 
 /* ==========================================
                 Media Queries
  ===========================================*/
  @media (min-width: 576px) {
+
+  .homeHeader {
+    display: none;
+  }
+
+  .MainForm {
+    margin-top: 4rem;
+  }
    
   .HomeStyleBar1 {
     height: 325px;
@@ -392,6 +417,15 @@ th {
     top: 25px;
     margin: 0px -125px 500px 0px;
     z-index: 2;
+  }
+
+  .HomeStyleBar1 p {
+    display: block;
+    position: relative;
+    top: 75px;
+    left: 45px; 
+    width: 250px;
+    color: #fff;
   }
 
   .HomeStyleBar2 {
@@ -431,9 +465,6 @@ th {
   }
 
  }
-
-
-
 
 
 @media (min-width: 768px) {
@@ -543,7 +574,8 @@ th {
  ==========================*/
   
   .innerContain {
-    flex-direction: row;
+    flex-direction: row;  
+    margin-top: 5rem;
   }
 
   .MainForm {
