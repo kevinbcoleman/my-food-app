@@ -4,13 +4,10 @@ import RecipeContext from '../../context/recipe/recipeContext'
 import '../../App.css';
 
 const Recipe = ({ recipe }) => {
-
   const recipeContext = useContext(RecipeContext)
   const { deleteRecipe, setCurrent, clearCurrent } = recipeContext
   const { _id, label, cuisineType, ingredients = [] } = recipe
   const [modalShow, setModalShow] = React.useState(false)
-
-
 
   const onDelete = () => {
     deleteRecipe(_id)
@@ -37,8 +34,8 @@ const Recipe = ({ recipe }) => {
           </p>
         </Modal.Body>
         <Modal.Footer>
-          <Button className="card-btn" onClick={props.onHide}>Cancel</Button>
-          <Button className="card-btn delete-btn" onClick={onDelete}>Delete</Button>
+          <Button className="edit-btn" onClick={props.onHide}>Cancel</Button>
+          <Button className="delete-btn" onClick={onDelete}>Delete</Button>
         </Modal.Footer>
       </Modal >
     )
@@ -46,13 +43,13 @@ const Recipe = ({ recipe }) => {
 
   return (
     <>
-      <Card className="RecipeCard col-10 col-sm-8 col-md-5 col-lg-3 px-0">
+      <Card className="ProfRecipeCard col-10 col-sm-8 col-lg-3 px-0">
         <div>
-          <h3 className="card-header">{label}</h3>
+          <h3 className="card-header text-center">{label}</h3>
         </div>
         <Card.Body>
-          <p>Cuisine Type: {cuisineType}</p>
-          <h4>Ingredients</h4>
+          <p className="text-center"><span className="text-dark">Cuisine Type:</span> {cuisineType}</p>
+          <h4 className="text-center">Ingredients</h4>
 
           <table>
             <tbody>
@@ -69,16 +66,19 @@ const Recipe = ({ recipe }) => {
             </tbody>
           </table>
 
-          <Button
-            className="card-btn mr-4"
-            onClick={() => setCurrent(recipe)}>
-            Edit
+          <div className="d-flex flex-row justify-content-center">
+            <Button
+              className="edit-btn mr-4"
+              onClick={() => setCurrent(recipe)}>
+              Edit
           </Button>
-          <Button className="card-btn delete-btn"
-            onClick={() =>
-              setModalShow(true)}>
-            Delete
+            <Button className="delete-btn"
+              onClick={() =>
+                setModalShow(true)}>
+              Delete
           </Button>
+          </div>
+
         </Card.Body>
       </Card>
       <DeleteModal

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import BrowserContext from '../context/browser/browserContext'
+import AuthContext from '../context/auth/AuthContext'
 import Recipes from './recipes/Recipes'
 import MyRecipes from './MyRecipes'
 import SavedRecipes from './SavedRecipes'
@@ -7,14 +8,15 @@ import RecipeForm from './recipes/RecipeForm'
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 
-
-
-
 const Profile = () => {
   const browserContext = useContext(BrowserContext)
   const [myRecShow, setMyRecShow] = useState(false)
   const [savedRecShow, setSavedRecShow] = useState(false)
+  const { loadUser, isAuthenticated } = useContext(AuthContext)
 
+  useEffect(() => {
+    loadUser()
+  }, [loadUser])
 
 
   const toggleShow = (option) => {
@@ -27,70 +29,39 @@ const Profile = () => {
     }
   }
 
-
-
   return (
+    <Container className="Profile mx-auto">
 
-    <div className="Profile">
-      <RecipeForm />
-
-    <div className="Profile row mx-auto">
-
-      {/* <div className="col-12 row"> */}
-      <RecipeForm />
-      {/* </div> */}
-
-      <Container className="ProfileNav">
-        <Navbar className="Navbar Nav2">
-
-      <div className="col-12">
+      <div className="row">
         <RecipeForm />
       </div>
 
-    <div className="Profile">
-      <RecipeForm />
+      <div className="ProfileNav row">
+        <Nav
+          variant="pills"
+          className="Nav Nav2 col-11 col-md-8 col-lg-6 d-flex justify-content-around">
 
-      <h2>My Recipes</h2>
-      <h2>Saved Recipes</h2>
-      {apiRecipes !== null && !loading ? (
-        <>
-          {
-            apiRecipes.map(apiRecipe => (
-              <ApiRecipe key={apiRecipe._id} apiRecipe={apiRecipe} />
-            ))
-          }
-        </>
-
-      <Container>
-        <Navbar className="Navbar Nav2" bg="light" expand="lg" collapseOnSelect>
-
-
-          <LinkContainer className="textStyle" to="/profile/myrecipes">
-            <Nav.Link onClick={(() => toggleShow("mine"))}>My Recipes</Nav.Link>
+          <LinkContainer
+            to="/profile/myrecipes">
+            <Nav.Link
+              eventKey="profile/myrecipes"
+              className="nav2-btn nav-pills"
+            >My Recipes</Nav.Link>
           </LinkContainer>
 
-          <LinkContainer className="textStyle" to="/profile/savedrecipes">
-            <Nav.Link onClick={(() => toggleShow("saved"))}>Saved Recipes</Nav.Link>
+          <LinkContainer
+            to="/profile/savedrecipes">
+            <Nav.Link
+              eventKey="profile/savedrecipes"
+              className="nav2-btn nav-pills"
+            >Saved Recipes</Nav.Link>
           </LinkContainer>
 
-        </Navbar>
-      </Container>
-      {/* <div className="row"> */}
-      {savedRecShow ? (
-        <div className="col-md-6 ">
-          <SavedRecipes />
-        </div>
+        </Nav>
 
-      ) : null}
+      </div>
 
-      {myRecShow ? (
-        <div className="col-md-6">
-          <MyRecipes />
-        </div>
-
-      ) : null}
-      {/* </div> */}
-    </div>
+    </Container>
   )
 }
 

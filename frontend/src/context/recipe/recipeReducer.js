@@ -1,4 +1,3 @@
-import { STATES } from 'mongoose'
 import {
   GET_RECIPES,
   ADD_RECIPE,
@@ -7,8 +6,6 @@ import {
   CLEAR_CURRENT,
   UPDATE_RECIPE,
   CLEAR_RECIPES,
-  FILTER_RECIPE,
-  CLEAR_FILTER,
   RECIPE_ERROR
 } from '../types'
 

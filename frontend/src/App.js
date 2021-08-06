@@ -7,6 +7,7 @@ import RecipeState from './context/recipe/RecipeState'
 import AuthState from './context/auth/AuthState'
 import BrowserState from './context/browser/browserState'
 import Header from './components/Header'
+import Footer from './components/Footer'
 import Home from './components/Home'
 import Profile from './components/Profile'
 import MyRecipes from './components/MyRecipes'
@@ -31,7 +32,7 @@ const App = () => {
             <AlertState>
               <Router>
                 <Header />
-                <Container>
+                <Container className="MainContainer">
                   <Alerts />
                   <Switch>
                     <Route exact path='/' component={Home} />
@@ -44,6 +45,7 @@ const App = () => {
                     <Route exact path='/register' component={Register} />
                   </Switch>
                 </Container>
+                <Footer />
               </Router>
             </AlertState>
           </BrowserState>

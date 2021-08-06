@@ -1,6 +1,6 @@
 
 import React, { useState, useContext, useEffect } from 'react'
-import { Form, Row, Col, Nav, Button, Card, Container } from 'react-bootstrap'
+import { Form, Nav, Button, Card, Container } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import axios from 'axios'
 import { healthArr, dietTypeArr, dietRegionArr, mealTypeArr } from '../BrowserSeed'
@@ -8,9 +8,6 @@ import BrowserContext from '../context/browser/browserContext'
 import AuthContext from '../context/auth/AuthContext'
 import { v4 as uuidv4 } from 'uuid'
 import '../App.css';
-
-
-
 
 const Browser = () => {
 
@@ -28,21 +25,11 @@ const Browser = () => {
   }, [browserContext])
 
 
-
-
-
   const [healthOpts, setHealthOpts] = useState('')
   const [dietType, setDietType] = useState('')
   const [dietRegion, setDietRegion] = useState('')
   const [mealType, setMealType] = useState('')
   const [apiRecipes, setApiRecipes] = useState([])
-
-
-  // const noData = () => {
-  //   return (
-  //     <p> No results. Try broadening your search. </p>
-  //   )
-  // }
 
   const getData = async () => {
 
@@ -52,18 +39,13 @@ const Browser = () => {
     try {
       const { data } = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${API_KEY}&health=${healthOpts}&diet=${dietType}&cuisineType=${dietRegion}&mealType=${mealType}`)
       const res = await data.hits
-      // res.length === 0 ? noData() :
       setApiRecipes(res)
       setFetchedData(true)
-
 
     } catch (err) {
       console.log(err)
     }
   }
-
-
-
 
   const addToCollection = (index) => {
     const apiRec = apiRecipes[index].recipe
@@ -81,109 +63,117 @@ const Browser = () => {
   }
 
 
-
-
   return (
 
     <>
-      <h2>Browse Recipes</h2>
-      <div className="MainForm">
-        <Form.Group controlId="selectForm">
-          <Form.Label>Health Options</Form.Label>
-          <Form.Control
-            as="select"
-            style={inputStyle}
-            onChange={(e => setHealthOpts(e.target.value))}
-          >
-            <option value={healthArr[0]}>- Select -</option>
-            {healthArr.map(op => (
-              <option value={op}>{op}</option>
-            ))}
-          </Form.Control>
-        </Form.Group>
 
-        <Form.Group controlId="selectForm">
-          <Form.Label>Diet Type</Form.Label>
-          <Form.Control
-            style={inputStyle}
-            as="select"
-            onChange={(e => setDietType(e.target.value))}
-          >
-            <option value={dietTypeArr[0]}>- Select -</option>
-            {dietTypeArr.map(op => (
-              <option value={op}>{op}</option>
-            ))}
-          </Form.Control>
-        </Form.Group>
+      <p className="homeHeader">Search custom recipes catered to you with our browser.</p>
+      <div className="innerContain">
 
-        <Form.Group controlId="selectForm">
-          <Form.Label>Region</Form.Label>
-          <Form.Control
-            style={inputStyle}
-            as="select"
-            onChange={(e => setDietRegion(e.target.value))}
-          >
-            <option value={dietRegionArr[0]}>- Select -</option>
-            {dietRegionArr.map(op => (
-              <option value={op}>{op}</option>
-            ))}
-          </Form.Control>
-        </Form.Group>
+        <div className="HomeStyleBar1">
+          <p>Search custom recipes catered to you with our browser.</p>
+        </div>
+        <div className="HomeStyleBar2"></div>
+        <div className="HomeStyleBar3"></div>
+        <div className="HomeStyleBar4"></div>
 
-        <Form.Group controlId="selectForm">
-          <Form.Label>Meal</Form.Label>
-          <Form.Control
-            style={inputStyle}
-            as="select"
-            onChange={(e => setMealType(e.target.value))}
-          >
-            <option value={mealTypeArr[0]}>- Select -</option>
-            {mealTypeArr.map(op => (
-              <option value={op}>{op}</option>
-            ))}
-          </Form.Control>
-        </Form.Group>
-        <Button className="form-btn mt-2" onClick={getData}>Search</Button>
-      </div>
-
-
-      <div>
-        {/* {noData} */}
-        {fetchedData ?
-          <>
-            <ul>
-              {apiRecipes.map((apiRecipe, index) => (
-                <>
-                  <Card>
-                    <li>{apiRecipe.recipe.label}</li>
-                    <li>{apiRecipe.recipe.cuisineType}</li>
-                    <ul>
-                      {apiRecipe.recipe.ingredients.map(ing => (
-                        <>
-                          <li>{ing.text}</li>
-                        </>
-                      ))}
-                    </ul>
-                    {isAuthenticated ?
-                      <Button onClick={() => addToCollection(index)}>Add to my collection</Button> :
-                      <LinkContainer to="/login">
-                        <Nav.Link className="btn">Add to my collection</Nav.Link>
-                      </LinkContainer>
-                    }
-
-                  </Card>
-                </>
+        <div className="MainForm row">
+          <h2 className="text-center mb-4">Browse Recipes</h2>
+          <Form.Group className="px-0" controlId="selectForm">
+            <Form.Label>Health Options</Form.Label>
+            <Form.Control
+              as="select"
+              style={inputStyle}
+              onChange={(e => setHealthOpts(e.target.value))}
+            >
+              <option value={healthArr[0]}>- Select -</option>
+              {healthArr.map(op => (
+                <option value={op}>{op}</option>
               ))}
-            </ul>
-          </>
+            </Form.Control>
+          </Form.Group>
+
+          <Form.Group className="px-0" controlId="selectForm">
+            <Form.Label>Diet Type</Form.Label>
+            <Form.Control
+              style={inputStyle}
+              as="select"
+              onChange={(e => setDietType(e.target.value))}
+            >
+              <option value={dietTypeArr[0]}>- Select -</option>
+              {dietTypeArr.map(op => (
+                <option value={op}>{op}</option>
+              ))}
+            </Form.Control>
+          </Form.Group>
+
+          <Form.Group className="px-0" controlId="selectForm">
+            <Form.Label>Region</Form.Label>
+            <Form.Control
+              style={inputStyle}
+              as="select"
+              onChange={(e => setDietRegion(e.target.value))}
+            >
+              <option value={dietRegionArr[0]}>- Select -</option>
+              {dietRegionArr.map(op => (
+                <option value={op}>{op}</option>
+              ))}
+            </Form.Control>
+          </Form.Group>
+
+          <Form.Group className="px-0" controlId="selectForm">
+            <Form.Label>Meal</Form.Label>
+            <Form.Control
+              style={inputStyle}
+              as="select"
+              onChange={(e => setMealType(e.target.value))}
+            >
+              <option value={mealTypeArr[0]}>- Select -</option>
+              {mealTypeArr.map(op => (
+                <option value={op}>{op}</option>
+              ))}
+            </Form.Control>
+          </Form.Group>
+          <Button className="form-btn mt-1" onClick={getData}>Search</Button>
+        </div>
+
+
+        {fetchedData ?
+          <Container className="RecipeLayout row">
+            {apiRecipes.map((apiRecipe, index) => (
+              <Card
+                className="browserCard"
+                key={uuidv4()}>
+                <h3 className="card-header text-center" key={uuidv4()}>{apiRecipe.recipe.label}</h3>
+                <h4 className="text-center" key={uuidv4()}>Cuisine type: {apiRecipe.recipe.cuisineType}</h4>
+                <p className="text-center">Ingredients</p>
+                <ul>
+                  {apiRecipe.recipe.ingredients.map(ing => (
+                    <>
+                      <li key={uuidv4()}>{ing.text}</li>
+                      <div className="ingStyle px-auto"></div>
+                    </>
+                  ))}
+                </ul>
+                {isAuthenticated ?
+                  <Button className="collect-btn" onClick={() => addToCollection(index)}>Add to my collection</Button> :
+                  <LinkContainer to="/login">
+                    <Nav.Link className="btn collect-btn">Login to Save</Nav.Link>
+                  </LinkContainer>
+                }
+              </Card>
+            ))}
+          </Container>
           : null}
+
       </div>
     </>
   )
 }
 
 const inputStyle = {
-  "padding": "0 24px"
+  "padding": "0 24px",
+  "marginBottom": "1rem"
 }
 
 export default Browser

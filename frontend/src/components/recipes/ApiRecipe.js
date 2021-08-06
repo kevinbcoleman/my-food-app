@@ -36,8 +36,8 @@ const ApiRecipe = ({ apiRecipe }) => {
           </p>
         </Modal.Body>
         <Modal.Footer>
-          <Button className="card-btn" onClick={props.onHide}>Cancel</Button>
-          <Button className="card-btn delete-btn" onClick={onDelete}>Delete</Button>
+          <Button className="edit-btn" onClick={props.onHide}>Cancel</Button>
+          <Button className="delete-btn" onClick={onDelete}>Delete</Button>
         </Modal.Footer>
       </Modal >
     )
@@ -45,10 +45,10 @@ const ApiRecipe = ({ apiRecipe }) => {
 
   return (
     <>
-      <Card className="RecipeCard col-10 col-sm-8 col-md-5 col-lg-3 px-0">
-        <h3 className="card-header px-0">{label}</h3>
-        <Card.Body>
-          <p>Cuisine Type: {cuisineType.toUpperCase().charAt(0) + cuisineType.slice(1)}</p>
+      <Card className="ProfRecipeCard col-10 col-sm-8 col-lg-3 px-0">
+        <h3 className="text-center card-header">{label}</h3>
+        <Card.Body className="d-flex flex-column">
+          <p><span className="text-dark">Cuisine Type:</span> {cuisineType.toUpperCase().charAt(0) + cuisineType.slice(1)}</p>
           <h4>Ingredients</h4>
           <ul className="text-start apiRecList">
             {ingredients.map((i, index) => (
@@ -58,7 +58,7 @@ const ApiRecipe = ({ apiRecipe }) => {
               </div>
             ))}
           </ul>
-          <Button className="card-btn delete-btn"
+          <Button className="delete-btn align-self-center"
             onClick={() =>
               setModalShow(true)}>
             Delete
