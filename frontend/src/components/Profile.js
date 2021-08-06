@@ -30,30 +30,26 @@ const Profile = () => {
 
 
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     <div className="Profile">
       <RecipeForm />
-=======
-=======
->>>>>>> parent of 0cf6ba3... rev
-=======
->>>>>>> parent of 0cf6ba3... rev
+
     <div className="Profile row mx-auto">
+
+      {/* <div className="col-12 row"> */}
+      <RecipeForm />
+      {/* </div> */}
+
+      <Container className="ProfileNav">
+        <Navbar className="Navbar Nav2">
+
       <div className="col-12">
         <RecipeForm />
       </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 0243a17... bugs
-=======
+
     <div className="Profile">
       <RecipeForm />
->>>>>>> parent of c8b4ed2... b
 
-<<<<<<< HEAD
       <h2>My Recipes</h2>
       <h2>Saved Recipes</h2>
       {apiRecipes !== null && !loading ? (
@@ -64,14 +60,10 @@ const Profile = () => {
             ))
           }
         </>
-=======
-=======
->>>>>>> parent of 0cf6ba3... rev
 
-=======
->>>>>>> parent of ab638ad... rev2
       <Container>
         <Navbar className="Navbar Nav2" bg="light" expand="lg" collapseOnSelect>
+
 
           <LinkContainer className="textStyle" to="/profile/myrecipes">
             <Nav.Link onClick={(() => toggleShow("mine"))}>My Recipes</Nav.Link>
@@ -83,23 +75,21 @@ const Profile = () => {
 
         </Navbar>
       </Container>
-
+      {/* <div className="row"> */}
       {savedRecShow ? (
-        <div className="col-md-4">
+        <div className="col-md-6 ">
           <SavedRecipes />
         </div>
-<<<<<<< HEAD
->>>>>>> parent of 0cf6ba3... rev
-=======
+
       ) : null}
 
       {myRecShow ? (
-        <div className="col-md-4">
+        <div className="col-md-6">
           <MyRecipes />
         </div>
->>>>>>> parent of ab638ad... rev2
-      ) : null}
 
+      ) : null}
+      {/* </div> */}
     </div>
   )
 }

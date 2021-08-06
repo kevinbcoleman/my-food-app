@@ -6,13 +6,18 @@
 #root {
   overflow-x: hidden;
   overflow-y: hidden;
-  background-color: #e4ebf5;
 
 }
 
 .App {
   position: relative;
+  background-color: #e4ebf5;
 }
+
+body {
+  overflow-y: scroll !important;
+  }
+  
 
 h1,
 h2,
@@ -20,7 +25,7 @@ h3,
 h4,
 .Navbar,
 .textStyle {
-  color: #0b2d83 !important;
+  /* color: #0b2d83 !important; */
 }
 
 li {
@@ -31,43 +36,10 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: center;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of c8b4ed2... b
   height: 100vh;
-=======
-  margin-top: 5%;
->>>>>>> parent of 0243a17... bugs
-<<<<<<< HEAD
-=======
-  margin-top: 5%;
->>>>>>> parent of 0243a17... bugs
-=======
   margin-top: 5%;
   height: 100vh;
   max-width: 350px;
->>>>>>> parent of 5f19c73... bugs
-=======
-  margin-top: 5%;
-  height: 100vh;
-  max-width: 350px;
->>>>>>> parent of 5f19c73... bugs
-=======
-  margin-top: 5%;
-  height: 100vh;
-  max-width: 350px;
->>>>>>> parent of 5f19c73... bugs
-=======
-  height: 100vh;
->>>>>>> parent of ab638ad... rev2
-=======
->>>>>>> parent of c8b4ed2... b
 }
 
 .form-btn {
@@ -75,6 +47,8 @@ li {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   margin-top: 30px;
   margin-bottom: 5px;
+  font-weight: bold;
+  padding: 10px;
   background-color: #4c7bef;
   color: #fff;
 }
@@ -86,101 +60,82 @@ li {
   font-size: 2rem;
   font-weight: bold;
   color: #fff;
-  padding: 3px;
+  padding: 0px;
 }
 
-
 .FormMobile {
-  margin: 0 auto;
+  margin: -10px auto;
   width: 80vw;
 }
 
 .inputStyle {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of ab638ad... rev2
-=======
->>>>>>> parent of c8b4ed2... b
+  color: #e4ebf5;
+  box-shadow: inset 0 0 3px rgba(39, 66, 104, 0.3);
+  max-width: 325px;
+}
+
+.inputMobile {
   margin-bottom: -5px;
-=======
-  margin-bottom: -25px;
->>>>>>> parent of 5f19c73... bugs
   color: #e4ebf5;
   box-shadow: inset 0 0 3px rgba(39, 66, 104, 0.3);
-<<<<<<< HEAD
-=======
-  margin-bottom: -25px;
->>>>>>> parent of 0243a17... bugs
-<<<<<<< HEAD
-=======
-  margin-bottom: -25px;
->>>>>>> parent of 0243a17... bugs
-=======
-  margin-bottom: -25px;
-  color: #e4ebf5;
-  box-shadow: inset 0 0 3px rgba(39, 66, 104, 0.3);
->>>>>>> parent of 5f19c73... bugs
-=======
-  margin-bottom: -25px;
-  color: #e4ebf5;
-  box-shadow: inset 0 0 3px rgba(39, 66, 104, 0.3);
->>>>>>> parent of 5f19c73... bugs
-=======
->>>>>>> parent of c8b4ed2... b
 }
 
 .AddInput {
   margin-bottom: -10px;
   width: 48%;
-=======
->>>>>>> parent of ab638ad... rev2
-}
 
-<<<<<<< HEAD
-.AddHeader {
-  margin-bottom: -5px;;
-=======
-.AddInput {
-  margin-bottom: -10px;
-  width: 48%;
 }
 
 .AddHeader {
-  margin-bottom: -5px;;
+  margin-bottom: -5px;
 }
 
 .Navbar {
   z-index: 1;
->>>>>>> parent of 0cf6ba3... rev
 }
 
-.Navbar {
-  z-index: 1;
+.nav-pills {
+  box-shadow: none;
 }
 
 .Nav2 {
   box-shadow: inset 0 0 8px rgba(39, 66, 104, 0.3);
   border-radius: 5px;
-  width: 325px;
-  margin: 0 auto;
+  margin: 0 auto 1em;
+  padding: 1rem;
 }
+
+.Nav2 .nav-link {
+  background-color: rgba(39, 66, 104, 0.1);
+  color: rgba(39, 66, 104, 1);
+  border-radius: 5px;
+  height: 50px;
+  margin: -0.5rem;
+}
+ 
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  background-color: rgba(39, 66, 104, 0.6) !important;
+  color: #fff;
+}
+
+.Nav2 .nav-link:hover {
+  background-color: rgba(39, 66, 104, 0.6);
+  color: #fff;
+} 
 
 .MainForm {
   display: flex;
   flex-direction: column;
   width: 200px;
+  height: 100vh;
 }
 
 .AddForm {
-  margin: 2em auto;
-  width: 325px;
-  padding: 0;
+  margin: 2em 2em;
+  padding: 1rem;
+  box-shadow: inset 0 0 6px rgba(39, 66, 104, 0.6);
+  border-radius: 5px;
+  background-color: #e4ebf5;
 }
 
 .AddField {
@@ -190,7 +145,8 @@ li {
 }
 
 .CardStyle {
-  padding: 10px;
+  background-color: #e4ebf5;
+  box-shadow: none;
 }
 
 .delete-btn {
@@ -199,12 +155,11 @@ li {
 }
 
 .RecipeCard {
-  width: 325px;
-  background-color: #EDF1F7;
+  box-shadow: inset 0 0 8px rgba(39, 66, 104, 0.3);
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin: 2em auto;
+  margin: 1em auto 4em;
 }
 
 .apiRecList {
@@ -243,42 +198,27 @@ th {
 }
 
 
+.ProfileNav {
+  height: 50vh;
+  }
+
+.RecipeLayout {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around; 
+  padding-bottom: 4em;
+}
+
+/* .RecipeLayout > .card {
+  margin: 1em;
+  min-width: 300px;
+} */
+
 /* ==========================================
                 Media Queries
  ===========================================*/
 
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of c8b4ed2... b
  @media (min-width: 768px) {
-=======
-@media (min-width: 768px) {
->>>>>>> parent of 0243a17... bugs
-<<<<<<< HEAD
-=======
-@media (min-width: 768px) {
->>>>>>> parent of 0243a17... bugs
-=======
-@media (min-width: 576px) {
->>>>>>> parent of 5f19c73... bugs
-=======
-@media (min-width: 576px) {
->>>>>>> parent of 5f19c73... bugs
-=======
-@media (min-width: 576px) {
->>>>>>> parent of 5f19c73... bugs
-=======
- @media (min-width: 768px) {
->>>>>>> parent of ab638ad... rev2
-=======
->>>>>>> parent of c8b4ed2... b
 
 /* ==========================
     Form & Input Style
@@ -294,12 +234,14 @@ th {
 
   .FormCard {
     width: 350px;
-    padding: 0.1rem 1rem 2.5rem;
+    padding: 0.1rem 1rem 2.0rem;
     margin-top: 175px;
-    margin-left: -225px;
+    margin-left: 250px;
+    margin-right: -325px;
     align-self: center;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     background-color: #fff;
+    z-index: 5;
   }
 
     
@@ -334,7 +276,7 @@ th {
   .EntryStyleBar3 {
     height: 450px;
     width: 450px;
-    border-radius: 50%;
+    border-radius: 50%; 
     background-color: rgba(144, 183, 77, 0.5);
     position: absolute;
     right: 0px;
@@ -362,133 +304,122 @@ th {
   }
 
   .RegisterHeader {
-    font-size: 2rem;
-    width: 40vw;
+    font-size: 2.6rem;
+    width: 35vw;
     height: auto;
     position: absolute;
     right: 75px;
-    top: 200px;
+    top: 150px;
   }
 
   .displayStyle {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of ab638ad... rev2
-=======
->>>>>>> parent of c8b4ed2... b
-    height: 100vh;
-    margin-left: -425px;
-    /* margin-top: -5px; */
-=======
-    margin-left: -275px;
-    margin-top: -75px;
->>>>>>> parent of 5f19c73... bugs
-=======
-    margin-left: -275px;
-    margin-top: -75px;
->>>>>>> parent of 5f19c73... bugs
-=======
-    margin-left: -275px;
-    margin-top: -75px;
->>>>>>> parent of 5f19c73... bugs
+    margin-left: -300px;
+    margin-right: -200px
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    z-index: 4;
   }
-<<<<<<< HEAD
-=======
-    margin-left: -575px;
-    margin-top: -75px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;  }
-}
->>>>>>> parent of 0243a17... bugs
-=======
->>>>>>> parent of ab638ad... rev2
 
     
   /* ==========================
         Profile Page
  ==========================*/
 
-  .Profile {
+  /* .Profile {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    /* margin: auto; */
-    }
-  
+    margin-bottom: 4em;
+    } */
+   
   .AddForm {
-    display: flex;
-    flex-direction: column;
-    height: 55vh;
+    /* display: flex;  */ 
+    /* flex-direction: column; */
+    height: 500px;
     width: 500px;
-    overflow: scroll;
-    padding: 0;
+    /* overflow: scroll; */
+    padding: 0.5rem;
+    margin: 2em auto 1em;
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of ab638ad... rev2
-=======
->>>>>>> parent of c8b4ed2... b
+  .CardStyle {
+    padding: 2em;
+    height: 480px;
+    overflow: scroll;
+  }
+
   .RecipeCard {
-    width: 48%;
-    margin: 2em 1%;
+    /* width: 48%; */
+    /* margin: 1em 0.5em; */
     padding: 0;
   }
   
 }
 
-<<<<<<< HEAD
-=======
->>>>>>> parent of 0243a17... bugs
+
+  .RecipeLayout > .card {
+    margin: 1em;
+    min-width: 30%;
+  }
+  
+  .Nav2 {
+    margin: 2em auto 1.5em;
+    width: 700px;
+  }
 
 
+}
 
-
-
-
-
-
-
-=======
->>>>>>> parent of ab638ad... rev2
 
 
 /* ==========================
     L + XL Screen Queries
  ==========================*/
 
-@media screen and (min-width: 992px) and (max-width: 1399) {
+@media (min-width: 992px) {
 
   .FormCard {
-    margin-left: 350px;
+    margin-left: 150px;
+    margin-right: -600px;
   }
 
   .RegisterHeader {
-    right: 110px;
+    right: 145px;
+    width: 40vw;
   }
+
+  .displayStyle {
+    margin-left: -250px;
+    margin-right: 50px;
+  }
+
+  .RecipeCard {
+    /* width: 30%; */
+  }
+
 
 }
 
 @media (min-width: 1400px) {
+  
   .FormCard {
-    margin-left: 525px;
+    margin-left: 400px;
+    /* margin-right: 50px; */
   }
+
+  .displayStyle {
+    margin-left: -500px;
+    margin-right: 50px;
+  }
+
+  .RegisterHeader {
+    right: 250px;
+    top: 250px;
+  }
+
 }
 
-.RegisterHeader {
-  font-size: 2.6rem;
-}
 
-@media (max-width: 576px) {
+@media (max-width: 767px) {
   .FormDesktop{
     display: none;
   }

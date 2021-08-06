@@ -92,7 +92,7 @@ const Login = (props) => {
           <Form.Group>
             <Form.Label htmlFor="email"></Form.Label>
             <Form.Control
-              className="inputStyle"
+              className="inputMobile"
               name="email"
               type="text"
               onChange={onChange}
@@ -105,7 +105,7 @@ const Login = (props) => {
           <Form.Group>
             <Form.Label htmlFor="password"></Form.Label>
             <Form.Control
-              className="inputStyle"
+              className="inputMobile"
               name="password"
               type="password"
               onChange={onChange}

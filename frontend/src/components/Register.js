@@ -45,7 +45,7 @@ const Register = (props) => {
   }
   return (
 
-    <>
+    <div className="Overflow">
       <div className="EntryStyleBar1"></div>
       <div className="EntryStyleBar2"></div>
       <div className="EntryStyleBar3"></div>
@@ -59,7 +59,7 @@ const Register = (props) => {
             className="EntryDisplay"
           />
         </div>
-        <Card className="FormCard RegisterCard">
+        <Card className="FormCard">
           <Form.Group>
             <Form.Label htmlFor="username"></Form.Label>
             <Form.Control
@@ -113,7 +113,7 @@ const Register = (props) => {
             <h1 className="text-center mt-4">Sign Up</h1>
             <Form.Label htmlFor="username"></Form.Label>
             <Form.Control
-              className="inputStyle"
+              className="inputMobile"
               name="username"
               type="text"
               onChange={onChange}
@@ -127,7 +127,7 @@ const Register = (props) => {
           <Form.Group>
             <Form.Label htmlFor="email"></Form.Label>
             <Form.Control
-              className="inputStyle"
+              className="inputMobile"
               name="email"
               type="text"
               onChange={onChange}
@@ -140,7 +140,7 @@ const Register = (props) => {
           <Form.Group>
             <Form.Label htmlFor="password"></Form.Label>
             <Form.Control
-              className="inputStyle"
+              className="inputMobile"
               name="password"
               type="password"
               onChange={onChange}
@@ -151,11 +151,11 @@ const Register = (props) => {
             >
             </Form.Control>
           </Form.Group>
-          <Button className="form-btn" type="submit">Sign Up</Button>
+          <Button className="form-btn w-100" type="submit">Sign Up</Button>
         </Form>
       </div>
 
-    </>
+    </div>
   )
 }
 

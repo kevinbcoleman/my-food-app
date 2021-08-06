@@ -27,28 +27,40 @@ const MyRecipes = () => {
 
   return (
 
-    <div className="Profile row mx-auto">
-      <div className="col-12">
+    <>
+      <div className="row">
         <RecipeForm />
       </div>
 
-      <Container>
-        <Navbar className="Navbar Nav2" bg="light" expand="lg" collapseOnSelect>
-
-          <LinkContainer className="textStyle" to="/profile/myrecipes">
-            <Nav.Link onClick={(() => toggleShow("mine"))}>My Recipes</Nav.Link>
+      <Container classname="row">
+        <Nav
+          variant="pills"
+          className="Nav2 col-12 col-md-6 d-flex justify-content-around">
+          <LinkContainer
+            className="textStyle"
+            to="/profile/myrecipes">
+            <Nav.Link
+              eventKey="profile/myrecipes"
+              className="nav2-btn nav-pills"
+              onClick={(() => toggleShow("mine"))}>My Recipes</Nav.Link>
           </LinkContainer>
 
-          <LinkContainer className="textStyle" to="/profile/savedrecipes">
-            <Nav.Link onClick={(() => toggleShow("saved"))}>Saved Recipes</Nav.Link>
+          <LinkContainer
+            className="textStyle"
+            to="/profile/savedrecipes">
+            <Nav.Link
+              eventKey="profile/savedrecipes"
+              className="nav2-btn nav-pills"
+              onClick={(() => toggleShow("saved"))}>Saved Recipes</Nav.Link>
           </LinkContainer>
-
-        </Navbar>
+        </Nav>
       </Container>
 
-      <Recipes />
+      <div className="RecipeLayout row">
+        <Recipes />
+      </div>
 
-    </div>
+    </>
   )
 }
 

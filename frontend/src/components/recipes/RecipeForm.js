@@ -42,7 +42,7 @@ const RecipeForm = () => {
         <Form.Group className="AddInput">
           <Form.Label></Form.Label>
           <Form.Control
-            className="inputStyle px-2"
+            className="inputStyle mx-auto"
             type="text"
             placeholder="Name"
             name="ing_name"
@@ -58,7 +58,7 @@ const RecipeForm = () => {
         <Form.Group className="AddInput">
           <Form.Label></Form.Label>
           <Form.Control
-            className="px-2"
+            className="inputStyle mx-auto"
             type="text"
             placeholder="Amount"
             name="amount"
@@ -113,7 +113,7 @@ const RecipeForm = () => {
 
   return (
     <>
-      <Form className="AddForm col-12" onSubmit={onSubmit}>
+      <Form className="AddForm col col-md-10 col-lg-8 col-xl-6" onSubmit={onSubmit}>
         <Card className="CardStyle">
           <h2 className="card-title mb-0">{current ? 'Edit Recipe' : 'Add Recipe'}</h2>
           <Form.Group>
@@ -133,7 +133,7 @@ const RecipeForm = () => {
             <Form.Label></Form.Label>
             <Form.Control
               type="text"
-              className="mb-2 px-2"
+              className="inputStyle mb-2 px-2"
               placeholder="Cuisine (American, Mexican, French)"
               name="cuisineType"
               value={cuisineType}
