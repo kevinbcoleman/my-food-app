@@ -16,7 +16,6 @@ const SavedRecipes = () => {
   useEffect(() => {
     getApiRecipes()
     loadUser()
-
     //eslint-disable-next-line
   }, [loadUser])
 
@@ -37,18 +36,14 @@ const SavedRecipes = () => {
           <LinkContainer
             to="/profile/myrecipes">
             <Nav.Link
-              // eventKey="profile/myrecipes"
               className="nav2-btn nav-pills"
-            // onClick={(() => toggleShow("mine"))}
             >My Recipes</Nav.Link>
           </LinkContainer>
 
           <LinkContainer
             to="/profile/savedrecipes">
             <Nav.Link
-              // eventKey="profile/savedrecipes"
               className="nav2-btn nav-pills"
-            // onClick={(() => toggleShow("saved"))}
             >Saved Recipes</Nav.Link>
           </LinkContainer>
 
@@ -58,13 +53,13 @@ const SavedRecipes = () => {
       <div className="ProfileRecipe row">
 
         {apiRecipes.length === 0 && !loading ? (
-          <div className="text-center mt-2">
+          <div className="text-center">
             <p>You have not saved any recipes yet.</p>
 
             <Nav className="d-flex justify-content-center">
               <LinkContainer
                 className="textStyle" to="/">
-                <Nav.Link className="btn-small nav2-btn nav-pills">Browse Recipes</Nav.Link>
+                <Nav.Link className="btn btn-small nav2-btn nav-pills">Browse Recipes</Nav.Link>
               </LinkContainer>
             </Nav>
 

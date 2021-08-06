@@ -17,7 +17,6 @@ const MyRecipes = () => {
     //eslint-disable-next-line
   }, [loadUser])
 
-
   return (
 
     <Container>
@@ -33,18 +32,14 @@ const MyRecipes = () => {
           <LinkContainer
             to="/profile/myrecipes">
             <Nav.Link
-              // eventKey="profile/myrecipes"
               className="nav2-btn nav-pills"
-            // onClick={(() => toggleShow("mine"))}
             >My Recipes</Nav.Link>
           </LinkContainer>
 
           <LinkContainer
             to="/profile/savedrecipes">
             <Nav.Link
-              // eventKey="profile/savedrecipes"
               className="nav2-btn nav-pills"
-            // onClick={(() => toggleShow("saved"))}
             >Saved Recipes</Nav.Link>
           </LinkContainer>
         </Nav>

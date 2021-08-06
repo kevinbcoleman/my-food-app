@@ -6,18 +6,16 @@
 html,
 #root,
 body {
-  /* overflow-x: hidden; 
-  overflow-y: hidden; */
   height: 100%;
   width: 100%;
   overflow-y: scroll !important; 
+  font-size: 1rem;
+  font-family: 'Oxygen', sans-serif !important;
 }
-
 
 
 .App {
   position: relative;
-  /* background-color: #e4ebf5; */
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -25,13 +23,6 @@ body {
 
   overflow-x: hidden; 
   overflow-y: hidden;
-  /* overflow-y: scroll !important;  */
-}
-
-body {
-  /* overflow-y: scroll !important; 
-  height: 100%;
-  width: 100%; */
 }
 
 .MainContain {
@@ -48,10 +39,39 @@ h1,
 h2,
 h3,
 h4,
-/* .Navbar, */
-.textStyle
- {
+.textStyle {
   color: #000 !important;
+}
+
+h3,
+h4 {
+  font-size: 1.2em !important;
+}
+
+.logo {
+  background-color: #71913b;
+  transition: all .2s ease-in-out;
+  width: 80px;
+  height: 100px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: start;
+  position: absolute;
+  padding-left: 10px;
+  color: #fff !important;
+  top: 10px;
+}
+
+.logo div {
+  margin-top: -5px;
+  text-align: start;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+  background-color: #88ae47;
 }
 
 .homeHeader {
@@ -66,8 +86,17 @@ li {
   list-style: none;
 }
 
+.mainNavLink {
+  color: #4778eb;
+}
+
+.mainNavLink:hover {
+  color: #164cca;
+  padding-bottom: 3px;
+  border-bottom: 3px solid rgba(144, 183, 77, 1);
+}
+
 .Footer {
-  /* height: 8vh; */
   background-color: #c4d4e9;
   color: rgba(0, 0, 0, 0.6);
   height: 3rem;
@@ -75,7 +104,6 @@ li {
   padding: 0.5rem;
   text-align: start;
   z-index: 3;
-  /* margin-top: 7rem; */
 }
 
 .Form {
@@ -144,7 +172,6 @@ li {
 }
 
 .inputStyle {
-  /* color: #e4ebf5; */
   box-shadow: inset 0 0 3px rgba(39, 66, 104, 0.3);
   max-width: 325px;
 }
@@ -163,7 +190,9 @@ li {
 }
 
 .Navbar {
+  text-align: center;
   z-index: 3;
+  overflow: visible;
 }
 
 .nav-pills {
@@ -173,7 +202,7 @@ li {
 .Nav2 {
   box-shadow: inset 0 0 8px rgba(39, 66, 104, 0.3);
   border-radius: 5px;
-  margin: 0 auto 1em;
+  margin: 0 auto em;
   padding: 1rem;
 }
 
@@ -181,8 +210,7 @@ li {
   background-color: rgba(39, 66, 104, 0.1);
   color: rgba(39, 66, 104, 1);
   border-radius: 5px;
-  height: 50px;
-  /* padding: ; */
+  padding: 10px 10px;
   margin: -0.5rem;
 }
  
@@ -190,7 +218,6 @@ li {
   background-color: rgba(39, 66, 104, 0.6) !important;
   color: #fff;
 }
-
 
 .Nav2 .nav-link:hover {
   background-color: rgba(39, 66, 104, 0.3);
@@ -204,16 +231,9 @@ li {
   justify-content: space-between;
 }
 
-/* .browserCard {
-  flex: 1 1 24%;
-  margin: 2%;
-  box-shadow: inset 0 0 8px rgba(39, 66, 104, 0.3);
-} */
-
 .browserCard {
   flex: 0 1 100%;
   padding: 1rem;
-  /* margin-left: 1%; */
   margin-bottom: 1.5rem;
   box-shadow: inset 0 0 8px rgba(39, 66, 104, 0.3);
   position: relative;
@@ -233,8 +253,12 @@ li {
   z-index: 4;
 }
 
+.MainForm label {
+  color: #000;
+}
+
 .AddForm {
-  margin: 2em 2em;
+  margin: 6em 2em 3em;
   padding: 1rem;
   box-shadow: inset 0 0 6px rgba(39, 66, 104, 0.6);
   border-radius: 5px;
@@ -248,8 +272,6 @@ li {
 }
 
 .CardStyle {
-  /* padding: 1rem; */
-  /* margin: 1rem; */
   background-color: #e4ebf5;
   box-shadow: none;
 }
@@ -291,15 +313,9 @@ li {
   box-shadow: inset 0 3px 6px rgb(0 0 0 / 20%) !important;
 }
 
-/* .card {
-  min-width: 350px;
-} */
-
 .RecipeCard {
   flex: 0 1 24%;
-  /* flex-basis: 300px; */
   padding: 1rem;
-  /* margin-left: 1%; */
   margin-bottom: 2%;
   box-shadow: inset 0 0 8px rgba(39, 66, 104, 0.3);
   position: relative;
@@ -307,14 +323,11 @@ li {
 
 .ProfRecipeCard {
   flex: 0 1 40%;
-  /* flex-basis: 300px; */
   padding: 1rem;
-  /* margin-left: 1%; */
   margin-bottom: 2rem;
   box-shadow: inset 0 0 8px rgba(39, 66, 104, 0.3);
   position: relative;
 }
-
 
 .apiRecList {
   padding: 0;
@@ -359,7 +372,6 @@ th {
   flex-flow: row wrap;
   justify-content: space-between; 
   align-items: flex-start;
-  /* margin-left: 1em; */
   margin: 4rem auto;
   padding-bottom: 4em;
 }
@@ -371,15 +383,6 @@ th {
   margin: 4rem auto;
   padding-bottom: 4em;
 }
-
-.NoSavedRec {
-  height: auto;
-}
-/* 
-.outerContain {
-  height: 100vh;
-  height: max-content;
-} */
 
 .innerContain {
   display: flex;
@@ -397,6 +400,7 @@ th {
 /* ==========================================
                 Media Queries
  ===========================================*/
+
  @media (min-width: 576px) {
 
   .homeHeader {
@@ -423,8 +427,8 @@ th {
     display: block;
     position: relative;
     top: 75px;
-    left: 45px; 
-    width: 250px;
+    left: 65px; 
+    width: 220px;
     color: #fff;
   }
 
@@ -468,6 +472,11 @@ th {
 
 
 @media (min-width: 768px) {
+
+  .App {
+    font-size: 1.2em;
+  }
+
 
 /* ==========================
     Form & Input Style
@@ -568,6 +577,10 @@ th {
     z-index: 4;
   }
 
+  .Navbar {
+    z-index: 5;
+  }
+
 
   /* ==========================
           Browser
@@ -586,20 +599,10 @@ th {
   /* ==========================
         Profile Page
  ==========================*/
-
-  /* .Profile {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    margin-bottom: 4em;
-    } */
    
   .AddForm {
-    /* display: flex;  */ 
-    /* flex-direction: column; */
     height: 500px;
     width: 500px;
-    /* overflow: scroll; */
     padding: 0.5rem;
     margin: 2em auto 1em;
   }
@@ -611,31 +614,25 @@ th {
   }
 
   .RecipeCard {
-    /* width: 48%; */
-    /* margin: 1em 0.5em; */
     padding: 0;
   }
 
   .RecipeLayout > .card {
     margin-right: 1em;
-    /* min-width: 30%; */
   }
 
   .ProfRecipeCard {
   flex: 0 1 40%;
-  /* flex-basis: 300px; */
   padding: 1rem;
-  /* margin-left: 1%; */
   margin-bottom: 2%;
   box-shadow: inset 0 0 8px rgba(39, 66, 104, 0.3);
   position: relative;
 }
   
   .Nav2 {
-    margin: 2em auto 1.5em;
+    margin: 2em auto -1rem;
     width: 700px;
   }
-
 }
 
 
@@ -665,33 +662,25 @@ th {
     flex-flow: row wrap;
     justify-content: space-evenly; 
     align-items: flex-start;
-    /* margin-left: 1em; */
     margin: 4rem 2rem;
     padding-bottom: 4em;
   }
 
   .ProfRecipeCard {
-    /* margin: auto 1rem auto 1rem; */
     margin: 1rem 2rem;
   }
 
   .browserCard {
     flex: 0 1 45%;
     padding: 1rem;
-    /* margin-left: 1%; */
   }
-
-  .MainForm {
-    /* width: 40%; */
-  }
-
 }
+
 
 @media (min-width: 1400px) {
   
   .FormCard {
     margin-left: 400px;
-    /* margin-right: 50px; */
   }
 
   .displayStyle {

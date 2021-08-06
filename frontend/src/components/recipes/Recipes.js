@@ -1,10 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { Container } from 'react-bootstrap'
-
 import Recipe from './Recipe'
 import RecipeContext from '../../context/recipe/recipeContext'
-
-
 
 const Recipes = () => {
   const recipeContext = useContext(RecipeContext)

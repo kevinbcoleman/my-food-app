@@ -33,14 +33,6 @@ recipes.post('/',
       console.error(err.message)
       res.status(500).send('Server Error')
     }
-
-
-    // Recipe.create(req.body, (error, createdRecipe) => {
-    //   if (error) {
-    //     res.status(400).json({ error: error })
-    //   }
-    //   res.status(200).send(createdRecipe)
-    // })
   })
 
 // READ
@@ -52,15 +44,6 @@ recipes.get('/', authn, async (req, res) => {
     console.error(err.message)
     res.status(500).send('Server Error')
   }
-
-
-
-  // Recipe.find({}, (error, foundRecipe) => {
-  //   if (error) {
-  //     res.status(400).json({ error: error })
-  //   }
-  //   res.status(200).json(foundRecipes)
-  // })
 })
 
 // UPDATE
@@ -91,20 +74,6 @@ recipes.put('/:id', authn, async (req, res) => {
     console.error(err.message)
     res.status(500).send('Server Error')
   }
-
-  // Recipe.findByIdAndUpdate(
-  //   req.params.id,
-  //   label,
-  //   cuisineType,
-  //   ingredients
-  //   { new: true },
-  //   (err, updatedRecipe) => {
-  //     if (err) {
-  //       res.status(404).json({ error: err.message })
-  //     }
-  //     res.status(200).json(updatedRecipe)
-  //   }
-  // )
 })
 
 // DELETE
@@ -126,18 +95,5 @@ recipes.delete('/:id', authn, async (req, res) => {
     res.status(500).send('Server Error')
   }
 })
-// recipes.delete('/:id', (req, res) => {
-//   Recipe.findByIdAndRemove(req.params.id, (error, deletedRecipe) => {
-//     if (error) {
-//       res.status(400).json({ error: error })
-//     }
-//     res.status(200).json(deletedRecipe)
-//   })
-// })
-
-// Handle 404
-// recipes.get('/*', (req, res) => {
-//   res.status(404).json({ error: 'page not found' })
-// })
 
 module.exports = recipes

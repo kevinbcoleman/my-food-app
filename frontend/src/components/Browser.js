@@ -1,6 +1,6 @@
 
 import React, { useState, useContext, useEffect } from 'react'
-import { Form, Row, Col, Nav, Button, Card, Container } from 'react-bootstrap'
+import { Form, Nav, Button, Card, Container } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import axios from 'axios'
 import { healthArr, dietTypeArr, dietRegionArr, mealTypeArr } from '../BrowserSeed'
@@ -8,9 +8,6 @@ import BrowserContext from '../context/browser/browserContext'
 import AuthContext from '../context/auth/AuthContext'
 import { v4 as uuidv4 } from 'uuid'
 import '../App.css';
-
-
-
 
 const Browser = () => {
 
@@ -33,13 +30,6 @@ const Browser = () => {
   const [dietRegion, setDietRegion] = useState('')
   const [mealType, setMealType] = useState('')
   const [apiRecipes, setApiRecipes] = useState([])
-
-
-  const noData = () => {
-    return (
-      <p> No results. Try broadening your search. </p>
-    )
-  }
 
   const getData = async () => {
 
@@ -148,10 +138,8 @@ const Browser = () => {
         </div>
 
 
-        {/* {noData} */}
         {fetchedData ?
           <Container className="RecipeLayout row">
-            {/* <div className="RecipeLayout row"> */}
             {apiRecipes.map((apiRecipe, index) => (
               <Card
                 className="browserCard"
@@ -175,12 +163,10 @@ const Browser = () => {
                 }
               </Card>
             ))}
-            {/* </div> */}
           </Container>
           : null}
 
       </div>
-      {/* </Container> */}
     </>
   )
 }

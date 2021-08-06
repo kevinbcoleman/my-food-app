@@ -8,9 +8,6 @@ import RecipeForm from './recipes/RecipeForm'
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 
-
-
-
 const Profile = () => {
   const browserContext = useContext(BrowserContext)
   const [myRecShow, setMyRecShow] = useState(false)
@@ -32,8 +29,6 @@ const Profile = () => {
     }
   }
 
-
-
   return (
     <Container className="Profile mx-auto">
 
@@ -51,7 +46,6 @@ const Profile = () => {
             <Nav.Link
               eventKey="profile/myrecipes"
               className="nav2-btn nav-pills"
-            // onClick={(() => toggleShow("mine"))}
             >My Recipes</Nav.Link>
           </LinkContainer>
 
@@ -60,27 +54,12 @@ const Profile = () => {
             <Nav.Link
               eventKey="profile/savedrecipes"
               className="nav2-btn nav-pills"
-            // onClick={(() => toggleShow("saved"))}
             >Saved Recipes</Nav.Link>
           </LinkContainer>
 
         </Nav>
 
       </div>
-
-      {/* <div className="row"> */}
-      {/* {savedRecShow ? (
-        <div className="col-md-6 ">
-          <SavedRecipes />
-        </div>
-      ) : null}
-
-      {myRecShow ? (
-        <div className="col-md-6">
-          <MyRecipes />
-        </div>
-      ) : null} */}
-      {/* </div> */}
 
     </Container>
   )

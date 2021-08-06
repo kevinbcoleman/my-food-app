@@ -4,13 +4,10 @@ import RecipeContext from '../../context/recipe/recipeContext'
 import '../../App.css';
 
 const Recipe = ({ recipe }) => {
-
   const recipeContext = useContext(RecipeContext)
   const { deleteRecipe, setCurrent, clearCurrent } = recipeContext
   const { _id, label, cuisineType, ingredients = [] } = recipe
   const [modalShow, setModalShow] = React.useState(false)
-
-
 
   const onDelete = () => {
     deleteRecipe(_id)
@@ -46,12 +43,12 @@ const Recipe = ({ recipe }) => {
 
   return (
     <>
-      <Card className="ProfRecipeCard col-10 col-sm-8 col-md-5 col-lg-3 px-0">
+      <Card className="ProfRecipeCard col-10 col-sm-8 col-lg-3 px-0">
         <div>
           <h3 className="card-header text-center">{label}</h3>
         </div>
         <Card.Body>
-          <p className="text-center">Cuisine Type: {cuisineType}</p>
+          <p className="text-center"><span className="text-dark">Cuisine Type:</span> {cuisineType}</p>
           <h4 className="text-center">Ingredients</h4>
 
           <table>

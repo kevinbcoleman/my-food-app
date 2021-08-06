@@ -54,10 +54,10 @@ const Header = () => {
   return (
     <>
 
-      <Navbar className="Navbar" bg="light" expand="lg" collapseOnSelect>
+      <Navbar className="Navbar" bg="light" expand="md" collapseOnSelect>
         <Container>
           <LinkContainer className="textStyle" to="/">
-            <Navbar.Brand>Food for Life</Navbar.Brand>
+            <Navbar.Brand><div className="logo">Food<br />For<br />Life</div></Navbar.Brand>
           </LinkContainer>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -65,19 +65,19 @@ const Header = () => {
             {!isAuthenticated ?
               <>
                 <LinkContainer to="/login">
-                  <Nav.Link className="ml-auto">Login</Nav.Link>
+                  <Nav.Link className="ml-auto mainNavLink">Login</Nav.Link>
                 </LinkContainer>
 
                 <LinkContainer to="/register">
-                  <Nav.Link>Register</Nav.Link>
+                  <Nav.Link className="mainNavLink">Register</Nav.Link>
                 </LinkContainer>
               </> :
               <>
                 <LinkContainer to="/profile">
-                  <Nav.Link className="ml-auto p-link">{profShow}</Nav.Link>
+                  <Nav.Link className="ml-auto p-link mainNavLink">{profShow}</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to='/'>
-                  <Nav.Link onClick={onLogout}>Logout</Nav.Link>
+                  <Nav.Link className="mainNavLink" onClick={onLogout}>Logout</Nav.Link>
                 </LinkContainer>
               </>
             }

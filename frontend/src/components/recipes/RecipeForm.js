@@ -1,8 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { Form, Row, Col, Button, Card } from 'react-bootstrap'
+import { Form, Button, Card } from 'react-bootstrap'
 import RecipeContext from '../../context/recipe/recipeContext'
 import '../../App.css';
-
 
 const RecipeForm = () => {
   const recipeContext = useContext(RecipeContext)
@@ -71,7 +70,6 @@ const RecipeForm = () => {
           >
           </Form.Control>
         </Form.Group>
-        {/* <div className="ingStyle"></div> */}
       </div>
     ))
   }

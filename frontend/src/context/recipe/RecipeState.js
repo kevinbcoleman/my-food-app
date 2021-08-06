@@ -9,10 +9,8 @@ import {
   SET_CURRENT,
   CLEAR_CURRENT,
   UPDATE_RECIPE,
-  FILTER_RECIPE,
   CLEAR_RECIPES,
   RECIPE_ERROR,
-  CLEAR_FILTER
 } from '../types'
 
 const RecipeState = props => {
@@ -75,7 +73,7 @@ const RecipeState = props => {
     dispatch({ type: CLEAR_RECIPES })
   }
 
-
+  // UPDATE CONTACT
   const updateRecipe = async recipe => {
     const config = {
       headers: {
@@ -101,11 +99,6 @@ const RecipeState = props => {
   const clearCurrent = () => {
     dispatch({ type: CLEAR_CURRENT })
   }
-  // UPDATE CONTACT
-
-  //FILTER CONTACTS
-
-  //CLEAR FILTER
 
   return (
     <RecipeContext.Provider

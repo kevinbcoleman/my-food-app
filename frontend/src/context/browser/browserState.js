@@ -20,10 +20,6 @@ const BrowserState = props => {
       const res = await axios.get('/apirecipes')
       dispatch({ type: GET_BROWSER, payload: res.data })
     } catch (err) {
-      // dispatch({
-      //   type: RECIPE_ERROR,
-      //   payload: err.response.msg
-      // })
     }
   }
 
@@ -40,10 +36,6 @@ const BrowserState = props => {
       const res = await axios.post('/apirecipes', apiRecipe, config)
       dispatch({ type: ADD_BROWSER, payload: res.data })
     } catch (err) {
-      // dispatch({
-      //   type: RECIPE_ERROR,
-      //   payload: err.response.msg
-      // })
     }
   }
 
@@ -53,10 +45,6 @@ const BrowserState = props => {
       await axios.delete(`/apirecipes/${id}`)
       dispatch({ type: DELETE_BROWSER, payload: id })
     } catch (err) {
-      // dispatch({
-      //   type: RECIPE_ERROR,
-      //   payload: err.response.msg
-      // })
     }
   }
 
