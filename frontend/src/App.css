@@ -87,13 +87,12 @@ li {
 }
 
 .mainNavLink {
+  /* font-weight: bold; */
   color: #4778eb;
 }
 
 .mainNavLink:hover {
   color: #164cca;
-  padding-bottom: 3px;
-  border-bottom: 3px solid rgba(144, 183, 77, 1);
 }
 
 .Footer {
@@ -180,14 +179,12 @@ li {
 
 .inputMobile {
   margin-bottom: -5px;
-  color: #e4ebf5;
   box-shadow: inset 0 0 3px rgba(39, 66, 104, 0.3);
 }
 
 .AddInput {
   margin-bottom: -10px;
   width: 48%;
-
 }
 
 .AddHeader {
@@ -198,6 +195,7 @@ li {
   text-align: center;
   z-index: 3;
   overflow: visible;
+  box-shadow: rgba(99, 99, 99, 0.3) 0px 2px 4px 0px;
 }
 
 .nav-pills {
@@ -207,7 +205,7 @@ li {
 .Nav2 {
   box-shadow: inset 0 0 8px rgba(39, 66, 104, 0.3);
   border-radius: 5px;
-  margin: 0 auto em;
+  margin: 0 auto 2em;
   padding: 1rem;
 }
 
@@ -253,7 +251,7 @@ li {
   display: flex;
   flex-direction: column;
   width: 350px;
-  margin: 0.5rem auto 8rem;
+  margin: 5rem auto 2rem;
   flex-shrink: 0;
   z-index: 4;
 }
@@ -401,6 +399,110 @@ th {
   display: none;
 }
 
+.EntryStyleBar1 {
+  height: 650px;
+  width: 650px;
+  border-radius: 50%;
+  background-color: rgba(144, 183, 77, 1);
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  margin: 0px -100px -375px 0px;
+  z-index: -3;
+}
+
+.EntryStyleBar2 {
+  height: 350px;
+  width: 350px;
+  border-radius: 50%;
+  background-color: rgba(144, 183, 77, 0.7);
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  margin: 0px -150px 100px 0px;
+  z-index: -2;
+}
+
+.EntryStyleBar3 {
+  height: 450px;
+  width: 450px;
+  border-radius: 50%; 
+  background-color: rgba(144, 183, 77, 0.5);
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  margin: 0px -100px 175px 0px;
+  z-index: -1;
+}
+
+.EntryStyleBar4 {
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  background-color: rgba(144, 183, 77, 0.5);
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  margin: 0px -125px 500px 0px;
+  z-index: -2;
+}
+
+.HomeStyleBar1 {
+  height: 325px;
+  width: 325px;
+  border-radius: 50%;
+  background-color: rgba(49, 102, 237, 1);
+  position: absolute;
+  right: 80px;
+  top: 75px;
+  margin: 0px -125px 500px 0px;
+  z-index: 3;
+}
+
+.HomeStyleBar1 p {
+  display: block;
+  position: relative;
+  top: 65px;
+  left: 50px; 
+  width: 220px;
+  color: #fff;
+}
+
+.HomeStyleBar2 {
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
+  background-color: rgba(49, 102, 237, 0.7);
+  position: absolute;
+  right: -125px;
+  top: 150px;
+  margin: 0px -100px 175px 0px;
+  z-index: 2;
+}
+
+.HomeStyleBar3 {
+  height: 350px;
+  width: 350px;
+  border-radius: 50%; 
+  background-color: rgba(49, 102, 237, 0.5);
+  position: absolute;
+  right: -25px;
+  top: 600px;
+  margin: 0px -150px 100px 0px;
+  z-index: 1;
+}
+
+.HomeStyleBar4 {
+  height: 800px;
+  width: 800px;
+  border-radius: 50%;
+  background-color: rgba(49, 102, 237, 0.3);
+  position: absolute;
+  right: -300px;
+  top: 750px;
+  margin: 0px -100px -375px 0px;
+  z-index: 2;
+}
 
 /* ==========================================
                 Media Queries
@@ -414,75 +516,32 @@ th {
 
   .MainForm {
     margin-top: 4rem;
-  }
-   
-  .HomeStyleBar1 {
-    height: 325px;
-    width: 325px;
-    border-radius: 50%;
-    background-color: rgba(49, 102, 237, 1);
-    position: absolute;
-    right: 250px;
-    top: 25px;
-    margin: 0px -125px 500px 0px;
-    z-index: 2;
-  }
-
-  .HomeStyleBar1 p {
-    display: block;
-    position: relative;
-    top: 75px;
-    left: 65px; 
-    width: 220px;
-    color: #fff;
-  }
-
-  .HomeStyleBar2 {
-    height: 500px;
-    width: 500px;
-    border-radius: 50%;
-    background-color: rgba(49, 102, 237, 0.7);
-    position: absolute;
-    right: -125px;
-    top: 150px;
-    margin: 0px -100px 175px 0px;
-    z-index: 2;
-  }
-
-  .HomeStyleBar3 {
-    height: 350px;
-    width: 350px;
-    border-radius: 50%; 
-    background-color: rgba(49, 102, 237, 0.5);
-    position: absolute;
-    right: -25px;
-    top: 600px;
-    margin: 0px -150px 100px 0px;
-    z-index: 1;
-  }
-
-  .HomeStyleBar4 {
-    height: 800px;
-    width: 800px;
-    border-radius: 50%;
-    background-color: rgba(49, 102, 237, 0.3);
-    position: absolute;
-    right: -300px;
-    top: 750px;
-    margin: 0px -100px -375px 0px;
-    z-index: 2;
-  }
-
+  }  
  }
 
 
+ /* ==========================
+      Tablet Breakpoint
+ ==========================*/
+
+/* =========Base Styles==========*/
 @media (min-width: 768px) {
 
   .App {
     font-size: 1.2em;
   }
 
+  .Navbar {
+    margin-bottom: -3rem;
+    z-index: 5;
+  }
 
+  .mainNavLink:hover {
+    padding-bottom: 3px;
+    border-bottom: 3px solid rgba(144, 183, 77, 1);
+  }
+
+  
 /* ==========================
     Form & Input Style
  ==========================*/
@@ -491,20 +550,27 @@ th {
     display: none;
   }
 
-  .Form {
-    flex-direction: row;
-  }
+  .FormDesktop {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 90vh;
+    margin-top: 3rem;
+    overflow: visible;
+  } 
 
   .FormCard {
-    width: 350px;
+    max-width: 350px;
+    margin-left: 5rem;
     padding: 0.1rem 1rem 2.0rem;
-    margin-top: 175px;
-    margin-left: 250px;
-    margin-right: -325px;
-    align-self: center;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     background-color: #fff;
-    z-index: 5;
+    border-radius: 3px;
+  }
+
+  .FormCard input {
+    margin-top: -1rem;
   }
 
     
@@ -512,78 +578,38 @@ th {
     Login & Register Style
  ==========================*/
 
-  .EntryStyleBar1 {
-    height: 650px;
-    width: 650px;
-    border-radius: 50%;
-    background-color: rgba(144, 183, 77, 1);
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    margin: 0px -100px -375px 0px;
-    z-index: 3;
-  }
-
-  .EntryStyleBar2 {
-    height: 350px;
-    width: 350px;
-    border-radius: 50%;
-    background-color: rgba(144, 183, 77, 0.7);
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    margin: 0px -150px 100px 0px;
-    z-index: 2;
-  }
-
-  .EntryStyleBar3 {
-    height: 450px;
-    width: 450px;
-    border-radius: 50%; 
-    background-color: rgba(144, 183, 77, 0.5);
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    margin: 0px -100px 175px 0px;
-    z-index: 1;
-  }
-
-  .EntryStyleBar4 {
-    height: 250px;
-    width: 250px;
-    border-radius: 50%;
-    background-color: rgba(144, 183, 77, 0.5);
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    margin: 0px -125px 500px 0px;
-    z-index: 2;
-  }
-
   .EntryDisplay {
-    height: 100vh;
+    /* position: relative; */
+    /* right: 14rem; */
+    /* flex: 1 1 80%; */
+    /* height: 80vh; */
+    /*
+    z-index: -1; */
     filter: opacity(0.8);
-    z-index: -1;
+
   }
 
   .RegisterHeader {
     font-size: 2.6rem;
     width: 35vw;
-    height: auto;
-    position: absolute;
-    right: 75px;
-    top: 150px;
+    margin-left: 2em;
+    /* height: auto; */
+    /* position: absolute; */
+    /* right: 75px; */
+    /* top: 150px; */
   }
 
   .displayStyle {
-    margin-left: -300px;
+    margin-left: -16.5em;
+    margin-right: -3rem;
+    /* height: 90vh; */
+    /* flex: 1 1 100%; */
+    margin-top: -3rem;
+
+    /* margin-left: -300px;
     margin-right: -200px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    z-index: 4;
-  }
-
-  .Navbar {
-    z-index: 5;
+    z-index: 4; */
   }
 
 
@@ -609,7 +635,7 @@ th {
     height: 500px;
     width: 500px;
     padding: 0.5rem;
-    margin: 2em auto 1em;
+    margin: 4em auto 1em;
   }
 
   .CardStyle {
@@ -621,10 +647,12 @@ th {
   .RecipeCard {
     padding: 0;
   }
+
+  .RecipeLayout {
+    margin-top: 10rem;
+    z-index: 4;
+  }
   
-}
-
-
   .RecipeLayout > .card {
     margin-right: 1em;
   }
@@ -642,6 +670,7 @@ th {
     width: 700px;
   }
 
+}
 
 /* ==========================
     L + XL Screen Queries
@@ -650,18 +679,18 @@ th {
 @media (min-width: 992px) {
 
   .FormCard {
-    margin-left: 150px;
-    margin-right: -600px;
+    /* margin-left: 150px;
+    margin-right: -600px; */
   }
 
   .RegisterHeader {
-    right: 145px;
-    width: 40vw;
+    /* right: 145px;
+    width: 40vw; */
   }
 
   .displayStyle {
-    margin-left: -250px;
-    margin-right: 50px;
+    /* margin-left: -250px;
+    margin-right: 50px; */
   }
 
   .ProfileRecipe {
@@ -681,26 +710,38 @@ th {
     flex: 0 1 45%;
     padding: 1rem;
   }
-}
+
+  .HomeStyleBar1 {
+    right: 175px;
+    top: 75px;
+  }
+
+  .HomeStyleBar1 p {
+    top: 80px;
+    left: 70px;
+  }
+
+/* } */
 
 
-@media (min-width: 1400px) {
+/* @media (min-width: 1400px) { */
   
   .FormCard {
-    margin-left: 400px;
+    /* margin-left: 400px; */
   }
 
   .displayStyle {
-    margin-left: -500px;
-    margin-right: 50px;
+    /* margin-left: -500px;
+    margin-right: 50px; */
   }
 
   .RegisterHeader {
-    right: 250px;
-    top: 250px;
+    /* right: 250px;
+    top: 250px; */
   }
 
 }
+
 
 
 @media (max-width: 767px) {

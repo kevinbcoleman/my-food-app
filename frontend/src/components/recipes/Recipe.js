@@ -48,7 +48,7 @@ const Recipe = ({ recipe }) => {
           <h3 className="card-header text-center">{label}</h3>
         </div>
         <Card.Body>
-          <p className="text-center"><span className="text-dark">Cuisine Type:</span> {cuisineType}</p>
+          <p className="text-center"><span className="text-dark">Cuisine Type:</span>{cuisineType}</p>
           <h4 className="text-center">Ingredients</h4>
 
           <table>

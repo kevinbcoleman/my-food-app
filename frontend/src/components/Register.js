@@ -44,21 +44,21 @@ const Register = (props) => {
     })
   }
   return (
-
-    <div className="Overflow">
+    <>
+      {/* <div className="Overflow"> */}
       <div className="EntryStyleBar1"></div>
       <div className="EntryStyleBar2"></div>
       <div className="EntryStyleBar3"></div>
       <div className="EntryStyleBar4"></div>
-      <Form onSubmit={onSubmit} className="Form FormDesktop">
+      <Form onSubmit={onSubmit} className="FormDesktop">
 
-        <h1 className="RegisterHeader order-3">Discover food that works for you.</h1>
         <div className="displayStyle">
           <img
             src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=653&q=80"
             className="EntryDisplay"
           />
         </div>
+        <h1 className="RegisterHeader">Recipes that work for you.</h1>
         <Card className="FormCard">
           <Form.Group>
             <Form.Label htmlFor="username"></Form.Label>
@@ -107,10 +107,9 @@ const Register = (props) => {
 
 
       <div>
-
         <Form className="Form FormMobile" onSubmit={onSubmit}>
+          <h1 className="text-center ">Recipes that work for you.</h1>
           <Form.Group>
-            <h1 className="text-center mt-4">Sign Up</h1>
             <Form.Label htmlFor="username"></Form.Label>
             <Form.Control
               className="inputMobile"
@@ -151,11 +150,12 @@ const Register = (props) => {
             >
             </Form.Control>
           </Form.Group>
-          <Button className="form-btn w-100" type="submit">Sign Up</Button>
+          <Button className="form-btn w-100 mt-4" type="submit">Sign Up</Button>
         </Form>
       </div>
 
-    </div>
+      {/* </div> */}
+    </>
   )
 }
 
