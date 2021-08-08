@@ -15,6 +15,7 @@ const app = express()
 // MIDDLEWARE 
 app.use(express.json({ extended: false })) // use .json(), not .urlencoded()
 app.use(cors())
+const path = require('path')
 
 // DATABASE
 connectDB()
@@ -34,6 +35,11 @@ app.use('/auth', authController)
 app.get('/', (req, res) => {
   res.json('Welcome')
 })
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('frontend/build'))
+  app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')))
+}
 
 // LISTEN
 app.listen(PORT, () => {
