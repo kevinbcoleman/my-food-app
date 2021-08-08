@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { Form, Row, Col, Button, Container, Card } from 'react-bootstrap'
 import { LinkContainer, Redirect } from 'react-router-bootstrap'
+import Alerts from './Alerts'
 import AuthContext from '../context/auth/AuthContext'
 import AlertContext from '../context/alert/alertContext'
 import '../App.css';
@@ -45,7 +46,6 @@ const Register = (props) => {
   }
   return (
     <>
-      {/* <div className="Overflow"> */}
       <div className="EntryStyleBar1"></div>
       <div className="EntryStyleBar2"></div>
       <div className="EntryStyleBar3"></div>
@@ -153,8 +153,6 @@ const Register = (props) => {
           <Button className="form-btn w-100 mt-4" type="submit">Sign Up</Button>
         </Form>
       </div>
-
-      {/* </div> */}
     </>
   )
 }

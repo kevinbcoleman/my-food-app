@@ -20,7 +20,7 @@ const Login = (props) => {
       clearErrors()
     }
     //eslint-disable-next-line
-  }, [isAuthenticated, props.history])
+  }, [error, isAuthenticated, props.history])
 
   const [user, setUser] = useState({
     email: '',
