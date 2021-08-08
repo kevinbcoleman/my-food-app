@@ -18,18 +18,7 @@ app.use(cors())
 
 // DATABASE
 connectDB()
-// mongoose.connect(
-//   process.env.MONGODB_URI,
-//   {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     useFindAndModify: false,
-//     useCreateIndex: true,
-//   },
-//   () => {
-//     console.log('the connection with mongod is established at', MONGODB_URI)
-//   }
-// )
+
 const PORT = process.env.PORT || 5000
 
 // CONTROLLERS/ROUTES

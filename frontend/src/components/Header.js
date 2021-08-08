@@ -16,25 +16,13 @@ const Header = () => {
   const location = useLocation()
   const history = useHistory()
 
-  const getCurrentRoute = () => {
-    // if (location.pathname === "/profile" || "/profile/myrecipes" ||
-    //   "/profile/savedrecipes") {
-    //   setProfShow('')
-    // } else {
-    //   setProfShow('Profile')
-    // }
-  }
-
   useEffect(() => {
     if (location.pathname === "/") {
       setProfShow('Profile')
     } else if (location.pathname.includes('/prof')) {
       setProfShow('')
     }
-    //  === "/profile" || "/profile/myrecipes" || "/profile/savedrecipes") {
-  }
-    // getCurrentRoute()
-    , [location])
+  }, [location])
 
 
   const onLogout = () => {
@@ -42,14 +30,6 @@ const Header = () => {
     clearRecipes()
     history.push('/')
   }
-
-  // const handleShow = () => {
-  //   setProfVis("visible")
-  // }
-
-  // const handleHide = () => {
-  //   setProfVis("hidden")
-  // }
 
   return (
     <>

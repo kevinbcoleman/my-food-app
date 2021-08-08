@@ -67,7 +67,7 @@ const Browser = () => {
 
     <>
 
-      <p className="homeHeader">Search custom recipes catered to you with our browser.</p>
+      {/* <p className="homeHeader">Search custom recipes catered to you with our browser.</p> */}
       <div className="innerContain">
 
         <div className="HomeStyleBar1">
@@ -145,7 +145,7 @@ const Browser = () => {
                 className="browserCard"
                 key={uuidv4()}>
                 <h3 className="card-header text-center" key={uuidv4()}>{apiRecipe.recipe.label}</h3>
-                <h4 className="text-center" key={uuidv4()}>Cuisine type: {apiRecipe.recipe.cuisineType}</h4>
+                <h4 className="text-center" key={uuidv4()}><span className="text-dark">Cuisine Type:</span> {apiRecipe.recipe.cuisineType}</h4>
                 <p className="text-center">Ingredients</p>
                 <ul>
                   {apiRecipe.recipe.ingredients.map(ing => (
