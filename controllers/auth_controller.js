@@ -4,7 +4,6 @@ const User = require('../models/User')
 const bcrypt = require('bcryptjs')
 require('dotenv').config()
 const jwt = require('jsonwebtoken')
-const config = require('config')
 const authn = require('../middleware/auth')
 const { check, validationResult } = require('express-validator')
 
