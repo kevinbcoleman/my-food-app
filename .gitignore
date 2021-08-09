@@ -1,12 +1,12 @@
 node_modules
 config
 .env
-/client/build
+/frontend/build
 .DS_Store
-/client/env.local
-/client/env.development.local
-/client/env.test.local
-/client/env.production.local
+/frontend/env.local
+/frontend/env.development.local
+/frontend/env.test.local
+/frontend/env.production.local
 npm-debug.logo*
 yarn-debug.logo*
 yarn-error.logo*
